@@ -1,0 +1,45 @@
+---
+import { getTranslations, languageNames, supportedLanguages, getLocalizedPath, type SupportedLang } from '../lib/i18n';
+
+interface Props {
+  lang?: SupportedLang;
+  currentPath?: string;
+}
+
+const { lang = 'en', currentPath = '/' } = Astro.props;
+const i18n = getTranslations(lang);
+---
+
+<header class="bg-surface/80 backdrop-blur-sm border-b border-white/10 sticky top-0 z-50">
+  <nav class="container mx-auto px-md py-sm flex items-center justify-between">
+    <a 
+      href={lang === 'en' ? '/' : `/${lang}`} 
+      class="text-xl font-bold text-primary hover:text-primary/80 transition-colors min-h-[44px] flex items-center"
+      aria-label={i18n.meta.title}
+    >
+      {i18n.meta.title}
+    </a>
+
+    <div class="flex items-center gap-xs" role="navigation" aria-label={i18n.accessibility.languageSelect}>
+      {supportedLanguages.map((targetLang, index) => (
+        <>
+          {index > 0 && <span class="text-text/40 select-none">|</span>}
+          <a
+            href={getLocalizedPath(targetLang, currentPath)}
+            class:list={[
+              'min-h-[44px] min-w-[44px] flex items-center justify-center px-sm rounded-sm transition-colors',
+              lang === targetLang 
+                ? 'text-primary font-semibold bg-primary/10' 
+                : 'text-text/70 hover:text-text hover:bg-white/5'
+            ]}
+            aria-current={lang === targetLang ? 'page' : undefined}
+            hreflang={targetLang}
+          >
+            {languageNames[targetLang]}
+          </a>
+        </>
+      ))}
+    </div>
+  </nav>
+</header>
+

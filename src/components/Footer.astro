@@ -1,0 +1,47 @@
+---
+import { getTranslations, type SupportedLang } from '../lib/i18n';
+
+interface Props {
+  lang?: SupportedLang;
+}
+
+const { lang = 'en' } = Astro.props;
+const i18n = getTranslations(lang);
+const baseUrl = lang === 'en' ? '' : `/${lang}`;
+---
+
+<footer class="bg-surface/50 border-t border-white/10 mt-auto">
+  <div class="container mx-auto px-md py-lg">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-md">
+      <nav class="flex items-center gap-md" aria-label="Footer navigation">
+        <a 
+          href={`${baseUrl}/privacy`} 
+          class="text-text/70 hover:text-text transition-colors min-h-[44px] flex items-center"
+        >
+          {i18n.footer.privacy}
+        </a>
+        <a 
+          href={`${baseUrl}/about`} 
+          class="text-text/70 hover:text-text transition-colors min-h-[44px] flex items-center"
+        >
+          {i18n.footer.about}
+        </a>
+        <a 
+          href={`${baseUrl}/sources`} 
+          class="text-text/70 hover:text-text transition-colors min-h-[44px] flex items-center"
+        >
+          {i18n.footer.sources}
+        </a>
+      </nav>
+
+      <p class="text-text/50 text-sm text-center">
+        {i18n.footer.privacyNote}
+      </p>
+    </div>
+
+    <p class="text-text/60 text-center mt-md text-sm">
+      {i18n.footer.madeWith}
+    </p>
+  </div>
+</footer>
+
