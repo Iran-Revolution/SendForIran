@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import { getTranslations, getLangFromPath, type SupportedLang } from '../lib/i18n';
+
+// Determine language from referrer path if possible, default to English
+const lang: SupportedLang = 'en';
+const i18n = getTranslations(lang);
+
+const homeUrl = lang === 'en' ? '/' : `/${lang}`;
+---
+
+<BaseLayout title="Page Not Found" lang={lang}>
+  <div class="min-h-[60vh] flex items-center justify-center">
+    <div class="text-center max-w-lg mx-auto px-md">
+      <!-- 404 Illustration -->
+      <div class="mb-lg">
+        <div class="text-8xl md:text-9xl font-bold text-primary/20 select-none">
+          404
+        </div>
+      </div>
+
+      <!-- Message -->
+      <Card variant="bordered" padding="lg" class="mb-lg">
+        <h1 class="text-2xl md:text-3xl font-bold text-text mb-md">
+          Page Not Found
+        </h1>
+        <p class="text-text/70 mb-lg leading-relaxed">
+          Sorry, we couldn't find the page you're looking for. 
+          It might have been moved, deleted, or the URL might be incorrect.
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-sm justify-center">
+          <Button href={homeUrl} variant="primary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 me-xs" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+            </svg>
+            Go Home
+          </Button>
+          <Button href="javascript:history.back()" variant="secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 me-xs" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+            </svg>
+            Go Back
+          </Button>
+        </div>
+      </Card>
+
+      <!-- Helpful Links -->
+      <div class="text-sm text-text/50">
+        <p class="mb-sm">Looking for something specific?</p>
+        <div class="flex flex-wrap gap-md justify-center">
+          <a href="/" class="text-primary hover:text-primary/80 underline">Home</a>
+          <a href="/us" class="text-primary hover:text-primary/80 underline">United States</a>
+          <a href="/uk" class="text-primary hover:text-primary/80 underline">United Kingdom</a>
+          <a href="/de" class="text-primary hover:text-primary/80 underline">Germany</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
