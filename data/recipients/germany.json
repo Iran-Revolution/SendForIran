@@ -7,7 +7,7 @@
       "organization": "Der Spiegel",
       "type": "media",
       "email": "ausland@spiegel.de",
-      "country": "de",
+      "country": "germany",
       "priority": 1
     },
     {
@@ -17,7 +17,7 @@
       "organization": "Die Zeit",
       "type": "media",
       "email": "politik@zeit.de",
-      "country": "de",
+      "country": "germany",
       "priority": 1
     },
     {
@@ -27,7 +27,7 @@
       "organization": "Süddeutsche Zeitung",
       "type": "media",
       "email": "ausland@sueddeutsche.de",
-      "country": "de",
+      "country": "germany",
       "priority": 1
     },
     {
@@ -37,7 +37,7 @@
       "organization": "Deutsche Welle",
       "type": "media",
       "email": "farsi@dw.com",
-      "country": "de",
+      "country": "germany",
       "priority": 1
     },
     {
@@ -47,7 +47,7 @@
       "organization": "Frankfurter Allgemeine Zeitung",
       "type": "media",
       "email": "politik@faz.net",
-      "country": "de",
+      "country": "germany",
       "priority": 2
     },
     {
@@ -57,7 +57,7 @@
       "organization": "Auswärtiges Amt",
       "type": "government",
       "email": "iran@diplo.de",
-      "country": "de",
+      "country": "germany",
       "priority": 2
     }
   ]

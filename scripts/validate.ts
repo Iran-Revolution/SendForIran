@@ -15,7 +15,7 @@ const RecipientSchema = z.object({
   organization: z.string().min(1),
   type: z.enum(['journalist', 'media', 'government', 'mp']),
   email: z.string().email(),
-  country: z.enum(['us', 'uk', 'de', 'fr', 'ca']),
+  country: z.enum(['united-states', 'united-kingdom', 'germany', 'france', 'canada']),
   priority: z.union([z.literal(1), z.literal(2), z.literal(3)])
 });
 

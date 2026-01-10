@@ -64,3 +64,8 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md)
 ## License
 
 MIT
+
+
+TODOs:
+- [ ] Improve the UI/UX for selecting the emails addresses. let users select from categories (journalists, media, government, etc.) and then select the specific addresses they want to send to. Also improve the flow and make it step by step. first select the country, then the category and the email addresses then select the template and then send the email.
+- [ ] Setup CI/CD pipeline to deploy to GitHub Pages

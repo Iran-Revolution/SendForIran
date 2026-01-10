@@ -7,7 +7,7 @@
       "organization": "BBC",
       "type": "media",
       "email": "persian@bbc.co.uk",
-      "country": "uk",
+      "country": "united-kingdom",
       "priority": 1
     },
     {
@@ -17,7 +17,7 @@
       "organization": "The Guardian",
       "type": "media",
       "email": "world.desk@theguardian.com",
-      "country": "uk",
+      "country": "united-kingdom",
       "priority": 1
     },
     {
@@ -27,7 +27,7 @@
       "organization": "The Times",
       "type": "media",
       "email": "foreign.desk@thetimes.co.uk",
-      "country": "uk",
+      "country": "united-kingdom",
       "priority": 2
     },
     {
@@ -37,7 +37,7 @@
       "organization": "Sky News",
       "type": "media",
       "email": "world@sky.com",
-      "country": "uk",
+      "country": "united-kingdom",
       "priority": 2
     },
     {
@@ -47,7 +47,7 @@
       "organization": "Channel 4",
       "type": "media",
       "email": "news@channel4.com",
-      "country": "uk",
+      "country": "united-kingdom",
       "priority": 2
     },
     {
@@ -57,7 +57,7 @@
       "organization": "Foreign, Commonwealth & Development Office",
       "type": "government",
       "email": "iran.enquiries@fcdo.gov.uk",
-      "country": "uk",
+      "country": "united-kingdom",
       "priority": 1
     }
   ]

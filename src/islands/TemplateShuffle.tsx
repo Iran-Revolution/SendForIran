@@ -52,17 +52,16 @@ export default function TemplateShuffle({
     onVariationChange?.(variation.subject, variation.body, currentIndex);
   }, [currentIndex, template.id]);
 
-  /** Shuffle to next variation */
+  /** Shuffle to random variation (or next if only 2 variations) */
   function handleShuffle() {
-    setCurrentIndex((prev) => (prev + 1) % variations.length);
-  }
-
-  /** Shuffle to random variation */
-  function handleRandomShuffle() {
-    const newIndex = Math.floor(Math.random() * variations.length);
-    setCurrentIndex(newIndex === currentIndex && variations.length > 1 
-      ? (newIndex + 1) % variations.length 
-      : newIndex);
+    if (variations.length <= 2) {
+      setCurrentIndex((prev) => (prev + 1) % variations.length);
+    } else {
+      const newIndex = Math.floor(Math.random() * variations.length);
+      setCurrentIndex(newIndex === currentIndex
+        ? (newIndex + 1) % variations.length
+        : newIndex);
+    }
   }
 
   const currentVariation = variations[currentIndex];

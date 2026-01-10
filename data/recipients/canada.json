@@ -7,7 +7,7 @@
       "organization": "CBC News",
       "type": "media",
       "email": "world@cbc.ca",
-      "country": "ca",
+      "country": "canada",
       "priority": 1
     },
     {
@@ -17,7 +17,7 @@
       "organization": "The Globe and Mail",
       "type": "media",
       "email": "world@globeandmail.com",
-      "country": "ca",
+      "country": "canada",
       "priority": 1
     },
     {
@@ -27,7 +27,7 @@
       "organization": "National Post",
       "type": "media",
       "email": "newsroom@nationalpost.com",
-      "country": "ca",
+      "country": "canada",
       "priority": 2
     },
     {
@@ -37,7 +37,7 @@
       "organization": "CTV News",
       "type": "media",
       "email": "news@ctv.ca",
-      "country": "ca",
+      "country": "canada",
       "priority": 2
     },
     {
@@ -47,7 +47,7 @@
       "organization": "Toronto Star",
       "type": "media",
       "email": "world@thestar.ca",
-      "country": "ca",
+      "country": "canada",
       "priority": 2
     },
     {
@@ -57,7 +57,7 @@
       "organization": "Global Affairs Canada",
       "type": "government",
       "email": "iran@international.gc.ca",
-      "country": "ca",
+      "country": "canada",
       "priority": 1
     }
   ]

@@ -7,7 +7,7 @@
       "organization": "Le Monde",
       "type": "media",
       "email": "international@lemonde.fr",
-      "country": "fr",
+      "country": "france",
       "priority": 1
     },
     {
@@ -17,7 +17,7 @@
       "organization": "Le Figaro",
       "type": "media",
       "email": "international@lefigaro.fr",
-      "country": "fr",
+      "country": "france",
       "priority": 1
     },
     {
@@ -27,7 +27,7 @@
       "organization": "France 24",
       "type": "media",
       "email": "persian@france24.com",
-      "country": "fr",
+      "country": "france",
       "priority": 1
     },
     {
@@ -37,7 +37,7 @@
       "organization": "Radio France Internationale",
       "type": "media",
       "email": "persian@rfi.fr",
-      "country": "fr",
+      "country": "france",
       "priority": 1
     },
     {
@@ -47,7 +47,7 @@
       "organization": "Libération",
       "type": "media",
       "email": "monde@liberation.fr",
-      "country": "fr",
+      "country": "france",
       "priority": 2
     },
     {
@@ -57,7 +57,7 @@
       "organization": "Quai d'Orsay",
       "type": "government",
       "email": "iran@diplomatie.gouv.fr",
-      "country": "fr",
+      "country": "france",
       "priority": 2
     }
   ]

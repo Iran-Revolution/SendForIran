@@ -8,8 +8,8 @@ export type RecipientCategory = 'journalist' | 'media' | 'government' | 'mp';
 /** Priority levels for recipients (1 = highest priority) */
 export type Priority = 1 | 2 | 3;
 
-/** Country codes supported by the platform */
-export type CountryCode = 'us' | 'uk' | 'de' | 'fr' | 'ca';
+/** Country slugs supported by the platform (using full names to avoid conflict with language codes) */
+export type CountryCode = 'united-states' | 'united-kingdom' | 'germany' | 'france' | 'canada';
 
 /**
  * Recipient contact information

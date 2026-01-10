@@ -31,11 +31,11 @@
     "learnMore": "بیشتر بدانید"
   },
   "countries": {
-    "us": "ایالات متحده",
-    "uk": "بریتانیا",
-    "de": "آلمان",
-    "fr": "فرانسه",
-    "ca": "کانادا"
+    "united-states": "ایالات متحده",
+    "united-kingdom": "بریتانیا",
+    "germany": "آلمان",
+    "france": "فرانسه",
+    "canada": "کانادا"
   },
   "templates": {
     "urgent": "فوری",

@@ -14,15 +14,15 @@ export interface Country {
 
 /** Country metadata with flags */
 const countryMeta: Record<CountryCode, { flag: string }> = {
-  us: { flag: '🇺🇸' },
-  uk: { flag: '🇬🇧' },
-  de: { flag: '🇩🇪' },
-  fr: { flag: '🇫🇷' },
-  ca: { flag: '🇨🇦' },
+  'united-states': { flag: '🇺🇸' },
+  'united-kingdom': { flag: '🇬🇧' },
+  'germany': { flag: '🇩🇪' },
+  'france': { flag: '🇫🇷' },
+  'canada': { flag: '🇨🇦' },
 };
 
-/** All supported country codes */
-export const countryCodes: CountryCode[] = ['us', 'uk', 'de', 'fr', 'ca'];
+/** All supported country slugs */
+export const countryCodes: CountryCode[] = ['united-states', 'united-kingdom', 'germany', 'france', 'canada'];
 
 /**
  * Get recipients for a specific country
@@ -126,16 +126,16 @@ export async function getCountries(): Promise<Country[]> {
 }
 
 /**
- * Get sender country name based on country code
+ * Get sender country name based on country slug
  */
-export function getSenderCountryName(code: CountryCode, lang: string = 'en'): string {
+export function getSenderCountryName(code: CountryCode, _lang: string = 'en'): string {
   const names: Record<CountryCode, string> = {
-    us: 'the United States',
-    uk: 'the United Kingdom',
-    de: 'Germany',
-    fr: 'France',
-    ca: 'Canada',
+    'united-states': 'the United States',
+    'united-kingdom': 'the United Kingdom',
+    'germany': 'Germany',
+    'france': 'France',
+    'canada': 'Canada',
   };
-  return names[code] || code.toUpperCase();
+  return names[code] || code;
 }
 

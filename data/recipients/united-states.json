@@ -7,7 +7,7 @@
       "organization": "New York Times",
       "type": "journalist",
       "email": "iran@nytimes.com",
-      "country": "us",
+      "country": "united-states",
       "priority": 1
     },
     {
@@ -17,7 +17,7 @@
       "organization": "Washington Post",
       "type": "media",
       "email": "world@washpost.com",
-      "country": "us",
+      "country": "united-states",
       "priority": 1
     },
     {
@@ -27,7 +27,7 @@
       "organization": "CNN",
       "type": "media",
       "email": "international@cnn.com",
-      "country": "us",
+      "country": "united-states",
       "priority": 1
     },
     {
@@ -37,7 +37,7 @@
       "organization": "NPR",
       "type": "media",
       "email": "world@npr.org",
-      "country": "us",
+      "country": "united-states",
       "priority": 2
     },
     {
@@ -47,7 +47,7 @@
       "organization": "Associated Press",
       "type": "media",
       "email": "mideast@ap.org",
-      "country": "us",
+      "country": "united-states",
       "priority": 1
     },
     {
@@ -57,7 +57,7 @@
       "organization": "U.S. Department of State",
       "type": "government",
       "email": "IranAffairs@state.gov",
-      "country": "us",
+      "country": "united-states",
       "priority": 2
     }
   ]

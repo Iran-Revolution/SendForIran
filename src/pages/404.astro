@@ -2,13 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
-import { getTranslations, getLangFromPath, type SupportedLang } from '../lib/i18n';
+import type { SupportedLang } from '../lib/i18n';
 
-// Determine language from referrer path if possible, default to English
+// Default to English for 404 page
 const lang: SupportedLang = 'en';
-const i18n = getTranslations(lang);
-
-const homeUrl = lang === 'en' ? '/' : `/${lang}`;
+const homeUrl = '/';
 ---
 
 <BaseLayout title="Page Not Found" lang={lang}>
@@ -53,9 +51,9 @@ const homeUrl = lang === 'en' ? '/' : `/${lang}`;
         <p class="mb-sm">Looking for something specific?</p>
         <div class="flex flex-wrap gap-md justify-center">
           <a href="/" class="text-primary hover:text-primary/80 underline">Home</a>
-          <a href="/us" class="text-primary hover:text-primary/80 underline">United States</a>
-          <a href="/uk" class="text-primary hover:text-primary/80 underline">United Kingdom</a>
-          <a href="/de" class="text-primary hover:text-primary/80 underline">Germany</a>
+          <a href="/united-states" class="text-primary hover:text-primary/80 underline">United States</a>
+          <a href="/united-kingdom" class="text-primary hover:text-primary/80 underline">United Kingdom</a>
+          <a href="/germany" class="text-primary hover:text-primary/80 underline">Germany</a>
         </div>
       </div>
     </div>

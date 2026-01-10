@@ -6,7 +6,7 @@ import EmailComposer from '../../components/EmailComposer.astro';
 import Button from '../../components/ui/Button.astro';
 import { getTranslations, type SupportedLang } from '../../lib/i18n';
 import { getRecipients, getTemplates, getSenderCountryName, countryCodes } from '../../lib/data';
-import type { Recipient, Template, CountryCode } from '../../types';
+import type { CountryCode } from '../../types';
 
 export function getStaticPaths() {
   return countryCodes.map((country) => ({

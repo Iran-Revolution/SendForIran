@@ -31,11 +31,11 @@
     "learnMore": "Learn More"
   },
   "countries": {
-    "us": "United States",
-    "uk": "United Kingdom",
-    "de": "Germany",
-    "fr": "France",
-    "ca": "Canada"
+    "united-states": "United States",
+    "united-kingdom": "United Kingdom",
+    "germany": "Germany",
+    "france": "France",
+    "canada": "Canada"
   },
   "templates": {
     "urgent": "Urgent",
