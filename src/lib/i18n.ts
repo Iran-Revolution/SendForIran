@@ -4,6 +4,8 @@
 
 import en from '../../data/i18n/en.json';
 import fa from '../../data/i18n/fa.json';
+import de from '../../data/i18n/de.json';
+import fr from '../../data/i18n/fr.json';
 
 export type SupportedLang = 'en' | 'fa' | 'de' | 'fr';
 export type I18nData = typeof en;
@@ -11,8 +13,8 @@ export type I18nData = typeof en;
 const translations: Record<SupportedLang, I18nData> = {
   en,
   fa,
-  de: en, // Fallback to English until German translations are ready
-  fr: en, // Fallback to English until French translations are ready
+  de,
+  fr,
 };
 
 /** Get translations for a specific language */

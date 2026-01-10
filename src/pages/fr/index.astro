@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CountryCard from '../../components/CountryCard.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import { getTranslations, type SupportedLang } from '../../lib/i18n';
+import { getCountries } from '../../lib/data';
+
+const lang: SupportedLang = 'fr';
+const i18n = getTranslations(lang);
+
+// Load country data dynamically with real recipient counts
+const countries = await getCountries();
+---
+
+<BaseLayout title={i18n.home.title} lang={lang}>
+  <div class="max-w-5xl mx-auto">
+    <!-- Hero Section -->
+    <section class="text-center py-lg md:py-xl">
+      <div class="inline-flex items-center gap-xs px-md py-xs rounded-full bg-urgent/10 border border-urgent/30 text-urgent text-sm font-medium mb-md">
+        <span class="animate-pulse">●</span>
+        <span>{i18n.home.currentCrisis}</span>
+      </div>
+      <h1 class="text-4xl md:text-6xl font-bold text-text mb-md leading-tight">
+        {i18n.home.title}
+      </h1>
+      <p class="text-xl md:text-2xl text-text/70 mb-lg max-w-3xl mx-auto leading-relaxed">
+        {i18n.home.heroDescription}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-sm justify-center">
+        <Button variant="primary" href="#countries" class="text-lg px-xl py-md">
+          {i18n.home.getStarted}
+        </Button>
+      </div>
+    </section>
+
+    <!-- Crisis Alert -->
+    <Card variant="bordered" padding="lg" class="mb-xl border-urgent/40 bg-gradient-to-r from-urgent/5 to-transparent">
+      <div class="flex items-start gap-md">
+        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-urgent/20 flex items-center justify-center">
+          <span class="text-urgent text-2xl">⚠️</span>
+        </div>
+        <div class="flex-1">
+          <h2 class="text-xl font-bold text-urgent mb-sm">{i18n.home.currentCrisis}</h2>
+          <p class="text-text/80 text-lg leading-relaxed">{i18n.home.crisisDescription}</p>
+          <div class="flex flex-wrap gap-md mt-md">
+            <div class="flex items-center gap-xs text-text/60">
+              <span class="text-urgent font-bold text-xl">51+</span>
+              <span class="text-sm">tués</span>
+            </div>
+            <div class="flex items-center gap-xs text-text/60">
+              <span class="text-urgent font-bold text-xl">2 270+</span>
+              <span class="text-sm">arrêtés</span>
+            </div>
+            <div class="flex items-center gap-xs text-text/60">
+              <span class="text-urgent font-bold text-xl">100%</span>
+              <span class="text-sm">coupure Internet</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Card>
+
+    <!-- How It Works -->
+    <section class="py-lg mb-lg">
+      <h2 class="text-2xl font-bold text-text mb-lg text-center">Comment ça marche</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-md">
+            <span class="text-primary text-2xl font-bold">1</span>
+          </div>
+          <h3 class="font-semibold text-text mb-xs">Sélectionnez votre pays</h3>
+          <p class="text-text/60 text-sm">Choisissez votre localisation pour trouver les contacts pertinents</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-md">
+            <span class="text-primary text-2xl font-bold">2</span>
+          </div>
+          <h3 class="font-semibold text-text mb-xs">Choisissez un modèle</h3>
+          <p class="text-text/60 text-sm">Sélectionnez parmi des modèles d'e-mails pré-rédigés et sourcés</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-md">
+            <span class="text-primary text-2xl font-bold">3</span>
+          </div>
+          <h3 class="font-semibold text-text mb-xs">Envoyez l'e-mail</h3>
+          <p class="text-text/60 text-sm">Un clic ouvre votre client de messagerie, prêt à envoyer</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Country Selection -->
+    <section id="countries" class="py-lg scroll-mt-lg">
+      <h2 class="text-2xl font-bold text-text mb-md text-center">
+        {i18n.home.selectCountry}
+      </h2>
+      <p class="text-text/60 text-center mb-lg max-w-2xl mx-auto">
+        Sélectionnez votre pays pour trouver les journalistes, médias et responsables gouvernementaux que vous pouvez contacter
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md">
+        {countries.map((country) => (
+          <CountryCard
+            country={country.code}
+            flag={country.flag}
+            recipientCount={country.recipientCount}
+            lang={lang}
+          />
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+

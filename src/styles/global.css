@@ -114,9 +114,70 @@ html[dir="rtl"] {
   }
 }
 
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Focus visible for accessibility */
 :focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+/* Enhanced focus for keyboard navigation */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Minimum touch target sizes (44x44px) */
+a, button, [role="button"], input, select, textarea {
+  min-height: 44px;
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  a, button {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Screen reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Make skip link visible on focus */
+.sr-only:focus {
+  position: fixed;
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  background: var(--color-primary);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
 }
 

@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "lang": "de",
+    "dir": "ltr",
+    "title": "SendForIran",
+    "description": "Ein-Klick-E-Mail-Vorlagen für iranische Diaspora-Aktivismus"
+  },
+  "home": {
+    "title": "SendForIran",
+    "subtitle": "Ein-Klick-E-Mail-Vorlagen für iranische Diaspora-Aktivismus",
+    "heroDescription": "Stehen Sie an der Seite des iranischen Volkes. Senden Sie vorgefertigte E-Mails an Journalisten, Medien und Regierungsbeamte, um die Stimmen derer zu verstärken, die für Freiheit kämpfen.",
+    "currentCrisis": "Aktuelle Krise",
+    "crisisDescription": "Seit dem 28. Dezember 2025 sind im gesamten Iran massive Proteste ausgebrochen. Über 51 Tote, mehr als 2.270 Verhaftete und eine landesweite Internetsperre ist in Kraft.",
+    "getStarted": "Jetzt starten",
+    "selectCountry": "Wählen Sie Ihr Land"
+  },
+  "actions": {
+    "send": "E-Mail senden",
+    "sendNow": "Jetzt senden",
+    "shuffle": "Vorlage wechseln",
+    "copy": "In Zwischenablage kopieren",
+    "copied": "Kopiert!",
+    "selectRecipient": "Empfänger auswählen",
+    "selectTemplate": "Vorlage auswählen",
+    "preview": "E-Mail-Vorschau",
+    "edit": "Bearbeiten",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "learnMore": "Mehr erfahren"
+  },
+  "countries": {
+    "us": "Vereinigte Staaten",
+    "uk": "Vereinigtes Königreich",
+    "de": "Deutschland",
+    "fr": "Frankreich",
+    "ca": "Kanada"
+  },
+  "templates": {
+    "urgent": "Dringend",
+    "awareness": "Aufklärung",
+    "action": "Handlungsaufruf",
+    "sanctions": "Sanktionen",
+    "forMedia": "Für Medien",
+    "forGovernment": "Für Regierung",
+    "forJournalists": "Für Journalisten"
+  },
+  "recipients": {
+    "journalist": "Journalist",
+    "media": "Medienunternehmen",
+    "government": "Regierungsbeamter",
+    "mp": "Abgeordneter",
+    "priority": "Priorität",
+    "highPriority": "Hohe Priorität",
+    "mediumPriority": "Mittlere Priorität",
+    "lowPriority": "Niedrige Priorität"
+  },
+  "footer": {
+    "privacy": "Datenschutz",
+    "about": "Über uns",
+    "sources": "Quellen",
+    "privacyNote": "Kein Tracking. Keine Cookies. Keine Datenerfassung.",
+    "madeWith": "Mit ❤️ von der iranischen Diaspora erstellt"
+  },
+  "accessibility": {
+    "skipToContent": "Zum Hauptinhalt springen",
+    "menuToggle": "Menü umschalten",
+    "languageSelect": "Sprache auswählen",
+    "closeModal": "Modal schließen"
+  },
+  "errors": {
+    "emailFailed": "E-Mail-Client konnte nicht geöffnet werden",
+    "copyFailed": "Kopieren in Zwischenablage fehlgeschlagen",
+    "loadFailed": "Daten konnten nicht geladen werden"
+  }
+}
+

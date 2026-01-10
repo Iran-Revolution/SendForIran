@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "lang": "fr",
+    "dir": "ltr",
+    "title": "SendForIran",
+    "description": "Modèles d'e-mails en un clic pour le plaidoyer de la diaspora iranienne"
+  },
+  "home": {
+    "title": "SendForIran",
+    "subtitle": "Modèles d'e-mails en un clic pour le plaidoyer de la diaspora iranienne",
+    "heroDescription": "Soutenez le peuple iranien. Envoyez des e-mails pré-rédigés aux journalistes, médias et responsables gouvernementaux pour amplifier les voix de ceux qui luttent pour la liberté.",
+    "currentCrisis": "Crise actuelle",
+    "crisisDescription": "Depuis le 28 décembre 2025, des manifestations massives ont éclaté dans tout l'Iran. Plus de 51 morts, plus de 2 270 arrestations, et une coupure d'Internet à l'échelle nationale est en vigueur.",
+    "getStarted": "Commencer",
+    "selectCountry": "Sélectionnez votre pays"
+  },
+  "actions": {
+    "send": "Envoyer l'e-mail",
+    "sendNow": "Envoyer maintenant",
+    "shuffle": "Changer de modèle",
+    "copy": "Copier dans le presse-papiers",
+    "copied": "Copié !",
+    "selectRecipient": "Sélectionner le destinataire",
+    "selectTemplate": "Sélectionner le modèle",
+    "preview": "Aperçu de l'e-mail",
+    "edit": "Modifier",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "back": "Retour",
+    "next": "Suivant",
+    "learnMore": "En savoir plus"
+  },
+  "countries": {
+    "us": "États-Unis",
+    "uk": "Royaume-Uni",
+    "de": "Allemagne",
+    "fr": "France",
+    "ca": "Canada"
+  },
+  "templates": {
+    "urgent": "Urgent",
+    "awareness": "Sensibilisation",
+    "action": "Appel à l'action",
+    "sanctions": "Sanctions",
+    "forMedia": "Pour les médias",
+    "forGovernment": "Pour le gouvernement",
+    "forJournalists": "Pour les journalistes"
+  },
+  "recipients": {
+    "journalist": "Journaliste",
+    "media": "Média",
+    "government": "Responsable gouvernemental",
+    "mp": "Député",
+    "priority": "Priorité",
+    "highPriority": "Priorité élevée",
+    "mediumPriority": "Priorité moyenne",
+    "lowPriority": "Priorité basse"
+  },
+  "footer": {
+    "privacy": "Confidentialité",
+    "about": "À propos",
+    "sources": "Sources",
+    "privacyNote": "Pas de suivi. Pas de cookies. Pas de collecte de données.",
+    "madeWith": "Fait avec ❤️ par la diaspora iranienne"
+  },
+  "accessibility": {
+    "skipToContent": "Aller au contenu principal",
+    "menuToggle": "Basculer le menu",
+    "languageSelect": "Sélectionner la langue",
+    "closeModal": "Fermer la fenêtre"
+  },
+  "errors": {
+    "emailFailed": "Impossible d'ouvrir le client de messagerie",
+    "copyFailed": "Échec de la copie dans le presse-papiers",
+    "loadFailed": "Échec du chargement des données"
+  }
+}
+
