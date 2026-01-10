@@ -1,0 +1,32 @@
+{
+  "id": "de-medien-dringend",
+  "type": "urgent",
+  "recipientTypes": ["journalist", "media"],
+  "subject": "DRINGEND: Über 51 Tote bei Protesten im Iran - Berichterstattung dringend erforderlich",
+  "body": "Sehr geehrte/r {{recipientName}},\n\nIch schreibe Ihnen aus {{senderCountry}} bezüglich der humanitären Krise, die sich seit dem 28. Dezember 2025 im Iran entwickelt.\n\nDie Lage ist kritisch:\n• Über 51 Demonstranten wurden von Sicherheitskräften getötet\n• Mehr als 2.270 Menschen wurden festgenommen\n• Eine landesweite Internetsperre wurde verhängt\n• Berichte über den Einsatz scharfer Munition gegen friedliche Demonstranten\n\nAls Mitglied der iranischen Diaspora in Deutschland bitte ich Sie dringend, über diese Krise zu berichten. Die Deutsche Welle und andere deutsche Medien haben großen Einfluss im Iran.\n\nIhre Berichterstattung kann Leben retten.\n\nMit freundlichen Grüßen,\nEin besorgter Leser",
+  "variations": [
+    {
+      "subject": "Iran-Krise: Über 50 Tote bei Protesten - Deutsche Medien müssen berichten",
+      "body": "Sehr geehrte/r {{recipientName}},\n\nIch wende mich an Sie aus {{senderCountry}} wegen der eskalierenden Gewalt im Iran.\n\nSeit Ende Dezember 2025:\n• Mindestens 51 Menschen wurden bei Protesten getötet\n• Über 2.270 Personen wurden willkürlich festgenommen\n• Das Internet wurde landesweit abgeschaltet\n• Sicherheitskräfte setzen tödliche Gewalt gegen Zivilisten ein\n\nDeutsche Medien spielen eine wichtige Rolle bei der Information der iranischen Bevölkerung. Ihre Berichterstattung erreicht Millionen und kann internationale Aufmerksamkeit auf diese Krise lenken.\n\nIch bitte Sie höflich, diese Ereignisse zu untersuchen und darüber zu berichten.\n\nHochachtungsvoll,\nEin Mitglied der iranischen Gemeinschaft in Deutschland"
+    },
+    {
+      "subject": "Eilmeldung: Massenproteste im Iran - 51+ Tote, Internet-Blackout",
+      "body": "Sehr geehrte/r {{recipientName}},\n\nIch kontaktiere Sie bezüglich der anhaltenden Proteste im Iran, die am 28. Dezember 2025 begannen.\n\nAktuelle verifizierte Fakten:\n• 51+ Demonstranten von Sicherheitskräften getötet\n• Über 2.270 Festnahmen, darunter Studenten und Journalisten\n• Landesweiter Internet-Blackout in Kraft\n• Dokumentierter Einsatz von scharfer Munition gegen unbewaffnete Menschenmengen\n\nAus {{senderCountry}} beobachte ich hilflos die Entwicklungen. Ihre Berichterstattung könnte Licht auf die Wahrheit werfen und möglicherweise Leben retten.\n\nBitte erwägen Sie, über diese humanitäre Krise zu berichten.\n\nMit besten Grüßen,\nEin besorgter Bürger"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Iran Human Rights",
+      "url": "https://iranhr.net/en/articles/6500/"
+    },
+    {
+      "name": "Human Rights Watch",
+      "url": "https://www.hrw.org/news/2025/01/iran-protests"
+    },
+    {
+      "name": "Amnesty International",
+      "url": "https://www.amnesty.org/en/latest/news/2025/01/iran-protest-crackdown/"
+    }
+  ]
+}
+

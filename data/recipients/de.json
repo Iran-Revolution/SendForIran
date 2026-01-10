@@ -1,0 +1,65 @@
+{
+  "recipients": [
+    {
+      "id": "spiegel-ausland",
+      "name": "Der Spiegel Ausland",
+      "title": "Auslandsredaktion",
+      "organization": "Der Spiegel",
+      "type": "media",
+      "email": "ausland@spiegel.de",
+      "country": "de",
+      "priority": 1
+    },
+    {
+      "id": "zeit-politik",
+      "name": "Die Zeit Politik",
+      "title": "Politikredaktion",
+      "organization": "Die Zeit",
+      "type": "media",
+      "email": "politik@zeit.de",
+      "country": "de",
+      "priority": 1
+    },
+    {
+      "id": "sz-ausland",
+      "name": "Süddeutsche Zeitung Ausland",
+      "title": "Auslandsredaktion",
+      "organization": "Süddeutsche Zeitung",
+      "type": "media",
+      "email": "ausland@sueddeutsche.de",
+      "country": "de",
+      "priority": 1
+    },
+    {
+      "id": "dw-farsi",
+      "name": "Deutsche Welle Farsi",
+      "title": "Persische Redaktion",
+      "organization": "Deutsche Welle",
+      "type": "media",
+      "email": "farsi@dw.com",
+      "country": "de",
+      "priority": 1
+    },
+    {
+      "id": "faz-politik",
+      "name": "FAZ Politikredaktion",
+      "title": "Außenpolitik",
+      "organization": "Frankfurter Allgemeine Zeitung",
+      "type": "media",
+      "email": "politik@faz.net",
+      "country": "de",
+      "priority": 2
+    },
+    {
+      "id": "aa-iran",
+      "name": "Auswärtiges Amt Iran-Referat",
+      "title": "Iran und Golfstaaten",
+      "organization": "Auswärtiges Amt",
+      "type": "government",
+      "email": "iran@diplo.de",
+      "country": "de",
+      "priority": 2
+    }
+  ]
+}
+

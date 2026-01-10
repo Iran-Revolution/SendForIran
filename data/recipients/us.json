@@ -1,0 +1,65 @@
+{
+  "recipients": [
+    {
+      "id": "nyt-iran-desk",
+      "name": "New York Times Iran Desk",
+      "title": "Iran Coverage Team",
+      "organization": "New York Times",
+      "type": "journalist",
+      "email": "iran@nytimes.com",
+      "country": "us",
+      "priority": 1
+    },
+    {
+      "id": "wapo-world",
+      "name": "Washington Post World News",
+      "title": "International News Desk",
+      "organization": "Washington Post",
+      "type": "media",
+      "email": "world@washpost.com",
+      "country": "us",
+      "priority": 1
+    },
+    {
+      "id": "cnn-international",
+      "name": "CNN International Desk",
+      "title": "International News",
+      "organization": "CNN",
+      "type": "media",
+      "email": "international@cnn.com",
+      "country": "us",
+      "priority": 1
+    },
+    {
+      "id": "npr-world",
+      "name": "NPR World Desk",
+      "title": "International Coverage",
+      "organization": "NPR",
+      "type": "media",
+      "email": "world@npr.org",
+      "country": "us",
+      "priority": 2
+    },
+    {
+      "id": "ap-mideast",
+      "name": "AP Middle East Bureau",
+      "title": "Middle East Coverage",
+      "organization": "Associated Press",
+      "type": "media",
+      "email": "mideast@ap.org",
+      "country": "us",
+      "priority": 1
+    },
+    {
+      "id": "state-dept-iran",
+      "name": "Office of Iranian Affairs",
+      "title": "Bureau of Near Eastern Affairs",
+      "organization": "U.S. Department of State",
+      "type": "government",
+      "email": "IranAffairs@state.gov",
+      "country": "us",
+      "priority": 2
+    }
+  ]
+}
+

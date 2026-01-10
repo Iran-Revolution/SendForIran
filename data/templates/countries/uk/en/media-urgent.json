@@ -1,0 +1,32 @@
+{
+  "id": "uk-media-urgent",
+  "type": "urgent",
+  "recipientTypes": ["journalist", "media"],
+  "subject": "URGENT: 51+ Dead in Iran Protests - UK Media Coverage Needed",
+  "body": "Dear {{recipientName}},\n\nI am writing to you from {{senderCountry}} regarding the humanitarian crisis unfolding in Iran since 28 December 2025.\n\nThe situation is critical:\n• Over 51 protesters killed by security forces\n• More than 2,270 people detained\n• Complete nationwide internet blackout\n• Reports of live ammunition being used against peaceful demonstrators\n\nAs a member of the Iranian diaspora in the UK, I urge you to cover this crisis. The Iranian people are risking everything for their freedom, and international media attention can help protect them.\n\nBBC Persian and other UK outlets have historically played a vital role in informing the Iranian public. Your coverage matters.\n\nThank you for your consideration.\n\nKind regards,\nA concerned reader",
+  "variations": [
+    {
+      "subject": "Iran Crisis: Over 50 Killed - British Media Attention Urgently Required",
+      "body": "Dear {{recipientName}},\n\nI hope this finds you well. I am reaching out from {{senderCountry}} about the escalating violence in Iran.\n\nSince late December 2025:\n• At least 51 people have been killed in protests\n• 2,270+ individuals detained by authorities\n• Total internet shutdown implemented nationwide\n• Security forces using lethal force on civilians\n\nUK media has always been a beacon for truth in Iran. Your reporting reaches millions and can bring vital international attention to this crisis.\n\nI respectfully ask that you investigate and report on these events.\n\nWith appreciation,\nA member of the Iranian community in the UK"
+    },
+    {
+      "subject": "Breaking: Mass Protests in Iran - 51+ Dead, Internet Blackout",
+      "body": "Dear {{recipientName}},\n\nI am contacting you regarding the ongoing protests in Iran that began on 28 December 2025.\n\nCurrent verified facts:\n• 51+ protesters killed by security forces\n• Over 2,270 detained, including students and journalists\n• Nationwide internet blackout in effect\n• Documented use of live fire against unarmed crowds\n\nWriting from {{senderCountry}}, I watch helplessly as events unfold. Your coverage could shine a light on the truth and potentially save lives.\n\nPlease consider reporting on this humanitarian crisis.\n\nBest regards,\nA concerned citizen"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Iran Human Rights",
+      "url": "https://iranhr.net/en/articles/6500/"
+    },
+    {
+      "name": "Human Rights Watch",
+      "url": "https://www.hrw.org/news/2025/01/iran-protests"
+    },
+    {
+      "name": "Amnesty International",
+      "url": "https://www.amnesty.org/en/latest/news/2025/01/iran-protest-crackdown/"
+    }
+  ]
+}
+

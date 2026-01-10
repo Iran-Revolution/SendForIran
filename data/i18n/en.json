@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "lang": "en",
+    "dir": "ltr",
+    "title": "SendForIran",
+    "description": "One-click email templates for Iranian diaspora advocacy"
+  },
+  "home": {
+    "title": "SendForIran",
+    "subtitle": "One-click email templates for Iranian diaspora advocacy",
+    "heroDescription": "Stand with the people of Iran. Send pre-written emails to journalists, media outlets, and government officials to amplify the voices of those fighting for freedom.",
+    "currentCrisis": "Current Crisis",
+    "crisisDescription": "Since December 28, 2025, massive protests have erupted across Iran. Over 51 killed, 2,270+ detained, and a nationwide internet blackout is in effect.",
+    "getStarted": "Get Started",
+    "selectCountry": "Select Your Country"
+  },
+  "actions": {
+    "send": "Send Email",
+    "sendNow": "Send Now",
+    "shuffle": "Shuffle Template",
+    "copy": "Copy to Clipboard",
+    "copied": "Copied!",
+    "selectRecipient": "Select Recipient",
+    "selectTemplate": "Select Template",
+    "preview": "Preview Email",
+    "edit": "Edit",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "learnMore": "Learn More"
+  },
+  "countries": {
+    "us": "United States",
+    "uk": "United Kingdom",
+    "de": "Germany",
+    "fr": "France",
+    "ca": "Canada"
+  },
+  "templates": {
+    "urgent": "Urgent",
+    "awareness": "Awareness",
+    "action": "Call to Action",
+    "sanctions": "Sanctions",
+    "forMedia": "For Media",
+    "forGovernment": "For Government",
+    "forJournalists": "For Journalists"
+  },
+  "recipients": {
+    "journalist": "Journalist",
+    "media": "Media Outlet",
+    "government": "Government Official",
+    "mp": "Member of Parliament",
+    "priority": "Priority",
+    "highPriority": "High Priority",
+    "mediumPriority": "Medium Priority",
+    "lowPriority": "Low Priority"
+  },
+  "footer": {
+    "privacy": "Privacy",
+    "about": "About",
+    "sources": "Sources",
+    "privacyNote": "No tracking. No cookies. No data collection.",
+    "madeWith": "Made with ❤️ by the Iranian diaspora"
+  },
+  "accessibility": {
+    "skipToContent": "Skip to main content",
+    "menuToggle": "Toggle menu",
+    "languageSelect": "Select language",
+    "closeModal": "Close modal"
+  },
+  "errors": {
+    "emailFailed": "Failed to open email client",
+    "copyFailed": "Failed to copy to clipboard",
+    "loadFailed": "Failed to load data"
+  }
+}
+
