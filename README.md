@@ -67,5 +67,4 @@ MIT
 
 
 TODOs:
-- [ ] Setup CI/CD pipeline to deploy to GitHub Pages
 - [ ] The send button doesnt work as expected. clicking it should open the email client with the pre-filled content.
