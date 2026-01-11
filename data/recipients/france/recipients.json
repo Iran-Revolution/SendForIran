@@ -1,0 +1,58 @@
+[
+  {
+    "id": "rfi-persian",
+    "name": "RFI Persian Service",
+    "email": "persian@rfi.fr",
+    "organization": "Radio France Internationale",
+    "type": "media",
+    "country": "france",
+    "priority": 1,
+    "beat": ["iran", "persian-language", "international"],
+    "notes": "French international broadcaster with Persian language service"
+  },
+  {
+    "id": "france24-intl",
+    "name": "France 24 International News",
+    "email": "international@france24.com",
+    "organization": "France 24",
+    "type": "media",
+    "country": "france",
+    "priority": 1,
+    "beat": ["breaking-news", "international", "middle-east"],
+    "notes": "French 24-hour news channel broadcasting in multiple languages"
+  },
+  {
+    "id": "le-monde-iran",
+    "name": "Le Monde International",
+    "email": "international@lemonde.fr",
+    "organization": "Le Monde",
+    "type": "journalist",
+    "country": "france",
+    "priority": 1,
+    "beat": ["international", "diplomacy", "human-rights"],
+    "notes": "France's newspaper of record"
+  },
+  {
+    "id": "quai-dorsay-iran",
+    "name": "Ministère de l'Europe Iran Desk",
+    "email": "iran@diplomatie.gouv.fr",
+    "organization": "Ministry for Europe and Foreign Affairs",
+    "type": "government",
+    "country": "france",
+    "priority": 1,
+    "beat": ["diplomacy", "iran", "eu-policy"],
+    "notes": "French Foreign Ministry"
+  },
+  {
+    "id": "assemblee-affaires-etrangeres",
+    "name": "Commission des Affaires Étrangères",
+    "email": "affaires-etrangeres@assemblee-nationale.fr",
+    "organization": "Assemblée Nationale",
+    "type": "mp",
+    "country": "france",
+    "priority": 1,
+    "beat": ["foreign-policy", "human-rights"],
+    "notes": "National Assembly Foreign Affairs Committee"
+  }
+]
+

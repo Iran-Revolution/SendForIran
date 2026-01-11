@@ -1,0 +1,58 @@
+[
+  {
+    "id": "bbc-world",
+    "name": "BBC World News Desk",
+    "email": "world@bbc.co.uk",
+    "organization": "BBC",
+    "type": "media",
+    "country": "united-kingdom",
+    "priority": 1,
+    "beat": ["international", "middle-east", "human-rights"],
+    "notes": "Global news broadcaster with extensive Middle East coverage"
+  },
+  {
+    "id": "guardian-iran",
+    "name": "The Guardian Iran Correspondent",
+    "email": "iran.desk@theguardian.com",
+    "organization": "The Guardian",
+    "type": "journalist",
+    "country": "united-kingdom",
+    "priority": 1,
+    "beat": ["iran", "middle-east", "human-rights"],
+    "notes": "Leading UK newspaper with dedicated Iran coverage"
+  },
+  {
+    "id": "sky-news-intl",
+    "name": "Sky News International",
+    "email": "international@sky.com",
+    "organization": "Sky News",
+    "type": "media",
+    "country": "united-kingdom",
+    "priority": 2,
+    "beat": ["breaking-news", "international"],
+    "notes": "24-hour UK news channel"
+  },
+  {
+    "id": "fcdo-iran",
+    "name": "Foreign Office Iran Desk",
+    "email": "iran.desk@fcdo.gov.uk",
+    "organization": "Foreign, Commonwealth & Development Office",
+    "type": "government",
+    "country": "united-kingdom",
+    "priority": 1,
+    "beat": ["diplomacy", "iran", "sanctions"],
+    "notes": "UK government department responsible for Iran policy"
+  },
+  {
+    "id": "mp-foreign-affairs",
+    "name": "Foreign Affairs Committee",
+    "email": "foreignaffcom@parliament.uk",
+    "organization": "House of Commons",
+    "type": "mp",
+    "country": "united-kingdom",
+    "priority": 1,
+    "beat": ["foreign-policy", "human-rights"],
+    "notes": "Parliamentary committee overseeing foreign affairs"
+  }
+]
+

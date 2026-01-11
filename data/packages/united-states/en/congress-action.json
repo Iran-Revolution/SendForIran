@@ -1,0 +1,67 @@
+{
+  "id": "us-congress-action-001",
+  "version": "1.0",
+  "meta": {
+    "type": "action",
+    "priority": 1,
+    "created": "2025-01-01T00:00:00.000Z",
+    "updated": "2025-01-10T00:00:00.000Z"
+  },
+  "display": {
+    "title": {
+      "en": "Congressional Action Request",
+      "fa": "درخواست اقدام از کنگره"
+    },
+    "description": {
+      "en": "Urge your representatives in Congress to take action on the Iran human rights crisis. This package is designed for government officials and includes specific policy requests.",
+      "fa": "از نمایندگان خود در کنگره بخواهید درباره بحران حقوق بشر ایران اقدام کنند. این بسته برای مقامات دولتی طراحی شده و شامل درخواست‌های سیاستی مشخص است."
+    },
+    "keywords": {
+      "en": ["congress", "government", "sanctions", "policy", "representatives", "human rights"],
+      "fa": ["کنگره", "دولت", "تحریم", "سیاست", "نمایندگان", "حقوق بشر"]
+    },
+    "icon": "🏛️"
+  },
+  "template": {
+    "subject": "Constituent Request: Congressional Action on Iran Human Rights Crisis",
+    "body": "Dear {{recipientName}},\n\nAs your constituent from {{senderCountry}}, I am writing to urge immediate congressional action regarding the human rights crisis unfolding in Iran.\n\nSince December 28, 2025:\n• Over 51 peaceful protesters have been killed by Iranian security forces\n• More than 2,270 people have been arbitrarily detained\n• A nationwide internet blackout has been imposed\n• Documented use of live ammunition against civilians\n\nI respectfully request that you:\n\n1. Publicly condemn the Iranian government's violent crackdown\n2. Support targeted sanctions against officials responsible for human rights abuses\n3. Call for the immediate release of detained protesters\n4. Advocate for restoration of internet access in Iran\n\nThe Iranian people are fighting for the same freedoms we cherish. Please stand with them.\n\nThank you for your attention to this urgent matter.\n\nSincerely,\nYour constituent",
+    "variations": [
+      {
+        "subject": "Urgent: Support Human Rights in Iran - Action Needed",
+        "body": "Dear {{recipientName}},\n\nI am writing as a concerned constituent from {{senderCountry}} about the ongoing crisis in Iran.\n\nThe situation is dire:\n• 51+ killed in protests since December 28, 2025\n• 2,270+ detained, including journalists and activists\n• Complete internet blackout across the country\n• Security forces using lethal force on peaceful demonstrators\n\nI urge you to take the following actions:\n\n1. Issue a public statement condemning the violence\n2. Advocate for sanctions on Iranian officials involved in the crackdown\n3. Push for the release of political prisoners\n4. Support efforts to restore internet connectivity in Iran\n\nAmerican leadership on human rights matters. Please act now.\n\nRespectfully,\nA concerned constituent"
+      },
+      {
+        "subject": "Iran Protests: Request for Congressional Response",
+        "body": "Dear {{recipientName}},\n\nI reach out to you today as a member of your constituency in {{senderCountry}}, deeply troubled by events in Iran.\n\nSince late December 2025, the Iranian regime has:\n• Killed more than 51 protesters\n• Detained over 2,270 individuals\n• Shut down the internet nationwide\n• Deployed lethal force against unarmed civilians\n\nI ask that you consider:\n\n1. Condemning these human rights violations publicly\n2. Supporting targeted sanctions against perpetrators\n3. Calling for the release of those unjustly imprisoned\n4. Advocating for internet freedom in Iran\n\nYour voice can make a difference. Thank you for standing up for human rights.\n\nWith gratitude,\nYour constituent"
+      }
+    ],
+    "sources": [
+      {
+        "name": "Iran Human Rights",
+        "url": "https://iranhr.net/en/articles/6500/"
+      },
+      {
+        "name": "Human Rights Watch",
+        "url": "https://www.hrw.org/news/2025/01/iran-protests"
+      },
+      {
+        "name": "Amnesty International",
+        "url": "https://www.amnesty.org/en/latest/news/2025/01/iran-protest-crackdown/"
+      }
+    ]
+  },
+  "recipients": {
+    "ids": ["state-dept-iran"],
+    "targetingRationale": {
+      "en": "Government officials have the power to influence policy and enact sanctions. This template uses formal, policy-focused language appropriate for official correspondence.",
+      "fa": "مقامات دولتی قدرت تأثیرگذاری بر سیاست و اعمال تحریم را دارند. این الگو از زبان رسمی و سیاست‌محور مناسب برای مکاتبات رسمی استفاده می‌کند."
+    },
+    "categories": ["government", "mp"]
+  },
+  "ui": {
+    "color": "amber",
+    "featured": true,
+    "badge": "HIGH_IMPACT"
+  }
+}
+

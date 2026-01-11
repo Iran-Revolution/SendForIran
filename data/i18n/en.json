@@ -12,7 +12,13 @@
     "currentCrisis": "Current Crisis",
     "crisisDescription": "Since December 28, 2025, massive protests have erupted across Iran. Over 51 killed, 2,270+ detained, and a nationwide internet blackout is in effect.",
     "getStarted": "Get Started",
-    "selectCountry": "Select Your Country"
+    "selectCountry": "Select Your Country",
+    "quickAction": "Quick Action",
+    "quickActionDesc": "Ready-to-send email campaigns — no configuration needed",
+    "browsePackages": "Browse Packages",
+    "or": "or",
+    "customizeYourOwn": "Customize Your Own",
+    "packagesAvailable": "packages ready"
   },
   "actions": {
     "send": "Send Email",
@@ -124,6 +130,29 @@
     "emailFailed": "Failed to open email client",
     "copyFailed": "Failed to copy to clipboard",
     "loadFailed": "Failed to load data"
+  },
+  "packages": {
+    "title": "Email Packages",
+    "subtitle": "Curated email campaigns ready to send",
+    "preview": "Preview",
+    "sendNow": "Send Now",
+    "sendToAll": "Send to All Recipients",
+    "recipients": "recipients",
+    "rollDice": "Click to roll for a random package",
+    "rolling": "Rolling...",
+    "close": "Close",
+    "whyThisPackage": "Why This Package?",
+    "sources": "Sources",
+    "emailPreview": "Email Preview",
+    "viewAsGrid": "View All",
+    "viewAsDice": "Random Pick",
+    "noPackages": "No packages available for this country yet",
+    "checkBack": "Check back soon or try another country",
+    "featured": "Featured",
+    "highImpact": "High Impact",
+    "urgent": "Urgent",
+    "new": "New",
+    "trending": "Trending"
   }
 }
 

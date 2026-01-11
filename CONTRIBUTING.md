@@ -31,34 +31,44 @@ Thank you for helping amplify Iranian voices. Contributions welcome!
 
 4. Submit PR with source link for contact info
 
-### Add a Template
+### Add an Email Package
+
+An Email Package bundles a template with pre-matched recipients for one-click sending.
 
 1. Fork this repository
-2. Create file: `data/templates/countries/{country}/{lang}/{template-name}.json`
+2. Create file: `data/packages/{country}/{lang}/{package-name}.json`
 3. Follow this schema:
 
 ```json
 {
-  "id": "country-type-name",
-  "type": "urgent",
-  "recipientTypes": ["journalist", "media"],
-  "subject": "Subject line with {{recipientName}} placeholder",
-  "body": "Email body...\n\nSincerely,\n{{senderCountry}} resident",
-  "variations": [
-    { "subject": "Alternative subject", "body": "Alternative body..." }
-  ],
-  "sources": [
-    { "name": "Iran Human Rights", "url": "https://iranhr.net" }
-  ]
+  "id": "country-package-name",
+  "name": { "en": "Package Name", "fa": "نام بسته" },
+  "description": { "en": "Brief description", "fa": "توضیح کوتاه" },
+  "template": {
+    "subject": "Subject with {{recipientName}}",
+    "body": "Email body...\n\nSincerely,\nA {{senderCountry}} resident",
+    "variations": [{ "subject": "Alt subject", "body": "Alt body" }]
+  },
+  "recipientIds": ["recipient-id-1", "recipient-id-2"],
+  "sources": [{ "name": "Iran Human Rights", "url": "https://iranhr.net" }]
 }
 ```
 
 **Requirements:**
 - `sources` array is **MANDATORY** - cite HRW, Amnesty, IranHR, etc.
-- Include 2+ `variations` to avoid spam filters
-- Use placeholders: `{{recipientName}}`, `{{senderCountry}}`, `{{currentDate}}`
+- `recipientIds` must reference existing IDs in `data/recipients/{country}.json`
+- Include `name` and `description` in multiple languages (at least `en`)
+- Use placeholders: `{{recipientName}}`, `{{senderCountry}}`
 
-4. Submit PR
+**Good Package Pairings:**
+| Template Type | Best Recipients |
+|--------------|-----------------|
+| Media coverage request | Journalists, news editors |
+| Congressional action | MPs, government officials |
+| Sanctions support | Government officials |
+| Awareness | Media organizations |
+
+4. Submit PR with source citations
 
 ### Add a Translation
 

@@ -12,7 +12,13 @@
     "currentCrisis": "Crise actuelle",
     "crisisDescription": "Depuis le 28 décembre 2025, des manifestations massives ont éclaté dans tout l'Iran. Plus de 51 morts, plus de 2 270 arrestations, et une coupure d'Internet à l'échelle nationale est en vigueur.",
     "getStarted": "Commencer",
-    "selectCountry": "Sélectionnez votre pays"
+    "selectCountry": "Sélectionnez votre pays",
+    "quickAction": "Action rapide",
+    "quickActionDesc": "Campagnes e-mail prêtes à envoyer — aucune configuration requise",
+    "browsePackages": "Parcourir les paquets",
+    "or": "ou",
+    "customizeYourOwn": "Personnaliser le vôtre",
+    "packagesAvailable": "paquets prêts"
   },
   "actions": {
     "send": "Envoyer l'e-mail",
@@ -124,6 +130,29 @@
     "emailFailed": "Impossible d'ouvrir le client de messagerie",
     "copyFailed": "Échec de la copie dans le presse-papiers",
     "loadFailed": "Échec du chargement des données"
+  },
+  "packages": {
+    "title": "Paquets d'e-mails",
+    "subtitle": "Campagnes d'e-mails prêtes à envoyer",
+    "preview": "Aperçu",
+    "sendNow": "Envoyer maintenant",
+    "sendToAll": "Envoyer à tous les destinataires",
+    "recipients": "destinataires",
+    "rollDice": "Cliquez pour un paquet aléatoire",
+    "rolling": "Tirage en cours...",
+    "close": "Fermer",
+    "whyThisPackage": "Pourquoi ce paquet ?",
+    "sources": "Sources",
+    "emailPreview": "Aperçu de l'e-mail",
+    "viewAsGrid": "Voir tout",
+    "viewAsDice": "Choix aléatoire",
+    "noPackages": "Aucun paquet disponible pour ce pays",
+    "checkBack": "Revenez plus tard ou essayez un autre pays",
+    "featured": "En vedette",
+    "highImpact": "Fort impact",
+    "urgent": "Urgent",
+    "new": "Nouveau",
+    "trending": "Tendance"
   }
 }
 

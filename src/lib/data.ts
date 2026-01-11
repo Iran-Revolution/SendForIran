@@ -37,10 +37,7 @@ export async function getRecipients(country: string): Promise<Recipient[]> {
   const filePath = `../../data/recipients/${country}.json`;
   const file = recipientFiles[filePath];
 
-  if (!file) {
-    console.warn(`No recipients found for country: ${country}`);
-    return [];
-  }
+  if (!file) return [];
 
   const recipients = file.recipients;
 
@@ -98,9 +95,7 @@ export async function getTemplates(
     }
   }
 
-  if (!foundLang) {
-    console.warn(`No templates found for ${country} in any language`);
-  }
+
 
   return templates;
 }

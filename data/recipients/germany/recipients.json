@@ -1,0 +1,58 @@
+[
+  {
+    "id": "dw-news",
+    "name": "Deutsche Welle Persian Service",
+    "email": "persian@dw.com",
+    "organization": "Deutsche Welle",
+    "type": "media",
+    "country": "germany",
+    "priority": 1,
+    "beat": ["iran", "middle-east", "persian-language"],
+    "notes": "German international broadcaster with dedicated Persian service"
+  },
+  {
+    "id": "spiegel-intl",
+    "name": "Der Spiegel International",
+    "email": "international@spiegel.de",
+    "organization": "Der Spiegel",
+    "type": "media",
+    "country": "germany",
+    "priority": 1,
+    "beat": ["international", "investigative", "human-rights"],
+    "notes": "Germany's leading news magazine"
+  },
+  {
+    "id": "faz-politics",
+    "name": "FAZ Politikredaktion",
+    "email": "politik@faz.net",
+    "organization": "Frankfurter Allgemeine Zeitung",
+    "type": "journalist",
+    "country": "germany",
+    "priority": 2,
+    "beat": ["politics", "international"],
+    "notes": "Major German newspaper of record"
+  },
+  {
+    "id": "auswaertiges-amt",
+    "name": "Auswärtiges Amt Iran-Referat",
+    "email": "iran@auswaertiges-amt.de",
+    "organization": "Federal Foreign Office",
+    "type": "government",
+    "country": "germany",
+    "priority": 1,
+    "beat": ["diplomacy", "iran", "eu-policy"],
+    "notes": "German Foreign Ministry Iran desk"
+  },
+  {
+    "id": "bundestag-menschenrechte",
+    "name": "Ausschuss für Menschenrechte",
+    "email": "menschenrechte@bundestag.de",
+    "organization": "Deutscher Bundestag",
+    "type": "mp",
+    "country": "germany",
+    "priority": 1,
+    "beat": ["human-rights", "foreign-policy"],
+    "notes": "Bundestag Human Rights Committee"
+  }
+]
+

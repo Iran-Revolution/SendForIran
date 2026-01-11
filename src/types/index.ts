@@ -28,3 +28,21 @@ export type {
 
 export { categoryMeta, allCategories } from './wizard';
 
+// Email Package types (new system)
+export type {
+  EmailPackage,
+  PackageFile,
+  PackageMeta,
+  PackageDisplay,
+  PackageTemplate,
+  PackageRecipients,
+  PackageUI,
+  LocalizedString,
+  LocalizedKeywords,
+  PackagePriority,
+  PackageBadge,
+  PackageColor
+} from './package';
+
+export { getLocalizedValue, getLocalizedKeywords } from './package';
+

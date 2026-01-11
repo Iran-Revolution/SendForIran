@@ -1,0 +1,67 @@
+{
+  "id": "us-media-urgent-001",
+  "version": "1.0",
+  "meta": {
+    "type": "urgent",
+    "priority": 1,
+    "created": "2025-01-01T00:00:00.000Z",
+    "updated": "2025-01-10T00:00:00.000Z"
+  },
+  "display": {
+    "title": {
+      "en": "Urgent Media Alert",
+      "fa": "هشدار فوری رسانه‌ای"
+    },
+    "description": {
+      "en": "Contact major news networks and journalists about the unfolding crisis in Iran. This package targets top-tier media outlets with proven track records of international human rights coverage.",
+      "fa": "تماس با شبکه‌های خبری بزرگ و خبرنگاران درباره بحران در حال وقوع در ایران. این بسته رسانه‌های برتر با سابقه پوشش حقوق بشر بین‌المللی را هدف قرار می‌دهد."
+    },
+    "keywords": {
+      "en": ["urgent", "media", "breaking news", "journalists", "crisis coverage", "human rights"],
+      "fa": ["فوری", "رسانه", "اخبار فوری", "خبرنگاران", "پوشش بحران", "حقوق بشر"]
+    },
+    "icon": "📰"
+  },
+  "template": {
+    "subject": "URGENT: 51+ Dead in Iran Protests Since December 28 - Coverage Needed",
+    "body": "Dear {{recipientName}},\n\nSince December 28, 2025, massive protests have erupted across Iran following the government's announcement of fuel price increases. The response has been devastating:\n\n• 51+ protesters killed by security forces\n• Over 2,270 people detained\n• Nationwide internet blackout to suppress information\n• Reports of live ammunition used against crowds\n\nAs a concerned member of the Iranian diaspora in {{senderCountry}}, I urge you to cover this humanitarian crisis. The world needs to know what is happening.\n\nThe Iranian people are risking their lives for basic freedoms. Your coverage can help shine a light on these events and potentially save lives.\n\nSincerely,\nA concerned citizen",
+    "variations": [
+      {
+        "subject": "Iran Crisis: Over 50 Killed in Ongoing Protests - Urgent Media Attention Required",
+        "body": "Dear {{recipientName}},\n\nI am writing to bring your attention to the escalating crisis in Iran. Since late December 2025, peaceful protests have been met with extreme violence:\n\n• More than 51 fatalities confirmed by human rights organizations\n• 2,270+ arbitrary detentions\n• Complete internet shutdown across the country\n• Security forces firing on unarmed civilians\n\nAs someone from {{senderCountry}} with deep ties to Iran, I implore your organization to investigate and report on these events. International attention is crucial.\n\nThe people of Iran deserve to have their voices heard.\n\nWith respect,\nA member of the Iranian diaspora"
+      },
+      {
+        "subject": "Breaking: Mass Protests in Iran - 51+ Dead, 2,270+ Detained",
+        "body": "Dear {{recipientName}},\n\nI hope this message finds you well. I am reaching out regarding the ongoing humanitarian crisis in Iran that began on December 28, 2025.\n\nKey facts:\n• At least 51 protesters have been killed\n• Over 2,270 individuals are in detention\n• A total internet blackout is preventing information flow\n• Security forces have used lethal force against peaceful demonstrators\n\nFrom {{senderCountry}}, I watch with horror as my homeland descends into violence. Your reporting could make a difference in bringing international pressure to bear.\n\nThank you for considering this urgent request.\n\nBest regards,\nA concerned citizen of {{senderCountry}}"
+      }
+    ],
+    "sources": [
+      {
+        "name": "Iran Human Rights",
+        "url": "https://iranhr.net/en/articles/6500/"
+      },
+      {
+        "name": "Human Rights Watch",
+        "url": "https://www.hrw.org/news/2025/01/iran-protests"
+      },
+      {
+        "name": "Amnesty International",
+        "url": "https://www.amnesty.org/en/latest/news/2025/01/iran-protest-crackdown/"
+      }
+    ]
+  },
+  "recipients": {
+    "ids": ["nyt-iran-desk", "wapo-world", "cnn-international", "npr-world", "ap-mideast"],
+    "targetingRationale": {
+      "en": "These journalists and media outlets have extensive experience covering human rights issues and international crises. They have the reach and credibility to bring global attention to the situation in Iran.",
+      "fa": "این خبرنگاران و رسانه‌ها تجربه گسترده‌ای در پوشش مسائل حقوق بشر و بحران‌های بین‌المللی دارند. آنها دسترسی و اعتبار لازم برای جلب توجه جهانی به وضعیت ایران را دارند."
+    },
+    "categories": ["journalist", "media"]
+  },
+  "ui": {
+    "color": "red",
+    "featured": true,
+    "badge": "URGENT"
+  }
+}
+

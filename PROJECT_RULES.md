@@ -22,27 +22,26 @@ src/
 ├── components/       # Astro components (.astro)
 ├── islands/          # Preact interactive (.tsx)
 ├── layouts/          # BaseLayout.astro
-├── pages/            # index.astro, [country]/, fa/
-├── lib/              # mailto.ts, i18n.ts
+├── pages/            # index.astro, [country]/, packages/[country].astro
+├── lib/              # packages.ts, mailto.ts, i18n.ts
 └── styles/           # global.css
 data/
-├── templates/countries/{country}/{lang}/*.json  # NO shared folder
+├── packages/{country}/{lang}/*.json  # Curated email packages
 ├── recipients/{country}.json
 └── i18n/{lang}.json
 ```
 
 ## Schemas
 
-### Template (`data/templates/countries/{country}/{lang}/*.json`)
+### EmailPackage (`data/packages/{country}/{lang}/*.json`)
 ```typescript
-interface Template {
+interface EmailPackage {
   id: string;
-  type: 'urgent' | 'awareness' | 'action' | 'sanctions';
-  recipientTypes: ('journalist' | 'media' | 'government' | 'mp')[];
-  subject: string;
-  body: string;  // Use {{recipientName}}, {{senderCountry}} placeholders
-  variations: { subject: string; body: string }[];  // Min 2 for spam avoidance
-  sources: { name: string; url: string }[];  // REQUIRED: HRW, Amnesty, etc.
+  name: Record<string, string>;  // {"en": "...", "fa": "..."}
+  description: Record<string, string>;
+  template: { subject: string; body: string; variations?: {...}[] };
+  recipientIds: string[];  // Pre-matched recipients
+  sources: { name: string; url: string }[];  // REQUIRED
 }
 ```
 
@@ -93,11 +92,8 @@ pnpm validate     # Schema validation
 ```
 
 ## Checklist
-- [ ] Static-only, no server code
-- [ ] Templates have source citations
-- [ ] All UI strings in i18n JSON
-- [ ] Fonts self-hosted
-- [ ] No external requests
-- [ ] Lighthouse 95+
-- [ ] RTL tested for Persian
+- [ ] Static-only, no server 
+- [ ] Source citations 
+- [ ] i18n strings 
+- [ ] Self-hosted fonts
 

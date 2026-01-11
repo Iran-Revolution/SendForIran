@@ -1,0 +1,47 @@
+---
+/**
+ * PackageGrid - Grid layout for displaying multiple email packages
+ * Responsive layout optimized for 5 curated packages (Option A)
+ */
+import PackageCard from './PackageCard.astro';
+import type { EmailPackage } from '../../types';
+import type { SupportedLang } from '../../lib/i18n';
+
+interface Props {
+  packages: EmailPackage[];
+  lang?: SupportedLang;
+  class?: string;
+}
+
+const { 
+  packages, 
+  lang = 'en',
+  class: className = '' 
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    'grid gap-md',
+    // Responsive grid: 1 col mobile, 2 cols tablet, 3 cols desktop
+    'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
+    className
+  ]}
+>
+  {packages.map((pkg, index) => (
+    <PackageCard
+      package={pkg}
+      lang={lang}
+      class={index === 0 && pkg.ui.featured ? 'sm:col-span-2 lg:col-span-1' : ''}
+    />
+  ))}
+</div>
+
+{packages.length === 0 && (
+  <div class="text-center py-xl">
+    <div class="text-4xl mb-md opacity-50">📭</div>
+    <p class="text-text/50 text-lg">No packages available for this country yet.</p>
+    <p class="text-text/30 text-sm mt-xs">Check back soon or try another country.</p>
+  </div>
+)}
+

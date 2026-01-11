@@ -1,0 +1,53 @@
+{
+  "id": "fr-media-outreach-001",
+  "version": "1.0",
+  "meta": {
+    "type": "awareness",
+    "priority": 1,
+    "created": "2025-01-01T00:00:00.000Z",
+    "updated": "2025-01-10T00:00:00.000Z"
+  },
+  "display": {
+    "title": {
+      "en": "French Media Outreach",
+      "fa": "ارتباط با رسانه‌های فرانسه"
+    },
+    "description": {
+      "en": "Contact major French news outlets including RFI Persian and France 24. French media reaches across the Francophone world and Iran.",
+      "fa": "با رسانه‌های خبری بزرگ فرانسه از جمله آراف‌آی فارسی و فرانس ۲۴ تماس بگیرید. رسانه‌های فرانسه در سراسر جهان فرانسوی‌زبان و ایران پخش می‌شوند."
+    },
+    "keywords": {
+      "en": ["RFI", "France 24", "Le Monde", "French media", "journalism", "coverage"],
+      "fa": ["آراف‌آی", "فرانس ۲۴", "لوموند", "رسانه فرانسه", "روزنامه‌نگاری", "پوشش"]
+    },
+    "icon": "📻"
+  },
+  "template": {
+    "subject": "Demande de couverture : Crise des droits de l'homme en Iran",
+    "body": "Dear {{recipientName}},\n\nI am writing from {{senderCountry}} to request increased coverage of the humanitarian crisis in Iran.\n\nSince 28 December 2025:\n• Over 51 protesters have been killed by Iranian security forces\n• More than 2,270 people have been detained\n• A nationwide internet blackout has been imposed\n• Live ammunition has been used against peaceful demonstrators\n\nFrench media, particularly RFI's Persian Service and France 24, play an important role in reaching Iranian audiences and the international Francophone community. Your coverage can:\n\n1. Document human rights violations for the historical record\n2. Inform global audiences about the crisis\n3. Support the Iranian people's right to know what is happening\n4. Encourage French and EU diplomatic responses\n\nI respectfully request continued and expanded coverage of this critical situation.\n\nWith sincere appreciation,\nA concerned citizen from {{senderCountry}}",
+    "sources": [
+      {
+        "name": "Iran Human Rights",
+        "url": "https://iranhr.net/en/articles/6500/"
+      },
+      {
+        "name": "RFI Persian",
+        "url": "https://www.rfi.fr/fa/"
+      }
+    ]
+  },
+  "recipients": {
+    "ids": ["rfi-persian", "france24-intl", "le-monde-iran"],
+    "targetingRationale": {
+      "en": "RFI Persian reaches Iranian audiences directly. France 24 broadcasts in multiple languages to a global audience. Le Monde influences French policy circles.",
+      "fa": "آراف‌آی فارسی مستقیماً به مخاطبان ایرانی می‌رسد. فرانس ۲۴ به چندین زبان برای مخاطبان جهانی پخش می‌شود."
+    },
+    "categories": ["media", "journalist"]
+  },
+  "ui": {
+    "color": "blue",
+    "featured": true,
+    "badge": "FEATURED"
+  }
+}
+

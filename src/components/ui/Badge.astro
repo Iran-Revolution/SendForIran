@@ -1,0 +1,44 @@
+---
+/**
+ * Badge component for status indicators and labels
+ * Supports various styles for different contexts
+ */
+export interface Props {
+  variant?: 'default' | 'urgent' | 'success' | 'warning' | 'info' | 'new' | 'featured';
+  size?: 'sm' | 'md';
+  pulse?: boolean;
+  class?: string;
+}
+
+const { 
+  variant = 'default', 
+  size = 'sm',
+  pulse = false,
+  class: className = '',
+} = Astro.props;
+
+const baseClasses = 'inline-flex items-center justify-center font-semibold uppercase tracking-wider rounded-full';
+
+const sizeClasses = {
+  sm: 'px-2 py-0.5 text-[10px]',
+  md: 'px-3 py-1 text-xs',
+};
+
+const variantClasses = {
+  default: 'bg-white/10 text-white/80 border border-white/20',
+  urgent: 'bg-urgent/20 text-urgent border border-urgent/40',
+  success: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40',
+  warning: 'bg-amber-500/20 text-amber-400 border border-amber-500/40',
+  info: 'bg-blue-500/20 text-blue-400 border border-blue-500/40',
+  new: 'bg-gradient-to-r from-purple-500/30 to-pink-500/30 text-purple-300 border border-purple-500/40',
+  featured: 'bg-gradient-to-r from-amber-500/30 to-orange-500/30 text-amber-300 border border-amber-500/40',
+};
+
+const pulseClass = pulse ? 'animate-pulse' : '';
+const classes = `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${pulseClass} ${className}`.trim();
+---
+
+<span class={classes}>
+  <slot />
+</span>
+

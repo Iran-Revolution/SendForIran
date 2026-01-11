@@ -1,0 +1,53 @@
+{
+  "id": "fr-assemblee-action-001",
+  "version": "1.0",
+  "meta": {
+    "type": "action",
+    "priority": 1,
+    "created": "2025-01-01T00:00:00.000Z",
+    "updated": "2025-01-10T00:00:00.000Z"
+  },
+  "display": {
+    "title": {
+      "en": "French Parliament Action",
+      "fa": "اقدام مجلس فرانسه"
+    },
+    "description": {
+      "en": "Urge the Assemblée Nationale Foreign Affairs Committee to address the Iran crisis. France is a key EU member and permanent UN Security Council member.",
+      "fa": "از کمیته امور خارجه مجلس ملی بخواهید به بحران ایران رسیدگی کند. فرانسه عضو کلیدی اتحادیه اروپا و عضو دائم شورای امنیت سازمان ملل است."
+    },
+    "keywords": {
+      "en": ["Assemblée Nationale", "EU", "UN", "sanctions", "diplomacy", "human rights"],
+      "fa": ["مجلس ملی", "اتحادیه اروپا", "سازمان ملل", "تحریم", "دیپلماسی", "حقوق بشر"]
+    },
+    "icon": "🏛️"
+  },
+  "template": {
+    "subject": "Request: French Parliamentary Action on Iran Crisis",
+    "body": "Dear {{recipientName}},\n\nI am writing to request urgent action by the French Parliament regarding the human rights crisis in Iran.\n\nSince 28 December 2025:\n• Over 51 peaceful protesters have been killed by Iranian security forces\n• More than 2,270 people have been arbitrarily detained\n• A nationwide internet blackout has been imposed\n• Documented use of live ammunition against civilians\n\nAs a permanent member of the UN Security Council and founding member of the European Union, France has unique influence on the international stage. I respectfully request that Parliament:\n\n1. Hold hearings on the human rights situation in Iran\n2. Support EU-wide sanctions against officials responsible for abuses\n3. Raise the issue at the UN Security Council\n4. Call for the immediate release of detained protesters\n5. Coordinate with international partners on a unified response\n\nFrance has historically championed human rights and liberty. I urge you to uphold these values now.\n\nWith respect,\nA concerned citizen from {{senderCountry}}",
+    "sources": [
+      {
+        "name": "Iran Human Rights",
+        "url": "https://iranhr.net/en/articles/6500/"
+      },
+      {
+        "name": "Amnesty International France",
+        "url": "https://www.amnesty.fr/iran"
+      }
+    ]
+  },
+  "recipients": {
+    "ids": ["assemblee-affaires-etrangeres", "quai-dorsay-iran"],
+    "targetingRationale": {
+      "en": "The Assemblée Nationale Foreign Affairs Committee can influence French and EU policy. France's permanent seat on the UN Security Council gives it unique power to act.",
+      "fa": "کمیته امور خارجه مجلس ملی می‌تواند بر سیاست فرانسه و اتحادیه اروپا تأثیر بگذارد. کرسی دائم فرانسه در شورای امنیت قدرت منحصر به فردی برای اقدام به آن می‌دهد."
+    },
+    "categories": ["mp", "government"]
+  },
+  "ui": {
+    "color": "amber",
+    "featured": false,
+    "badge": "HIGH_IMPACT"
+  }
+}
+

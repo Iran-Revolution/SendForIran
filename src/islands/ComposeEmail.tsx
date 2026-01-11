@@ -29,40 +29,22 @@ export default function ComposeEmail({ allRecipients, allTemplates, senderCountr
   const [templateId, setTemplateId] = useState<string>('');
   const [isLoading, setIsLoading] = useState(true);
 
-  // Read from localStorage on mount
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const state = loadWizardState();
-      console.log('[ComposeEmail] Loaded wizard state:', state);
-      console.log('[ComposeEmail] recipientIds:', state.recipientIds);
-      console.log('[ComposeEmail] templateId:', state.templateId);
-      console.log('[ComposeEmail] allRecipients passed:', allRecipients.length);
-      console.log('[ComposeEmail] allTemplates passed:', allTemplates.length);
       setRecipientIds(state.recipientIds);
       setTemplateId(state.templateId || '');
       setIsLoading(false);
     }
   }, []);
 
-  // Filter recipients and find template
   const selectedRecipients = useMemo(() => {
     if (recipientIds.length === 0) return [];
-    console.log('[ComposeEmail] Filtering - recipientIds:', recipientIds);
-    console.log('[ComposeEmail] Filtering - allRecipients IDs:', allRecipients.map(r => r.id));
-    const filtered = allRecipients.filter((r) => recipientIds.includes(r.id));
-    console.log('[ComposeEmail] Filtered result:', filtered.length, 'recipients');
-    return filtered;
+    return allRecipients.filter((r) => recipientIds.includes(r.id));
   }, [allRecipients, recipientIds]);
 
   const selectedTemplate = useMemo(() => {
-    console.log('[ComposeEmail] Template selection - templateId:', templateId);
-    console.log('[ComposeEmail] Template selection - allTemplates IDs:', allTemplates.map(t => t.id));
-    if (templateId) {
-      const found = allTemplates.find((t) => t.id === templateId);
-      console.log('[ComposeEmail] Found template:', found?.id);
-      return found;
-    }
-    console.log('[ComposeEmail] Using first template:', allTemplates[0]?.id);
+    if (templateId) return allTemplates.find((t) => t.id === templateId);
     return allTemplates[0];
   }, [allTemplates, templateId]);
 
@@ -79,13 +61,7 @@ export default function ComposeEmail({ allRecipients, allTemplates, senderCountr
     window.location.href = startOverUrl;
   };
 
-  console.log('[ComposeEmail] Pre-render check - selectedRecipients:', selectedRecipients.length);
-  console.log('[ComposeEmail] Pre-render check - selectedTemplate:', selectedTemplate?.id);
-  console.log('[ComposeEmail] Pre-render check - isLoading:', isLoading);
-
   if (selectedRecipients.length === 0 || !selectedTemplate) {
-    console.log('[ComposeEmail] Rendering empty state - reason:',
-      selectedRecipients.length === 0 ? 'no recipients' : 'no template');
     return (
       <div class="text-center py-xl">
         <p class="text-text/50 mb-md">

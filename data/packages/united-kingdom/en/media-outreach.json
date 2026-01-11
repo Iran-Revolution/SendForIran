@@ -1,0 +1,53 @@
+{
+  "id": "uk-media-outreach-001",
+  "version": "1.0",
+  "meta": {
+    "type": "awareness",
+    "priority": 1,
+    "created": "2025-01-01T00:00:00.000Z",
+    "updated": "2025-01-10T00:00:00.000Z"
+  },
+  "display": {
+    "title": {
+      "en": "UK Media Outreach",
+      "fa": "ارتباط با رسانه‌های بریتانیا"
+    },
+    "description": {
+      "en": "Contact major British news outlets to increase coverage of the Iran crisis. The BBC and Guardian reach millions globally.",
+      "fa": "با رسانه‌های خبری بزرگ بریتانیا تماس بگیرید تا پوشش بحران ایران افزایش یابد. بی‌بی‌سی و گاردین به میلیون‌ها نفر در سراسر جهان می‌رسند."
+    },
+    "keywords": {
+      "en": ["BBC", "Guardian", "UK media", "journalism", "awareness", "coverage"],
+      "fa": ["بی‌بی‌سی", "گاردین", "رسانه بریتانیا", "روزنامه‌نگاری", "آگاهی", "پوشش"]
+    },
+    "icon": "📺"
+  },
+  "template": {
+    "subject": "Request for Coverage: Iran Human Rights Crisis",
+    "body": "Dear {{recipientName}},\n\nI am writing from {{senderCountry}} to request increased coverage of the humanitarian crisis unfolding in Iran.\n\nSince 28 December 2025:\n• Over 51 protesters have been killed by Iranian security forces\n• More than 2,270 people have been arbitrarily detained\n• A nationwide internet blackout has been imposed\n• Security forces have used live ammunition against peaceful demonstrators\n\nAs a leading British news organisation, your coverage can help bring global attention to these events. The Iranian people are risking their lives for fundamental freedoms, and international media attention is crucial.\n\nI kindly request that you:\n1. Increase coverage of the ongoing protests and government response\n2. Interview human rights organisations and Iranian diaspora communities\n3. Investigate the systematic suppression of information\n4. Report on the international community's response\n\nThank you for your vital role in informing the public about this critical situation.\n\nYours faithfully,\nA concerned citizen from {{senderCountry}}",
+    "sources": [
+      {
+        "name": "Iran Human Rights",
+        "url": "https://iranhr.net/en/articles/6500/"
+      },
+      {
+        "name": "Amnesty International UK",
+        "url": "https://www.amnesty.org.uk/iran"
+      }
+    ]
+  },
+  "recipients": {
+    "ids": ["bbc-world", "guardian-iran", "sky-news-intl"],
+    "targetingRationale": {
+      "en": "Major UK media outlets have significant international reach. BBC World News and The Guardian are trusted sources for global audiences.",
+      "fa": "رسانه‌های بزرگ بریتانیا دسترسی بین‌المللی قابل توجهی دارند. بی‌بی‌سی ورلد نیوز و گاردین منابع قابل اعتماد برای مخاطبان جهانی هستند."
+    },
+    "categories": ["media", "journalist"]
+  },
+  "ui": {
+    "color": "purple",
+    "featured": true,
+    "badge": "FEATURED"
+  }
+}
+

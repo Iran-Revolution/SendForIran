@@ -12,7 +12,13 @@
     "currentCrisis": "Aktuelle Krise",
     "crisisDescription": "Seit dem 28. Dezember 2025 sind im gesamten Iran massive Proteste ausgebrochen. Über 51 Tote, mehr als 2.270 Verhaftete und eine landesweite Internetsperre ist in Kraft.",
     "getStarted": "Jetzt starten",
-    "selectCountry": "Wählen Sie Ihr Land"
+    "selectCountry": "Wählen Sie Ihr Land",
+    "quickAction": "Schnellaktion",
+    "quickActionDesc": "Versandfertige E-Mail-Kampagnen — keine Konfiguration erforderlich",
+    "browsePackages": "Pakete durchsuchen",
+    "or": "oder",
+    "customizeYourOwn": "Eigene erstellen",
+    "packagesAvailable": "Pakete bereit"
   },
   "actions": {
     "send": "E-Mail senden",
@@ -124,6 +130,29 @@
     "emailFailed": "E-Mail-Client konnte nicht geöffnet werden",
     "copyFailed": "Kopieren in Zwischenablage fehlgeschlagen",
     "loadFailed": "Daten konnten nicht geladen werden"
+  },
+  "packages": {
+    "title": "E-Mail-Pakete",
+    "subtitle": "Kuratierte E-Mail-Kampagnen zum Versenden",
+    "preview": "Vorschau",
+    "sendNow": "Jetzt senden",
+    "sendToAll": "An alle Empfänger senden",
+    "recipients": "Empfänger",
+    "rollDice": "Klicken für zufälliges Paket",
+    "rolling": "Würfeln...",
+    "close": "Schließen",
+    "whyThisPackage": "Warum dieses Paket?",
+    "sources": "Quellen",
+    "emailPreview": "E-Mail-Vorschau",
+    "viewAsGrid": "Alle anzeigen",
+    "viewAsDice": "Zufällige Auswahl",
+    "noPackages": "Noch keine Pakete für dieses Land verfügbar",
+    "checkBack": "Schauen Sie später vorbei oder probieren Sie ein anderes Land",
+    "featured": "Empfohlen",
+    "highImpact": "Hohe Wirkung",
+    "urgent": "Dringend",
+    "new": "Neu",
+    "trending": "Beliebt"
   }
 }
 

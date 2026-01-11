@@ -1,0 +1,58 @@
+[
+  {
+    "id": "cbc-news",
+    "name": "CBC News World",
+    "email": "world@cbc.ca",
+    "organization": "Canadian Broadcasting Corporation",
+    "type": "media",
+    "country": "canada",
+    "priority": 1,
+    "beat": ["international", "breaking-news", "human-rights"],
+    "notes": "Canada's national public broadcaster"
+  },
+  {
+    "id": "globe-mail-world",
+    "name": "The Globe and Mail World Desk",
+    "email": "world@globeandmail.com",
+    "organization": "The Globe and Mail",
+    "type": "journalist",
+    "country": "canada",
+    "priority": 1,
+    "beat": ["international", "politics", "human-rights"],
+    "notes": "Canada's newspaper of record"
+  },
+  {
+    "id": "ctv-news-intl",
+    "name": "CTV News International",
+    "email": "international@ctv.ca",
+    "organization": "CTV News",
+    "type": "media",
+    "country": "canada",
+    "priority": 2,
+    "beat": ["international", "breaking-news"],
+    "notes": "Major Canadian private broadcaster"
+  },
+  {
+    "id": "global-affairs-iran",
+    "name": "Global Affairs Canada Iran Desk",
+    "email": "iran@international.gc.ca",
+    "organization": "Global Affairs Canada",
+    "type": "government",
+    "country": "canada",
+    "priority": 1,
+    "beat": ["diplomacy", "iran", "sanctions"],
+    "notes": "Canada's foreign ministry"
+  },
+  {
+    "id": "commons-foreign-affairs",
+    "name": "Standing Committee on Foreign Affairs",
+    "email": "faae@parl.gc.ca",
+    "organization": "House of Commons",
+    "type": "mp",
+    "country": "canada",
+    "priority": 1,
+    "beat": ["foreign-policy", "human-rights", "international"],
+    "notes": "Parliamentary committee on foreign affairs and international development"
+  }
+]
+

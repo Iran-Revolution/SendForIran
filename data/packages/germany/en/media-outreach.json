@@ -1,0 +1,53 @@
+{
+  "id": "de-media-outreach-001",
+  "version": "1.0",
+  "meta": {
+    "type": "awareness",
+    "priority": 1,
+    "created": "2025-01-01T00:00:00.000Z",
+    "updated": "2025-01-10T00:00:00.000Z"
+  },
+  "display": {
+    "title": {
+      "en": "German Media Outreach",
+      "fa": "ارتباط با رسانه‌های آلمان"
+    },
+    "description": {
+      "en": "Contact leading German media including Deutsche Welle's Persian Service. DW reaches millions of Iranians directly and has significant influence.",
+      "fa": "با رسانه‌های پیشرو آلمان از جمله سرویس فارسی دویچه‌وله تماس بگیرید. دویچه‌وله مستقیماً به میلیون‌ها ایرانی می‌رسد."
+    },
+    "keywords": {
+      "en": ["Deutsche Welle", "DW Persian", "Spiegel", "German media", "journalism"],
+      "fa": ["دویچه‌وله", "دویچه‌وله فارسی", "اشپیگل", "رسانه آلمان", "روزنامه‌نگاری"]
+    },
+    "icon": "📡"
+  },
+  "template": {
+    "subject": "Request for Coverage: Iran Human Rights Crisis",
+    "body": "Dear {{recipientName}},\n\nI am writing from {{senderCountry}} to request increased coverage of the humanitarian crisis in Iran.\n\nSince 28 December 2025:\n• Over 51 protesters have been killed by Iranian security forces\n• More than 2,270 people have been detained\n• A nationwide internet blackout has been imposed\n• Live ammunition has been used against peaceful demonstrators\n\nGerman media, particularly Deutsche Welle's Persian Service, plays a crucial role in reaching Iranian audiences directly. Your coverage can:\n\n1. Inform Iranians about what is happening in other cities\n2. Document human rights violations for the international record\n3. Give voice to protesters and their families\n4. Keep international attention on the crisis\n\nI kindly request that you continue and expand coverage of this developing situation.\n\nWith sincere thanks,\nA concerned citizen from {{senderCountry}}",
+    "sources": [
+      {
+        "name": "Iran Human Rights",
+        "url": "https://iranhr.net/en/articles/6500/"
+      },
+      {
+        "name": "Deutsche Welle Persian",
+        "url": "https://www.dw.com/fa-ir"
+      }
+    ]
+  },
+  "recipients": {
+    "ids": ["dw-news", "spiegel-intl", "faz-politics"],
+    "targetingRationale": {
+      "en": "Deutsche Welle's Persian Service reaches millions inside Iran. German media is trusted internationally and can influence EU policy discussions.",
+      "fa": "سرویس فارسی دویچه‌وله به میلیون‌ها نفر در داخل ایران می‌رسد. رسانه‌های آلمان در سطح بین‌المللی مورد اعتماد هستند."
+    },
+    "categories": ["media", "journalist"]
+  },
+  "ui": {
+    "color": "purple",
+    "featured": true,
+    "badge": "FEATURED"
+  }
+}
+

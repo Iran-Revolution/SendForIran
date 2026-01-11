@@ -7,35 +7,57 @@ interface Props {
   recipientCount: number;
   flag: string;
   lang?: SupportedLang;
+  packageCount?: number;
 }
 
-const { country, recipientCount, flag, lang = 'en' } = Astro.props;
+const { country, recipientCount, flag, lang = 'en', packageCount = 2 } = Astro.props;
 const i18n = getTranslations(lang);
 const countryName = i18n.countries[country as keyof typeof i18n.countries] || country;
 const baseUrl = lang === 'en' ? '' : `/${lang}`;
 ---
 
-<Card 
-  href={`${baseUrl}/${country}`} 
-  variant="bordered" 
+<Card
+  variant="bordered"
   padding="lg"
-  class="group min-h-[44px]"
+  class="group min-h-[44px] relative overflow-hidden"
 >
-  <div class="flex items-center gap-md">
+  <!-- Package badge -->
+  {packageCount > 0 && (
+    <div class="absolute top-0 right-0 rtl:right-auto rtl:left-0">
+      <div class="bg-primary/10 text-primary text-xs font-medium px-sm py-xs rounded-bl-lg rtl:rounded-bl-none rtl:rounded-br-lg flex items-center gap-xs">
+        <span>📦</span>
+        <span>{packageCount}</span>
+      </div>
+    </div>
+  )}
+
+  <div class="flex items-center gap-md mb-sm">
     <span class="text-4xl" role="img" aria-label={countryName}>
       {flag}
     </span>
     <div class="flex-1">
-      <h3 class="text-lg font-semibold text-text group-hover:text-primary transition-colors">
+      <h3 class="text-lg font-semibold text-text">
         {countryName}
       </h3>
       <p class="text-sm text-text/60">
         {recipientCount} {i18n.recipients.journalist.toLowerCase()}s
       </p>
     </div>
-    <span class="text-text/40 group-hover:text-primary group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-all">
-      →
-    </span>
+  </div>
+
+  <div class="flex gap-sm">
+    <a
+      href={`${baseUrl}/packages/${country}`}
+      class="flex-1 text-center text-sm py-xs px-sm rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all font-medium"
+    >
+      ⚡ {i18n.home.quickAction}
+    </a>
+    <a
+      href={`${baseUrl}/${country}`}
+      class="flex-1 text-center text-sm py-xs px-sm rounded-lg border border-border text-text/70 hover:border-primary hover:text-primary transition-all"
+    >
+      {i18n.home.customizeYourOwn}
+    </a>
   </div>
 </Card>
 

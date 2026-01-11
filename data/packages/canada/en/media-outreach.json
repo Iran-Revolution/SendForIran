@@ -1,0 +1,53 @@
+{
+  "id": "ca-media-outreach-001",
+  "version": "1.0",
+  "meta": {
+    "type": "awareness",
+    "priority": 1,
+    "created": "2025-01-01T00:00:00.000Z",
+    "updated": "2025-01-10T00:00:00.000Z"
+  },
+  "display": {
+    "title": {
+      "en": "Canadian Media Outreach",
+      "fa": "ارتباط با رسانه‌های کانادا"
+    },
+    "description": {
+      "en": "Contact major Canadian news outlets. Canada has one of the largest Iranian diaspora communities in the world, making this coverage particularly impactful.",
+      "fa": "با رسانه‌های خبری بزرگ کانادا تماس بگیرید. کانادا یکی از بزرگترین جوامع دیاسپورای ایرانی در جهان را دارد که این پوشش را به ویژه تأثیرگذار می‌کند."
+    },
+    "keywords": {
+      "en": ["CBC", "Globe and Mail", "Canadian media", "diaspora", "journalism", "coverage"],
+      "fa": ["سی‌بی‌سی", "گلوب اند میل", "رسانه کانادا", "دیاسپورا", "روزنامه‌نگاری", "پوشش"]
+    },
+    "icon": "🍁"
+  },
+  "template": {
+    "subject": "Request for Coverage: Iran Human Rights Crisis",
+    "body": "Dear {{recipientName}},\n\nI am writing from {{senderCountry}} to request increased coverage of the humanitarian crisis in Iran.\n\nSince December 28, 2025:\n• Over 51 protesters have been killed by Iranian security forces\n• More than 2,270 people have been detained\n• A nationwide internet blackout has been imposed\n• Live ammunition has been used against peaceful demonstrators\n\nCanada is home to one of the largest Iranian diaspora communities in the world. Many Canadian families are directly affected by these events and are desperate for news about loved ones. Your coverage can:\n\n1. Keep the Canadian-Iranian community informed\n2. Document human rights violations\n3. Support calls for Canadian government action\n4. Maintain international attention on the crisis\n\nI respectfully request that you dedicate resources to covering this developing situation.\n\nWith sincere appreciation,\nA concerned citizen from {{senderCountry}}",
+    "sources": [
+      {
+        "name": "Iran Human Rights",
+        "url": "https://iranhr.net/en/articles/6500/"
+      },
+      {
+        "name": "Human Rights Watch",
+        "url": "https://www.hrw.org/news/2025/01/iran-protests"
+      }
+    ]
+  },
+  "recipients": {
+    "ids": ["cbc-news", "globe-mail-world", "ctv-news-intl"],
+    "targetingRationale": {
+      "en": "Canadian media serves a large Iranian-Canadian community. CBC's national reach and the Globe and Mail's influence on policy make them key targets.",
+      "fa": "رسانه‌های کانادایی به جامعه بزرگ ایرانی-کانادایی خدمت می‌کنند. دسترسی ملی سی‌بی‌سی و تأثیر گلوب اند میل بر سیاست آنها را به اهداف کلیدی تبدیل می‌کند."
+    },
+    "categories": ["media", "journalist"]
+  },
+  "ui": {
+    "color": "red",
+    "featured": true,
+    "badge": "FEATURED"
+  }
+}
+

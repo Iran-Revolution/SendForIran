@@ -1,0 +1,126 @@
+---
+/**
+ * Package Selection Page - French version
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Button from '../../../components/ui/Button.astro';
+import Card from '../../../components/ui/Card.astro';
+import PackageSelector from '../../../islands/PackageSelector.tsx';
+import { getTranslations, type SupportedLang } from '../../../lib/i18n';
+import { loadPackagesForCountry, loadRecipientsForCountry } from '../../../lib/packages';
+import { countryCodes } from '../../../lib/data';
+import type { CountryCode } from '../../../types';
+
+export function getStaticPaths() {
+  return countryCodes.map((country) => ({
+    params: { country },
+  }));
+}
+
+interface Props {
+  country: CountryCode;
+}
+
+const { country } = Astro.params as Props;
+const lang: SupportedLang = 'fr';
+const i18n = getTranslations(lang);
+
+const packages = await loadPackagesForCountry(country as CountryCode, lang);
+const recipients = await loadRecipientsForCountry(country as CountryCode);
+
+const countryName = i18n.countries[country as keyof typeof i18n.countries] || country;
+const senderCountryName = countryName;
+const baseUrl = '/fr';
+
+const labels = {
+  preview: i18n.packages.preview,
+  sendNow: i18n.packages.sendNow,
+  sendToAll: i18n.packages.sendToAll,
+  recipients: i18n.packages.recipients,
+  rollDice: i18n.packages.rollDice,
+  rolling: i18n.packages.rolling,
+  close: i18n.packages.close,
+  whyThisPackage: i18n.packages.whyThisPackage,
+  sources: i18n.packages.sources,
+  emailPreview: i18n.packages.emailPreview,
+  viewAsGrid: i18n.packages.viewAsGrid,
+  viewAsDice: i18n.packages.viewAsDice,
+};
+---
+
+<BaseLayout 
+  title={`${i18n.packages.title} - ${countryName}`} 
+  lang={lang} 
+  currentPath={`${baseUrl}/packages/${country}`}
+>
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-xl">
+      <Button href={baseUrl} variant="secondary" class="mb-md text-sm">
+        ← {i18n.actions.back}
+      </Button>
+      
+      <h1 class="text-3xl md:text-4xl font-bold text-text mb-sm">
+        {i18n.packages.title}
+      </h1>
+      <p class="text-xl text-text/70 mb-xs">{countryName}</p>
+      <p class="text-text/50">{i18n.packages.subtitle}</p>
+    </div>
+
+    <div class="flex justify-center mb-lg">
+      <Card variant="bordered" padding="sm" class="inline-flex gap-xs">
+        {countryCodes.map((c) => (
+          <a
+            href={`${baseUrl}/packages/${c}`}
+            class:list={[
+              'px-md py-sm rounded-lg text-sm font-medium transition-all',
+              c === country 
+                ? 'bg-primary text-white' 
+                : 'text-text/50 hover:text-text hover:bg-white/5'
+            ]}
+          >
+            {i18n.countries[c as keyof typeof i18n.countries] || c}
+          </a>
+        ))}
+      </Card>
+    </div>
+
+    {packages.length > 0 ? (
+      <PackageSelector
+        client:load
+        packages={packages}
+        recipients={recipients}
+        country={country as CountryCode}
+        senderCountry={senderCountryName}
+        lang={lang}
+        mode="grid"
+        labels={labels}
+      />
+    ) : (
+      <div class="text-center py-2xl">
+        <div class="text-6xl mb-lg opacity-50">📭</div>
+        <p class="text-text/50 text-xl mb-sm">{i18n.packages.noPackages}</p>
+        <p class="text-text/30">{i18n.packages.checkBack}</p>
+        <Button href={baseUrl} variant="secondary" class="mt-lg">
+          {i18n.actions.back}
+        </Button>
+      </div>
+    )}
+
+    <Card variant="bordered" padding="md" class="mt-xl bg-surface/50">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-md">
+        <div>
+          <h3 class="text-sm font-semibold text-text/70 mb-xs">
+            {i18n.wizard?.tips || 'Conseils'}
+          </h3>
+          <p class="text-sm text-text/50">
+            {i18n.wizard?.tipMultiSelect || 'Essayez différents paquets'}
+          </p>
+        </div>
+        <Button href={`${baseUrl}/${country}`} variant="secondary" class="whitespace-nowrap">
+          {i18n.wizard?.selectCategories || 'Ou créez le vôtre'} →
+        </Button>
+      </div>
+    </Card>
+  </div>
+</BaseLayout>
+
