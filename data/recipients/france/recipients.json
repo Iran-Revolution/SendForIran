@@ -53,6 +53,28 @@
     "priority": 1,
     "beat": ["foreign-policy", "human-rights"],
     "notes": "National Assembly Foreign Affairs Committee"
+  },
+  {
+    "id": "figaro-international",
+    "name": "Le Figaro International",
+    "email": "international@lefigaro.fr",
+    "organization": "Le Figaro",
+    "type": "media",
+    "country": "france",
+    "priority": 1,
+    "beat": ["international", "politics"],
+    "notes": "Major French conservative newspaper"
+  },
+  {
+    "id": "liberation-monde",
+    "name": "Libération Monde",
+    "email": "monde@liberation.fr",
+    "organization": "Libération",
+    "type": "media",
+    "country": "france",
+    "priority": 2,
+    "beat": ["international", "human-rights"],
+    "notes": "French left-leaning daily newspaper"
   }
 ]
 

@@ -53,6 +53,28 @@
     "priority": 1,
     "beat": ["human-rights", "foreign-policy"],
     "notes": "Bundestag Human Rights Committee"
+  },
+  {
+    "id": "zeit-politik",
+    "name": "Die Zeit Politik",
+    "email": "politik@zeit.de",
+    "organization": "Die Zeit",
+    "type": "media",
+    "country": "germany",
+    "priority": 1,
+    "beat": ["politics", "international"],
+    "notes": "Major German weekly newspaper"
+  },
+  {
+    "id": "sz-ausland",
+    "name": "Süddeutsche Zeitung Ausland",
+    "email": "ausland@sueddeutsche.de",
+    "organization": "Süddeutsche Zeitung",
+    "type": "media",
+    "country": "germany",
+    "priority": 1,
+    "beat": ["international", "politics"],
+    "notes": "Germany's largest subscription daily"
   }
 ]
 

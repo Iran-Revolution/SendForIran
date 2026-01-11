@@ -53,6 +53,39 @@
     "priority": 1,
     "beat": ["foreign-policy", "human-rights"],
     "notes": "Parliamentary committee overseeing foreign affairs"
+  },
+  {
+    "id": "bbc-persian",
+    "name": "BBC Persian Service",
+    "email": "persian@bbc.co.uk",
+    "organization": "BBC",
+    "type": "media",
+    "country": "united-kingdom",
+    "priority": 1,
+    "beat": ["iran", "persian-language", "middle-east"],
+    "notes": "BBC's Persian language service with extensive Iran coverage"
+  },
+  {
+    "id": "times-foreign",
+    "name": "The Times Foreign Desk",
+    "email": "foreign.desk@thetimes.co.uk",
+    "organization": "The Times",
+    "type": "media",
+    "country": "united-kingdom",
+    "priority": 2,
+    "beat": ["international", "foreign-affairs"],
+    "notes": "Major British broadsheet newspaper"
+  },
+  {
+    "id": "channel4-news",
+    "name": "Channel 4 News International",
+    "email": "news@channel4.com",
+    "organization": "Channel 4",
+    "type": "media",
+    "country": "united-kingdom",
+    "priority": 2,
+    "beat": ["international", "breaking-news"],
+    "notes": "Award-winning British news program"
   }
 ]
 

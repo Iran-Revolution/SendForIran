@@ -1,0 +1,69 @@
+[
+  {
+    "id": "nyt-iran-desk",
+    "name": "New York Times Iran Desk",
+    "email": "iran@nytimes.com",
+    "organization": "New York Times",
+    "type": "journalist",
+    "country": "united-states",
+    "priority": 1,
+    "beat": ["iran", "middle-east", "international"],
+    "notes": "Leading US newspaper with dedicated Iran coverage"
+  },
+  {
+    "id": "wapo-world",
+    "name": "Washington Post World News",
+    "email": "world@washpost.com",
+    "organization": "Washington Post",
+    "type": "media",
+    "country": "united-states",
+    "priority": 1,
+    "beat": ["international", "politics", "human-rights"],
+    "notes": "Major US newspaper with extensive international coverage"
+  },
+  {
+    "id": "cnn-international",
+    "name": "CNN International Desk",
+    "email": "international@cnn.com",
+    "organization": "CNN",
+    "type": "media",
+    "country": "united-states",
+    "priority": 1,
+    "beat": ["breaking-news", "international", "middle-east"],
+    "notes": "Global 24-hour news network"
+  },
+  {
+    "id": "npr-world",
+    "name": "NPR World Desk",
+    "email": "world@npr.org",
+    "organization": "NPR",
+    "type": "media",
+    "country": "united-states",
+    "priority": 2,
+    "beat": ["international", "human-rights"],
+    "notes": "US public radio with in-depth international reporting"
+  },
+  {
+    "id": "ap-mideast",
+    "name": "AP Middle East Bureau",
+    "email": "mideast@ap.org",
+    "organization": "Associated Press",
+    "type": "media",
+    "country": "united-states",
+    "priority": 1,
+    "beat": ["middle-east", "breaking-news", "iran"],
+    "notes": "Global news agency with Middle East bureau"
+  },
+  {
+    "id": "state-dept-iran",
+    "name": "Office of Iranian Affairs",
+    "email": "IranAffairs@state.gov",
+    "organization": "U.S. Department of State",
+    "type": "government",
+    "country": "united-states",
+    "priority": 2,
+    "beat": ["diplomacy", "iran", "sanctions"],
+    "notes": "Bureau of Near Eastern Affairs - Iran desk"
+  }
+]
+

@@ -53,6 +53,28 @@
     "priority": 1,
     "beat": ["foreign-policy", "human-rights", "international"],
     "notes": "Parliamentary committee on foreign affairs and international development"
+  },
+  {
+    "id": "nationalpost-news",
+    "name": "National Post World News",
+    "email": "newsroom@nationalpost.com",
+    "organization": "National Post",
+    "type": "media",
+    "country": "canada",
+    "priority": 2,
+    "beat": ["international", "politics"],
+    "notes": "Major Canadian national newspaper"
+  },
+  {
+    "id": "torstar-world",
+    "name": "Toronto Star World Desk",
+    "email": "world@thestar.ca",
+    "organization": "Toronto Star",
+    "type": "media",
+    "country": "canada",
+    "priority": 2,
+    "beat": ["international", "human-rights"],
+    "notes": "Canada's largest daily newspaper"
   }
 ]
 
