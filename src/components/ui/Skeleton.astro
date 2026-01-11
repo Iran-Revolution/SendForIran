@@ -1,0 +1,36 @@
+---
+/**
+ * Skeleton - Loading placeholder with pulse animation
+ * Luxury glass-morphism skeleton for elegant loading states
+ */
+interface Props {
+  variant?: 'text' | 'title' | 'card' | 'badge' | 'button';
+  class?: string;
+  width?: string;
+}
+
+const { 
+  variant = 'text', 
+  class: className = '',
+  width
+} = Astro.props;
+
+const variants = {
+  text: 'h-4 rounded',
+  title: 'h-6 rounded',
+  card: 'h-48 rounded-lg',
+  badge: 'h-5 w-16 rounded-full',
+  button: 'h-10 rounded-lg'
+};
+---
+
+<div
+  class:list={[
+    'animate-pulse bg-white/5',
+    variants[variant],
+    className
+  ]}
+  style={width ? `width: ${width}` : undefined}
+  aria-hidden="true"
+/>
+

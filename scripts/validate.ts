@@ -1,142 +1,98 @@
-/**
- * JSON Schema Validation Script for SendForIran
- * Validates all data files against defined Zod schemas
- */
-
 import { z } from 'zod';
 import * as fs from 'fs';
 import * as path from 'path';
 
-// Recipient Schema
+const RECIPIENT_TYPES = ['journalist', 'media', 'government', 'mp'] as const;
+const COUNTRIES = ['united-states', 'united-kingdom', 'germany', 'france', 'canada'] as const;
+const PACKAGE_TYPES = ['urgent', 'awareness', 'action', 'sanctions'] as const;
+const COLORS = ['blue', 'red', 'green', 'purple', 'amber', 'emerald'] as const;
+const BADGES = ['NEW', 'TRENDING', 'FEATURED', 'HIGH_IMPACT', 'URGENT'] as const;
+
+const SourceSchema = z.object({ name: z.string().min(1), url: z.string().url() });
+const VariationSchema = z.object({ subject: z.string().min(1), body: z.string().min(1) });
+const LocalizedSchema = z.object({ en: z.string().min(1), fa: z.string().optional(), de: z.string().optional(), fr: z.string().optional() });
+const LocalizedKeywordsSchema = z.object({ en: z.array(z.string()).min(1), fa: z.array(z.string()).optional(), de: z.array(z.string()).optional(), fr: z.array(z.string()).optional() });
+
 const RecipientSchema = z.object({
-  id: z.string().min(1),
-  name: z.string().min(1),
-  title: z.string().min(1),
-  organization: z.string().min(1),
-  type: z.enum(['journalist', 'media', 'government', 'mp']),
-  email: z.string().email(),
-  country: z.enum(['united-states', 'united-kingdom', 'germany', 'france', 'canada']),
-  priority: z.union([z.literal(1), z.literal(2), z.literal(3)])
+  id: z.string().min(1), name: z.string().min(1), title: z.string().optional(),
+  organization: z.string().min(1), type: z.enum(RECIPIENT_TYPES), email: z.string().email(),
+  country: z.enum(COUNTRIES), priority: z.union([z.literal(1), z.literal(2), z.literal(3)]),
+  beat: z.array(z.string()).optional(), notes: z.string().optional()
 });
 
-const RecipientFileSchema = z.object({
-  recipients: z.array(RecipientSchema).min(5)
-});
-
-// Template Schema
-const SourceSchema = z.object({
-  name: z.string().min(1),
-  url: z.string().url()
-});
-
-const VariationSchema = z.object({
-  subject: z.string().min(1),
-  body: z.string().min(1)
-});
+const RecipientFileSchema = z.union([
+  z.object({ recipients: z.array(RecipientSchema).min(1) }),
+  z.array(RecipientSchema).min(1)
+]);
 
 const TemplateSchema = z.object({
-  id: z.string().min(1),
-  type: z.enum(['urgent', 'awareness', 'action', 'sanctions']),
-  recipientTypes: z.array(z.enum(['journalist', 'media', 'government', 'mp'])).min(1),
-  subject: z.string().min(1),
-  body: z.string().min(1),
-  variations: z.array(VariationSchema).min(2),
-  sources: z.array(SourceSchema).min(1)
+  id: z.string().min(1), type: z.enum(PACKAGE_TYPES),
+  recipientTypes: z.array(z.enum(RECIPIENT_TYPES)).min(1),
+  subject: z.string().min(1), body: z.string().min(1),
+  variations: z.array(VariationSchema).min(2), sources: z.array(SourceSchema).min(1)
 });
 
-// i18n Schema
 const I18nSchema = z.object({
-  meta: z.object({
-    lang: z.string().min(2),
-    dir: z.enum(['ltr', 'rtl']),
-    title: z.string().min(1),
-    description: z.string().min(1)
-  }),
-  home: z.record(z.string()),
-  actions: z.record(z.string()),
-  countries: z.record(z.string())
+  meta: z.object({ lang: z.string().min(2), dir: z.enum(['ltr', 'rtl']), title: z.string().min(1), description: z.string().min(1) }),
+  home: z.record(z.string()), actions: z.record(z.string()), countries: z.record(z.string())
 });
 
-// Validation functions
-function validateFile<T>(
-  filePath: string, 
-  schema: z.ZodType<T>, 
-  label: string
-): boolean {
+const EmailPackageSchema = z.object({
+  id: z.string().min(1), version: z.string().min(1),
+  meta: z.object({
+    type: z.enum(PACKAGE_TYPES), priority: z.union([z.literal(1), z.literal(2), z.literal(3)]),
+    created: z.string().refine(v => !isNaN(Date.parse(v))),
+    updated: z.string().refine(v => !isNaN(Date.parse(v)))
+  }),
+  display: z.object({ title: LocalizedSchema, description: LocalizedSchema, keywords: LocalizedKeywordsSchema, icon: z.string().min(1) }),
+  template: z.object({ subject: z.string().min(1), body: z.string().min(10), variations: z.array(VariationSchema).optional().default([]), sources: z.array(SourceSchema).min(1) }),
+  recipients: z.object({ ids: z.array(z.string()).min(1), targetingRationale: LocalizedSchema, categories: z.array(z.enum(RECIPIENT_TYPES)).min(1) }),
+  ui: z.object({ color: z.enum(COLORS), featured: z.boolean(), badge: z.enum(BADGES).nullable().optional() })
+});
+
+function validateFile<T>(filePath: string, schema: z.ZodType<T>, label: string): boolean {
   try {
-    const content = fs.readFileSync(filePath, 'utf-8');
-    const data = JSON.parse(content);
-    schema.parse(data);
+    schema.parse(JSON.parse(fs.readFileSync(filePath, 'utf-8')));
     console.log(`✅ ${label}: ${filePath}`);
     return true;
   } catch (error) {
     console.error(`❌ ${label}: ${filePath}`);
-    if (error instanceof z.ZodError) {
-      error.errors.forEach(e => console.error(`   - ${e.path.join('.')}: ${e.message}`));
-    } else {
-      console.error(`   - ${error}`);
-    }
+    if (error instanceof z.ZodError) error.errors.forEach(e => console.error(`   - ${e.path.join('.')}: ${e.message}`));
+    else console.error(`   - ${error}`);
     return false;
   }
 }
 
 function findJsonFiles(dir: string): string[] {
-  const files: string[] = [];
-  if (!fs.existsSync(dir)) return files;
-  
-  const items = fs.readdirSync(dir, { withFileTypes: true });
-  for (const item of items) {
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap(item => {
     const fullPath = path.join(dir, item.name);
-    if (item.isDirectory()) {
-      files.push(...findJsonFiles(fullPath));
-    } else if (item.name.endsWith('.json')) {
-      files.push(fullPath);
-    }
-  }
-  return files;
+    return item.isDirectory() ? findJsonFiles(fullPath) : item.name.endsWith('.json') ? [fullPath] : [];
+  });
 }
 
-// Main validation
 async function main(): Promise<void> {
   console.log('🔍 Validating SendForIran data files...\n');
   let allValid = true;
+  const cwd = process.cwd();
 
-  // Validate recipients
-  console.log('📋 Recipients:');
-  const recipientDir = path.join(process.cwd(), 'data/recipients');
-  const recipientFiles = findJsonFiles(recipientDir);
-  for (const file of recipientFiles) {
-    if (!validateFile(file, RecipientFileSchema, 'Recipient')) allValid = false;
-  }
-  console.log();
+  const configs = [
+    { dir: 'data/recipients', schema: RecipientFileSchema, label: '📋 Recipients', type: 'Recipient' },
+    { dir: 'data/templates', schema: TemplateSchema, label: '📝 Templates', type: 'Template' },
+    { dir: 'data/i18n', schema: I18nSchema, label: '🌍 i18n', type: 'i18n' },
+    { dir: 'data/packages', schema: EmailPackageSchema, label: '📦 Packages', type: 'Package' }
+  ];
 
-  // Validate templates
-  console.log('📝 Templates:');
-  const templateDir = path.join(process.cwd(), 'data/templates');
-  const templateFiles = findJsonFiles(templateDir);
-  for (const file of templateFiles) {
-    if (!validateFile(file, TemplateSchema, 'Template')) allValid = false;
+  for (const { dir, schema, label, type } of configs) {
+    console.log(`${label}:`);
+    for (const file of findJsonFiles(path.join(cwd, dir))) {
+      if (!validateFile(file, schema, type)) allValid = false;
+    }
+    console.log();
   }
-  console.log();
 
-  // Validate i18n
-  console.log('🌍 i18n:');
-  const i18nDir = path.join(process.cwd(), 'data/i18n');
-  const i18nFiles = findJsonFiles(i18nDir);
-  for (const file of i18nFiles) {
-    if (!validateFile(file, I18nSchema, 'i18n')) allValid = false;
-  }
-  console.log();
-
-  // Summary
-  if (allValid) {
-    console.log('✅ All validations passed!');
-    process.exit(0);
-  } else {
-    console.error('❌ Some validations failed.');
-    process.exit(1);
-  }
+  console.log(allValid ? '✅ All validations passed!' : '❌ Some validations failed.');
+  process.exit(allValid ? 0 : 1);
 }
 
 main();
-

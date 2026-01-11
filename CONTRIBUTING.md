@@ -37,38 +37,60 @@ An Email Package bundles a template with pre-matched recipients for one-click se
 
 1. Fork this repository
 2. Create file: `data/packages/{country}/{lang}/{package-name}.json`
-3. Follow this schema:
+3. Follow this schema (see `src/types/package.ts` for full TypeScript interface):
 
 ```json
 {
-  "id": "country-package-name",
-  "name": { "en": "Package Name", "fa": "نام بسته" },
-  "description": { "en": "Brief description", "fa": "توضیح کوتاه" },
+  "id": "us-awareness-example",
+  "version": "1.0",
+  "meta": {
+    "type": "awareness",
+    "priority": 2,
+    "created": "2026-01-11",
+    "updated": "2026-01-11"
+  },
+  "display": {
+    "title": { "en": "Package Title", "fa": "عنوان بسته" },
+    "description": { "en": "Brief description", "fa": "توضیحات کوتاه" },
+    "keywords": { "en": ["iran", "human-rights"], "fa": ["ایران"] },
+    "icon": "📧"
+  },
   "template": {
     "subject": "Subject with {{recipientName}}",
     "body": "Email body...\n\nSincerely,\nA {{senderCountry}} resident",
-    "variations": [{ "subject": "Alt subject", "body": "Alt body" }]
+    "variations": [],
+    "sources": [{ "name": "Iran Human Rights", "url": "https://iranhr.net" }]
   },
-  "recipientIds": ["recipient-id-1", "recipient-id-2"],
-  "sources": [{ "name": "Iran Human Rights", "url": "https://iranhr.net" }]
+  "recipients": {
+    "ids": ["recipient-id-1", "recipient-id-2"],
+    "targetingRationale": { "en": "Why these recipients", "fa": "چرا این گیرندگان" },
+    "categories": ["journalist", "media"]
+  },
+  "ui": {
+    "color": "blue",
+    "featured": false,
+    "badge": null
+  }
 }
 ```
 
-**Requirements:**
-- `sources` array is **MANDATORY** - cite HRW, Amnesty, IranHR, etc.
-- `recipientIds` must reference existing IDs in `data/recipients/{country}.json`
-- Include `name` and `description` in multiple languages (at least `en`)
-- Use placeholders: `{{recipientName}}`, `{{senderCountry}}`
+**Required Fields:**
+| Field | Description |
+|-------|-------------|
+| `template.sources` | **MANDATORY** - cite HRW, Amnesty, IranHR, etc. |
+| `recipients.ids` | Must reference IDs in `data/recipients/{country}/*.json` |
+| `display.title.en` | English title required |
+| `meta.type` | One of: `urgent`, `awareness`, `action`, `sanctions` |
+| `ui.color` | One of: `blue`, `red`, `green`, `purple`, `amber`, `emerald` |
 
-**Good Package Pairings:**
-| Template Type | Best Recipients |
-|--------------|-----------------|
-| Media coverage request | Journalists, news editors |
-| Congressional action | MPs, government officials |
-| Sanctions support | Government officials |
-| Awareness | Media organizations |
+**Optional Fields:**
+| Field | Values |
+|-------|--------|
+| `ui.badge` | `NEW`, `TRENDING`, `FEATURED`, `HIGH_IMPACT`, `URGENT` |
+| `template.variations` | Array of alternate subject/body pairs |
 
-4. Submit PR with source citations
+4. Run `pnpm validate` to check your JSON
+5. Submit PR with source citations
 
 ### Add a Translation
 
