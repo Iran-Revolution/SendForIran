@@ -28,7 +28,47 @@
     "confirm": "تایید",
     "back": "بازگشت",
     "next": "بعدی",
-    "learnMore": "بیشتر بدانید"
+    "learnMore": "بیشتر بدانید",
+    "selectAll": "انتخاب همه",
+    "clearAll": "پاک کردن همه",
+    "selected": "انتخاب شده",
+    "search": "جستجو",
+    "filter": "فیلتر",
+    "compose": "نوشتن ایمیل",
+    "selectAtLeastOneRecipient": "حداقل یک گیرنده را برای ادامه انتخاب کنید",
+    "selectAtLeastOneTemplate": "یک قالب را برای ادامه انتخاب کنید"
+  },
+  "wizard": {
+    "step1": "کشور",
+    "step2": "دسته‌بندی‌ها",
+    "step3": "گیرندگان",
+    "step4": "قالب",
+    "step5": "نوشتن",
+    "selectCategory": "انتخاب دسته‌بندی گیرنده",
+    "selectCategories": "انتخاب دسته‌بندی‌های گیرندگان",
+    "categoryDesc": "انتخاب کنید با چه کسانی می‌خواهید تماس بگیرید",
+    "categoryDescMulti": "یک یا چند دسته‌بندی را انتخاب کنید تا به مخاطبان بیشتری دسترسی داشته باشید",
+    "categoriesSelected": "دسته‌بندی انتخاب شده",
+    "selectAtLeastOne": "حداقل یک دسته‌بندی انتخاب کنید",
+    "selectRecipients": "انتخاب گیرندگان",
+    "recipientsInCategory": "گیرنده",
+    "noRecipients": "گیرنده‌ای در این دسته‌بندی نیست",
+    "noTemplates": "قالبی برای این دسته‌بندی‌ها موجود نیست",
+    "templatesAvailable": "قالب موجود",
+    "tips": "نکات",
+    "tipMultiSelect": "چند دسته‌بندی را انتخاب کنید تا به مخاطبان بیشتری دسترسی داشته باشید",
+    "tipJournalists": "روزنامه‌نگاران به داستان‌های انسانی و زوایای خبری جذاب واکنش بهتری نشان می‌دهند",
+    "tipGovernment": "مقامات دولتی ممکن است به پیام‌های رسمی و سیاست‌محور نیاز داشته باشند"
+  },
+  "categories": {
+    "journalist": "روزنامه‌نگاران",
+    "media": "رسانه‌ها",
+    "government": "مقامات دولتی",
+    "mp": "نمایندگان مجلس",
+    "journalistDesc": "با خبرنگاران و خبرگزاری‌های بین‌المللی ارتباط برقرار کنید",
+    "mediaDesc": "با سازمان‌های خبری و تیم‌های سردبیری تماس بگیرید",
+    "governmentDesc": "به دیپلمات‌ها و دفاتر امور دولتی بنویسید",
+    "mpDesc": "به نمایندگان منتخب و قانونگذاران ایمیل بزنید"
   },
   "countries": {
     "united-states": "ایالات متحده",
@@ -44,7 +84,9 @@
     "sanctions": "تحریم‌ها",
     "forMedia": "برای رسانه‌ها",
     "forGovernment": "برای دولت",
-    "forJournalists": "برای روزنامه‌نگاران"
+    "forJournalists": "برای روزنامه‌نگاران",
+    "previewTemplate": "پیش‌نمایش قالب",
+    "selectThisTemplate": "استفاده از این قالب"
   },
   "recipients": {
     "journalist": "روزنامه‌نگار",
@@ -55,6 +97,12 @@
     "highPriority": "اولویت بالا",
     "mediumPriority": "اولویت متوسط",
     "lowPriority": "اولویت پایین"
+  },
+  "compose": {
+    "recipientsSummary": "خلاصه گیرندگان",
+    "emailPreview": "پیش‌نمایش ایمیل",
+    "sendToAll": "ارسال به همه",
+    "copyAll": "کپی همه ایمیل‌ها"
   },
   "footer": {
     "privacy": "حریم خصوصی",
@@ -67,7 +115,10 @@
     "skipToContent": "رفتن به محتوای اصلی",
     "menuToggle": "تغییر وضعیت منو",
     "languageSelect": "انتخاب زبان",
-    "closeModal": "بستن پنجره"
+    "closeModal": "بستن پنجره",
+    "selectRecipient": "انتخاب گیرنده",
+    "deselectRecipient": "لغو انتخاب گیرنده",
+    "wizardProgress": "پیشرفت مراحل"
   },
   "errors": {
     "emailFailed": "خطا در باز کردن برنامه ایمیل",

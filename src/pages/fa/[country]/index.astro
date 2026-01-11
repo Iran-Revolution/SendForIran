@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import RecipientCard from '../../../components/RecipientCard.astro';
-import TemplateCard from '../../../components/TemplateCard.astro';
-import EmailComposer from '../../../components/EmailComposer.astro';
+import WizardProgress from '../../../components/WizardProgress.astro';
+import CategorySelector from '../../../islands/CategorySelector.tsx';
 import Button from '../../../components/ui/Button.astro';
+import Card from '../../../components/ui/Card.astro';
 import { getTranslations, type SupportedLang } from '../../../lib/i18n';
-import { getRecipients, getTemplates, getSenderCountryName, countryCodes } from '../../../lib/data';
-import type { CountryCode } from '../../../types';
+import { getCategoryCounts, countryCodes, allCategories } from '../../../lib/data';
+import type { CountryCode, RecipientCategory } from '../../../types';
 
 export function getStaticPaths() {
   return countryCodes.map((country) => ({
@@ -22,105 +22,72 @@ const { country } = Astro.params as Props;
 const lang: SupportedLang = 'fa';
 const i18n = getTranslations(lang);
 
-// Load data - templates remain in country's native language (EN/DE/FR)
-const recipients = await getRecipients(country);
-const templates = await getTemplates(country, 'en');
-
 const countryName = i18n.countries[country as keyof typeof i18n.countries] || country;
-const senderCountryName = getSenderCountryName(country as CountryCode, lang);
+const categoryCounts = await getCategoryCounts(country);
+const totalRecipients = Object.values(categoryCounts).reduce((a, b) => a + b, 0);
+const baseUrl = `/${lang}`;
 
-// Default selections for static rendering
-const defaultRecipient = recipients[0];
-const defaultTemplate = templates[0];
+// Build category data for the selector
+const categoryData = allCategories.map((cat: RecipientCategory) => ({
+  id: cat,
+  label: i18n.categories[cat as keyof typeof i18n.categories] || cat,
+  description: i18n.categories[`${cat}Desc` as keyof typeof i18n.categories] || '',
+  icon: cat === 'journalist' ? '📰' : cat === 'media' ? '📺' : cat === 'government' ? '🏛️' : '🗳️',
+  count: categoryCounts[cat],
+  color: cat,
+}));
+
+const labels = {
+  selectCategories: i18n.wizard.selectCategories || 'انتخاب دسته‌بندی‌ها',
+  categoriesSelected: i18n.wizard.categoriesSelected || 'دسته‌بندی انتخاب شده',
+  continue: i18n.actions.next || 'ادامه',
+  selectAtLeastOne: i18n.wizard.selectAtLeastOne || 'حداقل یک دسته‌بندی انتخاب کنید',
+};
 ---
 
 <BaseLayout title={countryName} lang={lang} currentPath={`/fa/${country}`}>
-  <div class="max-w-7xl mx-auto">
+  <div class="max-w-4xl mx-auto">
+    <WizardProgress currentStep="category" lang={lang} country={country} />
+
     <!-- Header -->
-    <div class="mb-lg">
+    <div class="text-center mb-lg">
       <Button href="/fa" variant="secondary" class="mb-md text-sm">
-        {i18n.actions.back} →
+        {i18n.actions.back} ←
       </Button>
       <h1 class="text-3xl md:text-4xl font-bold text-text mb-sm">
         {countryName}
       </h1>
-      <p class="text-text/60">
-        {recipients.length} مخاطب • {templates.length} قالب موجود
+      <p class="text-xl text-text/70 mb-xs">
+        {i18n.wizard.selectCategories}
+      </p>
+      <p class="text-text/50">
+        {i18n.wizard.categoryDescMulti} • {totalRecipients} {i18n.wizard.recipientsInCategory}
       </p>
     </div>
 
-    <!-- Two Column Layout -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-lg mb-xl">
-      <!-- Recipients Column -->
-      <section>
-        <h2 class="text-xl font-semibold text-text mb-md flex items-center gap-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-          </svg>
-          {i18n.actions.selectRecipient}
-        </h2>
-        <div class="space-y-sm max-h-[600px] overflow-y-auto ps-sm">
-          {recipients.map((recipient, index) => (
-            <div data-recipient-index={index}>
-              <RecipientCard 
-                recipient={recipient} 
-                selected={index === 0}
-                lang={lang} 
-              />
-            </div>
-          ))}
-        </div>
-      </section>
+    <!-- Category Selector -->
+    <CategorySelector
+      client:load
+      categories={categoryData}
+      country={country}
+      baseUrl={baseUrl}
+      labels={labels}
+    />
 
-      <!-- Templates Column -->
-      <section>
-        <h2 class="text-xl font-semibold text-text mb-md flex items-center gap-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
-          </svg>
-          {i18n.actions.selectTemplate}
-        </h2>
-        <div class="space-y-sm max-h-[600px] overflow-y-auto ps-sm">
-          {templates.map((template, index) => (
-            <div data-template-index={index}>
-              <TemplateCard 
-                template={template} 
-                selected={index === 0}
-                lang={lang} 
-              />
-            </div>
-          ))}
-        </div>
-      </section>
-    </div>
-
-    <!-- Email Composer -->
-    {defaultRecipient && defaultTemplate && (
-      <section class="mt-lg">
-        <h2 class="text-xl font-semibold text-text mb-md flex items-center gap-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-          </svg>
-          {i18n.actions.preview}
-        </h2>
-        <EmailComposer
-          recipient={defaultRecipient}
-          template={defaultTemplate}
-          senderCountry={senderCountryName}
-          lang={lang}
-        />
-      </section>
-    )}
-
-    {(!defaultRecipient || !defaultTemplate) && (
-      <div class="text-center py-xl text-text/60">
-        <p>هنوز گیرنده یا قالبی برای این کشور موجود نیست.</p>
-        <Button href="/fa" variant="secondary" class="mt-md">
-          {i18n.actions.back}
-        </Button>
-      </div>
-    )}
+    <!-- Quick tips -->
+    <Card variant="bordered" padding="md" class="mt-xl bg-surface/50">
+      <h3 class="text-sm font-semibold text-text/70 mb-sm flex items-center gap-xs">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+        </svg>
+        {i18n.wizard.tips || 'نکات'}
+      </h3>
+      <ul class="text-sm text-text/50 space-y-xs">
+        <li>• {i18n.wizard.tipMultiSelect}</li>
+        <li>• {i18n.wizard.tipJournalists}</li>
+        <li>• {i18n.wizard.tipGovernment}</li>
+      </ul>
+    </Card>
   </div>
 </BaseLayout>
 

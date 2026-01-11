@@ -3,7 +3,7 @@
  * Uses import.meta.glob for dynamic JSON loading at build time
  */
 
-import type { Recipient, RecipientFile, Template, TemplateFile, CountryCode } from '../types';
+import type { Recipient, RecipientFile, Template, TemplateFile, CountryCode, RecipientCategory } from '../types';
 
 /** Country display information */
 export interface Country {
@@ -137,5 +137,118 @@ export function getSenderCountryName(code: CountryCode, _lang: string = 'en'): s
     'canada': 'Canada',
   };
   return names[code] || code;
+}
+
+/** All supported categories */
+export const allCategories: RecipientCategory[] = ['journalist', 'media', 'government', 'mp'];
+
+/**
+ * Get recipients filtered by category
+ */
+export async function getRecipientsByCategory(
+  country: string,
+  category: RecipientCategory
+): Promise<Recipient[]> {
+  const allRecipients = await getRecipients(country);
+  return allRecipients.filter((r) => r.type === category);
+}
+
+/**
+ * Get recipient counts by category for a country
+ */
+export async function getCategoryCounts(
+  country: string
+): Promise<Record<RecipientCategory, number>> {
+  const recipients = await getRecipients(country);
+  const counts: Record<RecipientCategory, number> = {
+    journalist: 0,
+    media: 0,
+    government: 0,
+    mp: 0,
+  };
+  recipients.forEach((r) => {
+    if (r.type in counts) counts[r.type]++;
+  });
+  return counts;
+}
+
+/**
+ * Get templates filtered by recipient type
+ */
+export async function getTemplatesForCategory(
+  country: string,
+  lang: string,
+  category: RecipientCategory
+): Promise<Template[]> {
+  const allTemplates = await getTemplates(country, lang);
+  return allTemplates.filter((t) => t.recipientTypes.includes(category));
+}
+
+/**
+ * Get recipients filtered by multiple categories
+ */
+export async function getRecipientsByCategories(
+  country: string,
+  categories: RecipientCategory[]
+): Promise<Recipient[]> {
+  const allRecipients = await getRecipients(country);
+  return allRecipients.filter((r) => categories.includes(r.type));
+}
+
+/**
+ * Get templates that match any of the given categories
+ */
+export async function getTemplatesForCategories(
+  country: string,
+  lang: string,
+  categories: RecipientCategory[]
+): Promise<Template[]> {
+  const allTemplates = await getTemplates(country, lang);
+  return allTemplates.filter((t) =>
+    t.recipientTypes.some((type) => categories.includes(type))
+  );
+}
+
+/**
+ * Parse comma-separated category string into array
+ */
+export function parseCategories(categoryString: string): RecipientCategory[] {
+  return categoryString
+    .split(',')
+    .map(c => c.trim() as RecipientCategory)
+    .filter(c => allCategories.includes(c));
+}
+
+/**
+ * Generate all possible category combinations for static paths
+ */
+export function getAllCategoryCombinations(): string[] {
+  const combinations: string[] = [];
+
+  // Single categories
+  for (const cat of allCategories) {
+    combinations.push(cat);
+  }
+
+  // Two category combinations
+  for (let i = 0; i < allCategories.length; i++) {
+    for (let j = i + 1; j < allCategories.length; j++) {
+      combinations.push(`${allCategories[i]},${allCategories[j]}`);
+    }
+  }
+
+  // Three category combinations
+  for (let i = 0; i < allCategories.length; i++) {
+    for (let j = i + 1; j < allCategories.length; j++) {
+      for (let k = j + 1; k < allCategories.length; k++) {
+        combinations.push(`${allCategories[i]},${allCategories[j]},${allCategories[k]}`);
+      }
+    }
+  }
+
+  // All four categories
+  combinations.push(allCategories.join(','));
+
+  return combinations;
 }
 

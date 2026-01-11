@@ -28,7 +28,47 @@
     "confirm": "Confirm",
     "back": "Back",
     "next": "Next",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "selectAll": "Select All",
+    "clearAll": "Clear All",
+    "selected": "selected",
+    "search": "Search",
+    "filter": "Filter",
+    "compose": "Compose Email",
+    "selectAtLeastOneRecipient": "Select at least one recipient to continue",
+    "selectAtLeastOneTemplate": "Select a template to continue"
+  },
+  "wizard": {
+    "step1": "Country",
+    "step2": "Categories",
+    "step3": "Recipients",
+    "step4": "Template",
+    "step5": "Compose",
+    "selectCategory": "Select Recipient Category",
+    "selectCategories": "Select Recipient Categories",
+    "categoryDesc": "Choose who you want to contact",
+    "categoryDescMulti": "Select one or more categories to reach a broader audience",
+    "categoriesSelected": "categories selected",
+    "selectAtLeastOne": "Select at least one category",
+    "selectRecipients": "Select Recipients",
+    "recipientsInCategory": "recipients",
+    "noRecipients": "No recipients in this category",
+    "noTemplates": "No templates available for these categories",
+    "templatesAvailable": "templates available",
+    "tips": "Tips",
+    "tipMultiSelect": "Select multiple categories to reach a broader audience",
+    "tipJournalists": "Journalists respond well to newsworthy angles and human stories",
+    "tipGovernment": "Government officials may require more formal, policy-focused messaging"
+  },
+  "categories": {
+    "journalist": "Journalists",
+    "media": "Media Outlets",
+    "government": "Government Officials",
+    "mp": "Members of Parliament",
+    "journalistDesc": "Reach out to reporters and correspondents covering international news",
+    "mediaDesc": "Contact news organizations and their editorial teams",
+    "governmentDesc": "Write to diplomats and government affairs offices",
+    "mpDesc": "Email elected representatives and legislators"
   },
   "countries": {
     "united-states": "United States",
@@ -44,7 +84,9 @@
     "sanctions": "Sanctions",
     "forMedia": "For Media",
     "forGovernment": "For Government",
-    "forJournalists": "For Journalists"
+    "forJournalists": "For Journalists",
+    "previewTemplate": "Preview Template",
+    "selectThisTemplate": "Use This Template"
   },
   "recipients": {
     "journalist": "Journalist",
@@ -55,6 +97,12 @@
     "highPriority": "High Priority",
     "mediumPriority": "Medium Priority",
     "lowPriority": "Low Priority"
+  },
+  "compose": {
+    "recipientsSummary": "Recipients Summary",
+    "emailPreview": "Email Preview",
+    "sendToAll": "Send to All",
+    "copyAll": "Copy All Emails"
   },
   "footer": {
     "privacy": "Privacy",
@@ -67,7 +115,10 @@
     "skipToContent": "Skip to main content",
     "menuToggle": "Toggle menu",
     "languageSelect": "Select language",
-    "closeModal": "Close modal"
+    "closeModal": "Close modal",
+    "selectRecipient": "Select recipient",
+    "deselectRecipient": "Deselect recipient",
+    "wizardProgress": "Wizard progress"
   },
   "errors": {
     "emailFailed": "Failed to open email client",

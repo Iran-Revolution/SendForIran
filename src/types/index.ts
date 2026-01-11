@@ -19,3 +19,12 @@ export type {
   CountryCode
 } from './recipient';
 
+export type {
+  WizardStep,
+  CategoryInfo,
+  WizardState,
+  WizardStepProps
+} from './wizard';
+
+export { categoryMeta, allCategories } from './wizard';
+

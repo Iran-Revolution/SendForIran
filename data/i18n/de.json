@@ -28,7 +28,47 @@
     "confirm": "Bestätigen",
     "back": "Zurück",
     "next": "Weiter",
-    "learnMore": "Mehr erfahren"
+    "learnMore": "Mehr erfahren",
+    "selectAll": "Alle auswählen",
+    "clearAll": "Alle löschen",
+    "selected": "ausgewählt",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "compose": "E-Mail verfassen",
+    "selectAtLeastOneRecipient": "Wählen Sie mindestens einen Empfänger aus, um fortzufahren",
+    "selectAtLeastOneTemplate": "Wählen Sie eine Vorlage aus, um fortzufahren"
+  },
+  "wizard": {
+    "step1": "Land",
+    "step2": "Kategorien",
+    "step3": "Empfänger",
+    "step4": "Vorlage",
+    "step5": "Verfassen",
+    "selectCategory": "Empfängerkategorie auswählen",
+    "selectCategories": "Empfängerkategorien auswählen",
+    "categoryDesc": "Wählen Sie, wen Sie kontaktieren möchten",
+    "categoryDescMulti": "Wählen Sie eine oder mehrere Kategorien, um mehr Menschen zu erreichen",
+    "categoriesSelected": "Kategorien ausgewählt",
+    "selectAtLeastOne": "Wählen Sie mindestens eine Kategorie",
+    "selectRecipients": "Empfänger auswählen",
+    "recipientsInCategory": "Empfänger",
+    "noRecipients": "Keine Empfänger in dieser Kategorie",
+    "noTemplates": "Keine Vorlagen für diese Kategorien verfügbar",
+    "templatesAvailable": "Vorlagen verfügbar",
+    "tips": "Tipps",
+    "tipMultiSelect": "Wählen Sie mehrere Kategorien, um ein breiteres Publikum zu erreichen",
+    "tipJournalists": "Journalisten reagieren gut auf berichtenswerte Themen und menschliche Geschichten",
+    "tipGovernment": "Regierungsbeamte benötigen möglicherweise formellere, politikorientierte Nachrichten"
+  },
+  "categories": {
+    "journalist": "Journalisten",
+    "media": "Medienunternehmen",
+    "government": "Regierungsbeamte",
+    "mp": "Abgeordnete",
+    "journalistDesc": "Kontaktieren Sie Reporter und Korrespondenten für internationale Nachrichten",
+    "mediaDesc": "Kontaktieren Sie Nachrichtenorganisationen und ihre Redaktionen",
+    "governmentDesc": "Schreiben Sie an Diplomaten und Regierungsstellen",
+    "mpDesc": "E-Mail an gewählte Vertreter und Gesetzgeber"
   },
   "countries": {
     "united-states": "Vereinigte Staaten",
@@ -44,7 +84,9 @@
     "sanctions": "Sanktionen",
     "forMedia": "Für Medien",
     "forGovernment": "Für Regierung",
-    "forJournalists": "Für Journalisten"
+    "forJournalists": "Für Journalisten",
+    "previewTemplate": "Vorlage ansehen",
+    "selectThisTemplate": "Diese Vorlage verwenden"
   },
   "recipients": {
     "journalist": "Journalist",
@@ -55,6 +97,12 @@
     "highPriority": "Hohe Priorität",
     "mediumPriority": "Mittlere Priorität",
     "lowPriority": "Niedrige Priorität"
+  },
+  "compose": {
+    "recipientsSummary": "Empfängerübersicht",
+    "emailPreview": "E-Mail-Vorschau",
+    "sendToAll": "An alle senden",
+    "copyAll": "Alle E-Mails kopieren"
   },
   "footer": {
     "privacy": "Datenschutz",

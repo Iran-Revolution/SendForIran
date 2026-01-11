@@ -28,7 +28,47 @@
     "confirm": "Confirmer",
     "back": "Retour",
     "next": "Suivant",
-    "learnMore": "En savoir plus"
+    "learnMore": "En savoir plus",
+    "selectAll": "Tout sélectionner",
+    "clearAll": "Tout effacer",
+    "selected": "sélectionné(s)",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "compose": "Rédiger l'e-mail",
+    "selectAtLeastOneRecipient": "Sélectionnez au moins un destinataire pour continuer",
+    "selectAtLeastOneTemplate": "Sélectionnez un modèle pour continuer"
+  },
+  "wizard": {
+    "step1": "Pays",
+    "step2": "Catégories",
+    "step3": "Destinataires",
+    "step4": "Modèle",
+    "step5": "Rédiger",
+    "selectCategory": "Sélectionner la catégorie de destinataires",
+    "selectCategories": "Sélectionner les catégories de destinataires",
+    "categoryDesc": "Choisissez qui vous souhaitez contacter",
+    "categoryDescMulti": "Sélectionnez une ou plusieurs catégories pour toucher un public plus large",
+    "categoriesSelected": "catégories sélectionnées",
+    "selectAtLeastOne": "Sélectionnez au moins une catégorie",
+    "selectRecipients": "Sélectionner les destinataires",
+    "recipientsInCategory": "destinataires",
+    "noRecipients": "Aucun destinataire dans cette catégorie",
+    "noTemplates": "Aucun modèle disponible pour ces catégories",
+    "templatesAvailable": "modèles disponibles",
+    "tips": "Conseils",
+    "tipMultiSelect": "Sélectionnez plusieurs catégories pour toucher un public plus large",
+    "tipJournalists": "Les journalistes réagissent bien aux angles d'actualité et aux histoires humaines",
+    "tipGovernment": "Les responsables gouvernementaux peuvent nécessiter des messages plus formels et axés sur les politiques"
+  },
+  "categories": {
+    "journalist": "Journalistes",
+    "media": "Médias",
+    "government": "Responsables gouvernementaux",
+    "mp": "Députés",
+    "journalistDesc": "Contactez les reporters et correspondants couvrant l'actualité internationale",
+    "mediaDesc": "Contactez les organisations de presse et leurs équipes éditoriales",
+    "governmentDesc": "Écrivez aux diplomates et aux bureaux des affaires gouvernementales",
+    "mpDesc": "Envoyez un e-mail aux représentants élus et aux législateurs"
   },
   "countries": {
     "united-states": "États-Unis",
@@ -44,7 +84,9 @@
     "sanctions": "Sanctions",
     "forMedia": "Pour les médias",
     "forGovernment": "Pour le gouvernement",
-    "forJournalists": "Pour les journalistes"
+    "forJournalists": "Pour les journalistes",
+    "previewTemplate": "Aperçu du modèle",
+    "selectThisTemplate": "Utiliser ce modèle"
   },
   "recipients": {
     "journalist": "Journaliste",
@@ -55,6 +97,12 @@
     "highPriority": "Priorité élevée",
     "mediumPriority": "Priorité moyenne",
     "lowPriority": "Priorité basse"
+  },
+  "compose": {
+    "recipientsSummary": "Résumé des destinataires",
+    "emailPreview": "Aperçu de l'e-mail",
+    "sendToAll": "Envoyer à tous",
+    "copyAll": "Copier tous les e-mails"
   },
   "footer": {
     "privacy": "Confidentialité",

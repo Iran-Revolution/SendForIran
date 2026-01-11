@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import WizardProgress from '../../../../components/WizardProgress.astro';
+import TemplateSelector from '../../../../islands/TemplateSelector.tsx';
+import Button from '../../../../components/ui/Button.astro';
+import { getTranslations, type SupportedLang } from '../../../../lib/i18n';
+import { getTemplatesForCategories, parseCategories, countryCodes, getAllCategoryCombinations } from '../../../../lib/data';
+import type { CountryCode, RecipientCategory } from '../../../../types';
+
+export function getStaticPaths() {
+  const paths: { params: { country: string; category: string } }[] = [];
+  const categoryCombinations = getAllCategoryCombinations();
+
+  for (const country of countryCodes) {
+    for (const categoryCombo of categoryCombinations) {
+      paths.push({ params: { country, category: categoryCombo } });
+    }
+  }
+  return paths;
+}
+
+interface Props {
+  country: CountryCode;
+  category: string;
+}
+
+const { country, category } = Astro.params as unknown as Props;
+const lang: SupportedLang = 'de';
+const i18n = getTranslations(lang);
+
+const categories = parseCategories(category);
+const countryName = i18n.countries[country as keyof typeof i18n.countries] || country;
+const templates = await getTemplatesForCategories(country, 'en', categories);
+const baseUrl = '/de';
+const composeUrl = `${baseUrl}/${country}/${category}/compose`;
+
+const recipientIds = Astro.url.searchParams.get('recipients') || '';
+
+const labels = {
+  preview: i18n.templates.previewTemplate,
+  useTemplate: i18n.templates.selectThisTemplate,
+  sources: i18n.footer.sources,
+  variations: 'Varianten',
+  urgent: i18n.templates.urgent,
+  awareness: i18n.templates.awareness,
+  action: i18n.templates.action,
+  sanctions: i18n.templates.sanctions,
+  noRecipientsWarning: 'Keine Empfänger ausgewählt',
+};
+---
+
+<BaseLayout
+  title={`${countryName} - ${i18n.actions.selectTemplate}`}
+  lang={lang}
+  currentPath={`/de/${country}/${category}/templates`}
+>
+  <div class="max-w-5xl mx-auto">
+    <WizardProgress currentStep="template" lang={lang} country={country} category={category} />
+
+    <!-- Header -->
+    <div class="mb-lg">
+      <Button href={`/de/${country}/${category}?recipients=${recipientIds}`} variant="secondary" class="mb-md text-sm">
+        ← {i18n.actions.back}
+      </Button>
+      <h1 class="text-3xl md:text-4xl font-bold text-text mb-xs">
+        {i18n.actions.selectTemplate}
+      </h1>
+      <div class="flex flex-wrap gap-xs mb-sm">
+        {categories.map((cat) => (
+          <span class={`
+            inline-flex items-center gap-xs px-sm py-[2px] rounded-full text-xs font-medium
+            ${cat === 'journalist' ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' : ''}
+            ${cat === 'media' ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30' : ''}
+            ${cat === 'government' ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30' : ''}
+            ${cat === 'mp' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : ''}
+          `}>
+            {i18n.categories[cat as keyof typeof i18n.categories]}
+          </span>
+        ))}
+      </div>
+      <p class="text-text/60">
+        {countryName} • {templates.length} {i18n.wizard.templatesAvailable}
+      </p>
+    </div>
+
+    {templates.length > 0 ? (
+      <TemplateSelector
+        client:load
+        templates={templates}
+        composeUrl={composeUrl}
+        recipientIds={recipientIds}
+        labels={labels}
+      />
+    ) : (
+      <div class="text-center py-xl">
+        <p class="text-text/50 mb-md">{i18n.wizard.noTemplates}</p>
+        <Button href={`/de/${country}`} variant="secondary">
+          {i18n.actions.back}
+        </Button>
+      </div>
+    )}
+  </div>
+</BaseLayout>
+
