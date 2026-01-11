@@ -34,8 +34,6 @@ const templates = await getTemplatesForCategories(country, 'en', categories);
 const baseUrl = '/fa';
 const composeUrl = `${baseUrl}/${country}/${category}/compose`;
 
-const recipientIds = Astro.url.searchParams.get('recipients') || '';
-
 const labels = {
   preview: i18n.templates.previewTemplate,
   useTemplate: i18n.templates.selectThisTemplate,
@@ -59,7 +57,7 @@ const labels = {
 
     <!-- Header -->
     <div class="mb-lg">
-      <Button href={`/fa/${country}/${category}?recipients=${recipientIds}`} variant="secondary" class="mb-md text-sm">
+      <Button href={`/fa/${country}/${category}`} variant="secondary" class="mb-md text-sm">
         {i18n.actions.back} ←
       </Button>
       <h1 class="text-3xl md:text-4xl font-bold text-text mb-xs">
@@ -88,7 +86,6 @@ const labels = {
         client:load
         templates={templates}
         composeUrl={composeUrl}
-        recipientIds={recipientIds}
         labels={labels}
       />
     ) : (

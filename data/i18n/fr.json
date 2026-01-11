@@ -115,7 +115,10 @@
     "skipToContent": "Aller au contenu principal",
     "menuToggle": "Basculer le menu",
     "languageSelect": "Sélectionner la langue",
-    "closeModal": "Fermer la fenêtre"
+    "closeModal": "Fermer la fenêtre",
+    "selectRecipient": "Sélectionner le destinataire",
+    "deselectRecipient": "Désélectionner le destinataire",
+    "wizardProgress": "Progression de l'assistant"
   },
   "errors": {
     "emailFailed": "Impossible d'ouvrir le client de messagerie",

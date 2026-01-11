@@ -27,14 +27,16 @@ const categoryCounts = await getCategoryCounts(country);
 const totalRecipients = Object.values(categoryCounts).reduce((a, b) => a + b, 0);
 const baseUrl = lang === 'en' ? '' : `/${lang}`;
 
-// Build category data for the selector
+const categoryIcons: Record<RecipientCategory, string> = {
+  journalist: '📰', media: '📺', government: '🏛️', mp: '🗳️'
+};
+
 const categoryData = allCategories.map((cat: RecipientCategory) => ({
   id: cat,
   label: i18n.categories[cat as keyof typeof i18n.categories] || cat,
   description: i18n.categories[`${cat}Desc` as keyof typeof i18n.categories] || '',
-  icon: cat === 'journalist' ? '📰' : cat === 'media' ? '📺' : cat === 'government' ? '🏛️' : '🗳️',
+  icon: categoryIcons[cat],
   count: categoryCounts[cat],
-  color: cat,
 }));
 
 const labels = {

@@ -1,5 +1,6 @@
-import { useState, useMemo } from 'preact/hooks';
+import { useState, useMemo, useEffect } from 'preact/hooks';
 import type { Recipient, RecipientCategory } from '../types';
+import { setRecipientIds, loadWizardState } from '../lib/wizard-state';
 
 interface Props {
   recipients: Recipient[];
@@ -11,6 +12,7 @@ interface Props {
     search: string;
     next: string;
     noResults: string;
+    selectAtLeastOne?: string;
     categoryLabels?: Record<RecipientCategory, string>;
   };
   showCategoryBadges?: boolean;
@@ -41,6 +43,19 @@ export default function RecipientSelector({ recipients, nextUrl, labels, showCat
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [search, setSearch] = useState('');
 
+  // Restore previous selection from localStorage if available
+  useEffect(() => {
+    const state = loadWizardState();
+    if (state.recipientIds.length > 0) {
+      const validIds = state.recipientIds.filter(id =>
+        recipients.some(r => r.id === id)
+      );
+      if (validIds.length > 0) {
+        setSelected(new Set(validIds));
+      }
+    }
+  }, [recipients]);
+
   /** Filter recipients by search */
   const filtered = useMemo(() => {
     if (!search.trim()) return recipients;
@@ -64,8 +79,15 @@ export default function RecipientSelector({ recipients, nextUrl, labels, showCat
   const selectAll = () => setSelected(new Set(filtered.map((r) => r.id)));
   const clearAll = () => setSelected(new Set());
 
-  const selectedRecipients = recipients.filter((r) => selected.has(r.id));
-  const finalUrl = `${nextUrl}?recipients=${Array.from(selected).join(',')}`;
+  // Save to localStorage and navigate with clean URL
+  const handleContinue = () => {
+    const recipientIdArray = Array.from(selected);
+    if (recipientIdArray.length === 0) return;
+    setRecipientIds(recipientIdArray);
+    window.location.href = nextUrl;
+  };
+
+  const canContinue = selected.size > 0;
 
   return (
     <div class="space-y-md">
@@ -106,37 +128,34 @@ export default function RecipientSelector({ recipients, nextUrl, labels, showCat
 
       {/* Selected count and continue button */}
       <div class={`flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-sm p-md rounded-md border transition-all ${
-        selected.size > 0
+        canContinue
           ? 'bg-primary/10 border-primary/30'
           : 'bg-surface border-white/10'
       }`}>
         <div>
-          <p class={`font-medium ${selected.size > 0 ? 'text-primary' : 'text-text/50'}`}>
+          <p class={`font-medium ${canContinue ? 'text-primary' : 'text-text/50'}`}>
             {selected.size} {labels.selected}
           </p>
-          {selected.size === 0 && (
+          {!canContinue && (
             <p class="text-sm text-text/40 mt-xs">
               {labels.selectAtLeastOne || 'Select at least one recipient to continue'}
             </p>
           )}
         </div>
-        {selected.size > 0 ? (
-          <a
-            href={finalUrl}
-            class="inline-flex items-center justify-center gap-sm px-6 py-3 min-h-[48px] min-w-[160px] rounded-md font-medium bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all"
-          >
-            {labels.next}
-            <span aria-hidden="true">→</span>
-          </a>
-        ) : (
-          <span
-            class="inline-flex items-center justify-center gap-sm px-6 py-3 min-h-[48px] min-w-[160px] rounded-md font-medium bg-white/10 text-text/40 cursor-not-allowed border border-white/10"
-            aria-disabled="true"
-          >
-            {labels.next}
-            <span aria-hidden="true">→</span>
-          </span>
-        )}
+        <button
+          type="button"
+          onClick={handleContinue}
+          disabled={!canContinue}
+          class={`
+            inline-flex items-center justify-center gap-sm px-6 py-3 min-h-[48px] min-w-[160px] rounded-md font-medium transition-all
+            ${canContinue
+              ? 'bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20'
+              : 'bg-white/10 text-text/40 cursor-not-allowed border border-white/10'}
+          `}
+        >
+          {labels.next}
+          <span aria-hidden="true">→</span>
+        </button>
       </div>
 
       {/* Recipient list */}

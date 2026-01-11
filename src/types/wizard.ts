@@ -18,7 +18,7 @@ export interface CategoryInfo {
 /** Wizard state for client-side navigation */
 export interface WizardState {
   country: CountryCode | null;
-  category: RecipientCategory | null;
+  categories: RecipientCategory[]; // Multiple categories supported
   selectedRecipients: string[]; // recipient IDs
   template: Template | null;
 }

@@ -97,13 +97,20 @@ const startOverUrl = `/fr/${country}`;
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const hasRecipients = urlParams.get('recipients')?.split(',').filter(Boolean).length > 0;
-    const hasTemplate = urlParams.get('template');
+    try {
+      const stored = localStorage.getItem('sendforiran_wizard_state');
+      if (stored) {
+        const state = JSON.parse(stored);
+        const hasRecipients = state.recipientIds?.length > 0;
+        const hasTemplate = state.templateId;
 
-    if (hasRecipients && hasTemplate) {
-      const tips = document.getElementById('success-tips');
-      if (tips) tips.classList.remove('hidden');
+        if (hasRecipients && hasTemplate) {
+          const tips = document.getElementById('success-tips');
+          if (tips) tips.classList.remove('hidden');
+        }
+      }
+    } catch {
+      // Ignore localStorage errors
     }
   });
 </script>

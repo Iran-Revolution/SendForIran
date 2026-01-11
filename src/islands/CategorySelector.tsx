@@ -1,5 +1,6 @@
-import { useState } from 'preact/hooks';
-import type { RecipientCategory } from '../types';
+import { useState, useEffect } from 'preact/hooks';
+import type { RecipientCategory, CountryCode } from '../types';
+import { setCategories, setCountry, loadWizardState } from '../lib/wizard-state';
 
 interface CategoryData {
   id: RecipientCategory;
@@ -7,7 +8,6 @@ interface CategoryData {
   description: string;
   icon: string;
   count: number;
-  color: string;
 }
 
 interface Props {
@@ -22,29 +22,30 @@ interface Props {
   };
 }
 
-// Canonical order for categories - must match allCategories in data.ts
 const CATEGORY_ORDER: RecipientCategory[] = ['journalist', 'media', 'government', 'mp'];
 
-const categoryColorClasses: Record<RecipientCategory, string> = {
-  journalist: 'from-blue-500/20 to-blue-600/5 border-blue-500/30',
-  media: 'from-purple-500/20 to-purple-600/5 border-purple-500/30',
-  government: 'from-amber-500/20 to-amber-600/5 border-amber-500/30',
-  mp: 'from-emerald-500/20 to-emerald-600/5 border-emerald-500/30',
-};
-
-const selectedColorClasses: Record<RecipientCategory, string> = {
-  journalist: 'ring-blue-400 border-blue-400/50',
-  media: 'ring-purple-400 border-purple-400/50',
-  government: 'ring-amber-400 border-amber-400/50',
-  mp: 'ring-emerald-400 border-emerald-400/50',
+const colorClasses: Record<RecipientCategory, { base: string; selected: string }> = {
+  journalist: { base: 'from-blue-500/20 to-blue-600/5 border-blue-500/30', selected: 'ring-blue-400 border-blue-400/50' },
+  media: { base: 'from-purple-500/20 to-purple-600/5 border-purple-500/30', selected: 'ring-purple-400 border-purple-400/50' },
+  government: { base: 'from-amber-500/20 to-amber-600/5 border-amber-500/30', selected: 'ring-amber-400 border-amber-400/50' },
+  mp: { base: 'from-emerald-500/20 to-emerald-600/5 border-emerald-500/30', selected: 'ring-emerald-400 border-emerald-400/50' },
 };
 
 export default function CategorySelector({ categories, country, baseUrl, labels }: Props) {
   const [selected, setSelected] = useState<Set<RecipientCategory>>(new Set());
 
+  useEffect(() => {
+    const state = loadWizardState();
+    if (state.country === country && state.categories.length > 0) {
+      setSelected(new Set(state.categories));
+    } else {
+      setCountry(country as CountryCode);
+    }
+  }, [country]);
+
   const toggleCategory = (id: RecipientCategory) => {
     const cat = categories.find(c => c.id === id);
-    if (cat && cat.count === 0) return; // Can't select empty categories
+    if (cat && cat.count === 0) return;
 
     setSelected((prev) => {
       const next = new Set(prev);
@@ -58,11 +59,17 @@ export default function CategorySelector({ categories, country, baseUrl, labels 
     .filter(c => selected.has(c.id))
     .reduce((sum, c) => sum + c.count, 0);
 
-  // Sort categories in canonical order to ensure consistent URLs
+  // Sort categories in canonical order
   const selectedCategories = CATEGORY_ORDER.filter(cat => selected.has(cat));
-  const continueUrl = selectedCategories.length > 0
-    ? `${baseUrl}/${country}/${selectedCategories.join(',')}`
-    : undefined;
+
+  // Save to localStorage and navigate with clean URL
+  const handleContinue = () => {
+    if (selectedCategories.length === 0) return;
+    setCategories(selectedCategories);
+    window.location.href = `${baseUrl}/${country}/${selectedCategories.join(',')}`;
+  };
+
+  const canContinue = selectedCategories.length > 0;
 
   return (
     <div class="space-y-lg">
@@ -80,9 +87,9 @@ export default function CategorySelector({ categories, country, baseUrl, labels 
               disabled={isDisabled}
               class={`
                 relative overflow-hidden text-start p-lg rounded-md border transition-all duration-300
-                bg-gradient-to-br ${categoryColorClasses[category.id]}
+                bg-gradient-to-br ${colorClasses[category.id].base}
                 ${isDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10'}
-                ${isSelected ? `ring-2 ${selectedColorClasses[category.id]}` : ''}
+                ${isSelected ? `ring-2 ${colorClasses[category.id].selected}` : ''}
               `}
               aria-pressed={isSelected}
             >
@@ -134,20 +141,21 @@ export default function CategorySelector({ categories, country, baseUrl, labels 
             {totalRecipients} total recipients
           </p>
         </div>
-        
-        <a
-          href={continueUrl}
+
+        <button
+          type="button"
+          onClick={handleContinue}
+          disabled={!canContinue}
           class={`
             inline-flex items-center justify-center gap-sm px-6 py-3 min-h-[48px] min-w-[200px] rounded-md font-medium transition-all text-sm sm:text-base
-            ${continueUrl
+            ${canContinue
               ? 'bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20'
-              : 'bg-white/10 text-text/50 cursor-not-allowed pointer-events-none border border-white/10'}
+              : 'bg-white/10 text-text/50 cursor-not-allowed border border-white/10'}
           `}
-          aria-disabled={!continueUrl}
         >
-          {continueUrl ? labels.continue : labels.selectAtLeastOne}
-          {continueUrl && <span aria-hidden="true">→</span>}
-        </a>
+          {canContinue ? labels.continue : labels.selectAtLeastOne}
+          {canContinue && <span aria-hidden="true">→</span>}
+        </button>
       </div>
     </div>
   );

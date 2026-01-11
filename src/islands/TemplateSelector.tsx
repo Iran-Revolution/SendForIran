@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'preact/hooks';
 import type { Template } from '../types';
+import { loadWizardState, setTemplateId } from '../lib/wizard-state';
 
 interface Props {
   templates: Template[];
   composeUrl: string;
-  recipientIds?: string; // Optional - we'll read from URL if not provided
   labels: {
     preview: string;
     useTemplate: string;
@@ -25,24 +25,23 @@ const typeBadgeStyles: Record<string, { bg: string; text: string; border: string
   sanctions: { bg: 'bg-amber-500/20', text: 'text-amber-400', border: 'border-amber-500/30' },
 };
 
-export default function TemplateSelector({ templates, composeUrl, recipientIds: initialRecipientIds, labels }: Props) {
+export default function TemplateSelector({ templates, composeUrl, labels }: Props) {
   const [previewId, setPreviewId] = useState<string | null>(null);
-  const [recipientIds, setRecipientIds] = useState<string>(initialRecipientIds || '');
+  const [hasRecipients, setHasRecipients] = useState(false);
   const previewTemplate = templates.find((t) => t.id === previewId);
 
-  // Read recipients from URL on mount (client-side) since static builds don't have query params
+  // Load recipients from localStorage on mount
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const urlParams = new URLSearchParams(window.location.search);
-      const recipientsFromUrl = urlParams.get('recipients') || '';
-      if (recipientsFromUrl) {
-        setRecipientIds(recipientsFromUrl);
-      }
-    }
+    const state = loadWizardState();
+    setHasRecipients(state.recipientIds.length > 0);
   }, []);
 
-  // Check if we have recipients
-  const hasRecipients = recipientIds && recipientIds.trim().length > 0;
+  // Handle template selection - save to localStorage and navigate
+  const handleSelectTemplate = (templateId: string) => {
+    if (!hasRecipients) return;
+    setTemplateId(templateId);
+    window.location.href = composeUrl;
+  };
 
   const getTypeLabel = (type: string) => {
     return labels[type as keyof typeof labels] || type;
@@ -72,9 +71,6 @@ export default function TemplateSelector({ templates, composeUrl, recipientIds: 
         {templates.map((template) => {
           const style = typeBadgeStyles[template.type] || typeBadgeStyles.awareness;
           const variationCount = template.variations.length + 1;
-          const finalUrl = hasRecipients
-            ? `${composeUrl}?recipients=${recipientIds}&template=${template.id}`
-            : undefined;
 
           return (
             <div
@@ -114,21 +110,20 @@ export default function TemplateSelector({ templates, composeUrl, recipientIds: 
                 >
                   {labels.preview}
                 </button>
-                {finalUrl ? (
-                  <a
-                    href={finalUrl}
-                    class="flex-1 px-md py-sm min-h-[44px] rounded-sm bg-primary text-white text-sm text-center font-medium hover:bg-primary/90 transition-colors inline-flex items-center justify-center"
-                  >
-                    {labels.useTemplate}
-                  </a>
-                ) : (
-                  <span
-                    class="flex-1 px-md py-sm min-h-[44px] rounded-sm bg-white/10 text-text/40 text-sm text-center font-medium cursor-not-allowed inline-flex items-center justify-center border border-white/10"
-                    title="Select recipients first"
-                  >
-                    {labels.useTemplate}
-                  </span>
-                )}
+                <button
+                  type="button"
+                  onClick={() => handleSelectTemplate(template.id)}
+                  disabled={!hasRecipients}
+                  class={`
+                    flex-1 px-md py-sm min-h-[44px] rounded-sm text-sm text-center font-medium transition-colors inline-flex items-center justify-center
+                    ${hasRecipients
+                      ? 'bg-primary text-white hover:bg-primary/90'
+                      : 'bg-white/10 text-text/40 cursor-not-allowed border border-white/10'}
+                  `}
+                  title={hasRecipients ? '' : 'Select recipients first'}
+                >
+                  {labels.useTemplate}
+                </button>
               </div>
             </div>
           );

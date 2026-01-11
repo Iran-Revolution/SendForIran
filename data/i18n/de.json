@@ -115,7 +115,10 @@
     "skipToContent": "Zum Hauptinhalt springen",
     "menuToggle": "Menü umschalten",
     "languageSelect": "Sprache auswählen",
-    "closeModal": "Modal schließen"
+    "closeModal": "Modal schließen",
+    "selectRecipient": "Empfänger auswählen",
+    "deselectRecipient": "Empfänger abwählen",
+    "wizardProgress": "Assistentenfortschritt"
   },
   "errors": {
     "emailFailed": "E-Mail-Client konnte nicht geöffnet werden",

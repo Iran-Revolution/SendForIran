@@ -142,55 +142,16 @@ export function getSenderCountryName(code: CountryCode, _lang: string = 'en'): s
 /** All supported categories */
 export const allCategories: RecipientCategory[] = ['journalist', 'media', 'government', 'mp'];
 
-/**
- * Get recipients filtered by category
- */
-export async function getRecipientsByCategory(
-  country: string,
-  category: RecipientCategory
-): Promise<Recipient[]> {
-  const allRecipients = await getRecipients(country);
-  return allRecipients.filter((r) => r.type === category);
-}
-
-/**
- * Get recipient counts by category for a country
- */
-export async function getCategoryCounts(
-  country: string
-): Promise<Record<RecipientCategory, number>> {
+/** Get recipient counts by category for a country */
+export async function getCategoryCounts(country: string): Promise<Record<RecipientCategory, number>> {
   const recipients = await getRecipients(country);
-  const counts: Record<RecipientCategory, number> = {
-    journalist: 0,
-    media: 0,
-    government: 0,
-    mp: 0,
-  };
-  recipients.forEach((r) => {
-    if (r.type in counts) counts[r.type]++;
-  });
+  const counts: Record<RecipientCategory, number> = { journalist: 0, media: 0, government: 0, mp: 0 };
+  recipients.forEach((r) => { if (r.type in counts) counts[r.type]++; });
   return counts;
 }
 
-/**
- * Get templates filtered by recipient type
- */
-export async function getTemplatesForCategory(
-  country: string,
-  lang: string,
-  category: RecipientCategory
-): Promise<Template[]> {
-  const allTemplates = await getTemplates(country, lang);
-  return allTemplates.filter((t) => t.recipientTypes.includes(category));
-}
-
-/**
- * Get recipients filtered by multiple categories
- */
-export async function getRecipientsByCategories(
-  country: string,
-  categories: RecipientCategory[]
-): Promise<Recipient[]> {
+/** Get recipients filtered by multiple categories */
+export async function getRecipientsByCategories(country: string, categories: RecipientCategory[]): Promise<Recipient[]> {
   const allRecipients = await getRecipients(country);
   return allRecipients.filter((r) => categories.includes(r.type));
 }

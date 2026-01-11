@@ -28,22 +28,11 @@ const { country, category } = Astro.params as unknown as Props;
 const lang: SupportedLang = 'en';
 const i18n = getTranslations(lang);
 
-// Parse categories from URL (supports comma-separated values)
 const categories = parseCategories(category);
 const countryName = i18n.countries[country as keyof typeof i18n.countries] || country;
-
-// Build category names for display
-const categoryNames = categories.map(
-  (cat) => i18n.categories[cat as keyof typeof i18n.categories] || cat
-);
-
-// Get templates that match any of the selected categories
 const templates = await getTemplatesForCategories(country, lang, categories);
 const baseUrl = lang === 'en' ? '' : `/${lang}`;
 const composeUrl = `${baseUrl}/${country}/${category}/compose`;
-
-// Get recipients from URL (passed from previous step)
-const recipientIds = Astro.url.searchParams.get('recipients') || '';
 
 const labels = {
   preview: i18n.templates.previewTemplate,
@@ -68,7 +57,7 @@ const labels = {
 
     <!-- Header -->
     <div class="mb-lg">
-      <Button href={`/${country}/${category}?recipients=${recipientIds}`} variant="secondary" class="mb-md text-sm">
+      <Button href={`/${country}/${category}`} variant="secondary" class="mb-md text-sm">
         ← {i18n.actions.back}
       </Button>
       <h1 class="text-3xl md:text-4xl font-bold text-text mb-xs">
@@ -97,7 +86,6 @@ const labels = {
         client:load
         templates={templates}
         composeUrl={composeUrl}
-        recipientIds={recipientIds}
         labels={labels}
       />
     ) : (

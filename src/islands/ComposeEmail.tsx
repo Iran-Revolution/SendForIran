@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'preact/hooks';
 import type { Recipient, Template } from '../types';
 import EmailPreview from './EmailPreview';
+import { loadWizardState, clearWizardState } from '../lib/wizard-state';
 
 interface Props {
   allRecipients: Recipient[];
@@ -28,15 +29,12 @@ export default function ComposeEmail({ allRecipients, allTemplates, senderCountr
   const [templateId, setTemplateId] = useState<string>('');
   const [isLoading, setIsLoading] = useState(true);
 
-  // Read from URL on mount
+  // Read from localStorage on mount
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const urlParams = new URLSearchParams(window.location.search);
-      const recipientsParam = urlParams.get('recipients') || '';
-      const templateParam = urlParams.get('template') || '';
-      
-      setRecipientIds(recipientsParam.split(',').filter(Boolean));
-      setTemplateId(templateParam);
+      const state = loadWizardState();
+      setRecipientIds(state.recipientIds);
+      setTemplateId(state.templateId || '');
       setIsLoading(false);
     }
   }, []);
@@ -62,18 +60,24 @@ export default function ComposeEmail({ allRecipients, allTemplates, senderCountr
     );
   }
 
+  const handleStartOver = () => {
+    clearWizardState();
+    window.location.href = startOverUrl;
+  };
+
   if (selectedRecipients.length === 0 || !selectedTemplate) {
     return (
       <div class="text-center py-xl">
         <p class="text-text/50 mb-md">
           {selectedRecipients.length === 0 ? labels.noRecipients : labels.noTemplate}
         </p>
-        <a 
-          href={startOverUrl}
+        <button
+          type="button"
+          onClick={handleStartOver}
           class="inline-flex items-center justify-center px-lg py-sm min-h-[44px] rounded-sm bg-surface border border-white/20 text-text hover:bg-white/10 transition-colors"
         >
           {labels.startOver}
-        </a>
+        </button>
       </div>
     );
   }

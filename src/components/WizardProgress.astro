@@ -15,7 +15,7 @@ const baseUrl = lang === 'en' ? '' : `/${lang}`;
 
 const steps: { id: WizardStep; label: string; href?: string }[] = [
   { id: 'country', label: i18n.wizard.step1, href: `${baseUrl}/` },
-  { id: 'category', label: i18n.wizard.step2, href: country ? `${baseUrl}/${country}/categories` : undefined },
+  { id: 'category', label: i18n.wizard.step2, href: country ? `${baseUrl}/${country}` : undefined },
   { id: 'recipients', label: i18n.wizard.step3, href: category ? `${baseUrl}/${country}/${category}` : undefined },
   { id: 'template', label: i18n.wizard.step4 },
   { id: 'compose', label: i18n.wizard.step5 },
