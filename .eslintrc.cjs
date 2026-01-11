@@ -17,8 +17,33 @@ module.exports = {
   },
   plugins: ['@typescript-eslint'],
   rules: {
-    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    // Unused code detection
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_',
+      },
+    ],
+    'no-unused-expressions': 'error',
+    'no-unreachable': 'error',
+    'no-unreachable-loop': 'error',
+    'no-constant-condition': 'error',
+    'no-useless-return': 'error',
+    'no-empty': ['error', { allowEmptyCatch: false }],
+    'no-empty-function': 'off',
+    '@typescript-eslint/no-empty-function': [
+      'error',
+      { allow: ['arrowFunctions'] },
+    ],
+
+    // Code quality
     '@typescript-eslint/no-explicit-any': 'warn',
+    'no-console': ['warn', { allow: ['warn', 'error'] }],
+    'no-debugger': 'error',
+    'prefer-const': 'error',
+    'no-var': 'error',
   },
   overrides: [
     {

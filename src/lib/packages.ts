@@ -1,7 +1,6 @@
 import type { EmailPackage, PackageFile, Recipient } from '../types';
 import type { CountryCode } from '../types/recipient';
 import type { SupportedLang } from './i18n';
-import { getLocalizedValue } from '../types/package';
 
 export interface RandomizerOptions {
   avoidRecentCount: number;
@@ -11,7 +10,7 @@ export interface RandomizerOptions {
 
 const DEFAULT_OPTS: RandomizerOptions = { avoidRecentCount: 3, priorityWeight: 1.5, timeDecay: false };
 
-export async function getPackages(country: CountryCode, lang: SupportedLang = 'en'): Promise<EmailPackage[]> {
+async function getPackages(country: CountryCode, lang: SupportedLang = 'en'): Promise<EmailPackage[]> {
   const files = import.meta.glob<PackageFile | EmailPackage>('../../data/packages/**/*.json', { eager: true });
   const packages: EmailPackage[] = [];
 
@@ -28,16 +27,6 @@ export async function getPackages(country: CountryCode, lang: SupportedLang = 'e
     }
   }
   return packages.sort((a, b) => a.meta.priority - b.meta.priority);
-}
-
-export async function getPackageById(country: CountryCode, packageId: string, lang: SupportedLang = 'en'): Promise<EmailPackage | null> {
-  return (await getPackages(country, lang)).find(p => p.id === packageId) || null;
-}
-
-export async function getFeaturedPackages(country: CountryCode, lang: SupportedLang = 'en', limit = 5): Promise<EmailPackage[]> {
-  return (await getPackages(country, lang))
-    .sort((a, b) => (a.ui.featured === b.ui.featured ? a.meta.priority - b.meta.priority : a.ui.featured ? -1 : 1))
-    .slice(0, limit);
 }
 
 export function selectRandomPackage(packages: EmailPackage[], history: string[] = [], options: Partial<RandomizerOptions> = {}): EmailPackage | null {
@@ -87,28 +76,14 @@ export function recordDiceRoll(country: CountryCode, packageId: string): void {
     entry.totalRolls += 1;
     all[country] = entry;
     localStorage.setItem(DICE_KEY, JSON.stringify(all));
-  } catch {}
-}
-
-export function clearDiceHistory(country?: CountryCode): void {
-  if (typeof window === 'undefined') return;
-  try {
-    if (country) { const h = getDiceHistory(); delete h[country]; localStorage.setItem(DICE_KEY, JSON.stringify(h)); }
-    else localStorage.removeItem(DICE_KEY);
-  } catch {}
+  } catch (_e) {
+    // Silently ignore localStorage errors (e.g., private browsing)
+  }
 }
 
 export function resolveRecipients(pkg: EmailPackage, allRecipients: Recipient[]): Recipient[] {
   const map = new Map(allRecipients.map(r => [r.id, r]));
   return pkg.recipients.ids.map(id => map.get(id)).filter((r): r is Recipient => !!r);
-}
-
-export function getPackageTitle(pkg: EmailPackage, lang: SupportedLang): string {
-  return getLocalizedValue(pkg.display.title, lang);
-}
-
-export function getPackageDescription(pkg: EmailPackage, lang: SupportedLang): string {
-  return getLocalizedValue(pkg.display.description, lang);
 }
 
 export async function loadPackagesForCountry(country: CountryCode, lang: SupportedLang = 'en'): Promise<EmailPackage[]> {

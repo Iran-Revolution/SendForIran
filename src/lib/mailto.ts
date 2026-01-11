@@ -81,25 +81,6 @@ export function fillPlaceholders(
 }
 
 /**
- * Generate a complete mailto URL with placeholders filled
- */
-export function generateEmailLink(
-  to: string,
-  subject: string,
-  body: string,
-  placeholders: Record<string, string>
-): string {
-  const filledSubject = fillPlaceholders(subject, placeholders);
-  const filledBody = fillPlaceholders(body, placeholders);
-  
-  return generateMailto({
-    to,
-    subject: filledSubject,
-    body: filledBody,
-  });
-}
-
-/**
  * Copy text to clipboard with fallback for older browsers
  */
 export async function copyToClipboard(text: string): Promise<boolean> {

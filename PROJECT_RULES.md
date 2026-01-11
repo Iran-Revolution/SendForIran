@@ -91,9 +91,15 @@ pnpm lint         # ESLint + type-check
 pnpm validate     # Schema validation
 ```
 
-## Checklist
-- [ ] Static-only, no server 
-- [ ] Source citations 
-- [ ] i18n strings 
+## Task Completion Checklist
+Before marking any task as complete, verify:
+- [ ] Static-only, no server
+- [ ] Source citations
+- [ ] i18n strings
 - [ ] Self-hosted fonts
+- [ ] **No dead code** - Run `pnpm lint` and ensure zero errors/warnings
+- [ ] **No unused imports** - All imports are used
+- [ ] **No unused functions** - All exported functions are consumed
+- [ ] **No empty catch blocks** - All catch blocks handle errors properly
+- [ ] Build passes - `pnpm build` completes without errors
 

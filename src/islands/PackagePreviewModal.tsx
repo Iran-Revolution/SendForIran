@@ -2,7 +2,7 @@
  * PackagePreviewModal - Full preview modal for email packages
  * Shows template content, recipients, and send action
  */
-import { useEffect, useCallback } from 'preact/hooks';
+import { useEffect } from 'preact/hooks';
 import type { EmailPackage, Recipient } from '../types';
 import type { SupportedLang } from '../lib/i18n';
 import { getLocalizedValue } from '../types/package';

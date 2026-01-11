@@ -3,12 +3,9 @@
  */
 
 export type {
-  Template,
-  TemplateFile,
   TemplateType,
   TemplateVariation,
-  Source,
-  RecipientType
+  Source
 } from './template';
 
 export type {
