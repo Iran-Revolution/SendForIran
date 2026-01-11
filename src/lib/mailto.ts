@@ -14,22 +14,27 @@ const MAX_MAILTO_LENGTH = 2000;
 
 /**
  * Generate a mailto: URL with encoded parameters
+ * Follows RFC 6068 standard for mailto URI scheme
  * Truncates body if the URL exceeds the safe limit
  */
 export function generateMailto(params: MailtoParams): string {
   const { to, subject, body } = params;
-  
+
+  // RFC 6068: email address in 'to' should NOT be percent-encoded
+  // Only subject and body query parameters need encoding
   const encodedSubject = encodeURIComponent(subject);
   const encodedBody = encodeURIComponent(body);
-  
-  let mailtoUrl = `mailto:${encodeURIComponent(to)}?subject=${encodedSubject}&body=${encodedBody}`;
-  
-  // Truncate body if URL is too long
+
+  let mailtoUrl = `mailto:${to}?subject=${encodedSubject}&body=${encodedBody}`;
+
+  // Truncate body if URL is too long (browsers/email clients have limits)
   if (mailtoUrl.length > MAX_MAILTO_LENGTH) {
-    const truncatedBody = truncateForMailto(body, MAX_MAILTO_LENGTH - 200);
-    mailtoUrl = `mailto:${encodeURIComponent(to)}?subject=${encodedSubject}&body=${encodeURIComponent(truncatedBody)}`;
+    const baseLength = `mailto:${to}?subject=${encodedSubject}&body=`.length;
+    const availableBodyLength = MAX_MAILTO_LENGTH - baseLength - 100; // Buffer for safety
+    const truncatedBody = truncateForMailto(body, availableBodyLength);
+    mailtoUrl = `mailto:${to}?subject=${encodedSubject}&body=${encodeURIComponent(truncatedBody)}`;
   }
-  
+
   return mailtoUrl;
 }
 

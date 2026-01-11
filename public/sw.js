@@ -3,50 +3,30 @@
  * Provides offline support with network-first, cache fallback strategy
  */
 
-const CACHE_NAME = 'sendforiran-v1';
+const CACHE_NAME = 'sendforiran-v2';
 
-// Static assets to cache on install
+// Static assets to cache on install (only essential assets that are guaranteed to exist)
 const STATIC_ASSETS = [
   '/',
-  '/us/',
-  '/uk/',
-  '/de/',
-  '/fr/',
-  '/ca/',
-  '/fa/',
-  '/fa/us/',
-  '/fa/uk/',
-  '/fa/de/',
-  '/fa/fr/',
-  '/fa/ca/',
-  '/de/',
-  '/de/us/',
-  '/de/uk/',
-  '/de/de/',
-  '/de/fr/',
-  '/de/ca/',
-  '/fr/',
-  '/fr/us/',
-  '/fr/uk/',
-  '/fr/de/',
-  '/fr/fr/',
-  '/fr/ca/',
   '/favicon.svg',
-  '/fonts/inter-regular.woff2',
-  '/fonts/inter-medium.woff2',
-  '/fonts/inter-semibold.woff2',
-  '/fonts/inter-bold.woff2',
-  '/fonts/vazirmatn-regular.woff2',
-  '/fonts/vazirmatn-medium.woff2',
-  '/fonts/vazirmatn-semibold.woff2',
-  '/fonts/vazirmatn-bold.woff2',
 ];
 
 // Install event - cache static assets
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(STATIC_ASSETS);
+      // Use addAll with error handling - don't fail if some assets are missing
+      return Promise.allSettled(
+        STATIC_ASSETS.map(url =>
+          fetch(url).then(response => {
+            if (response.ok) {
+              return cache.put(url, response);
+            }
+          }).catch(() => {
+            // Ignore failures for individual assets
+          })
+        )
+      );
     })
   );
   // Activate immediately
