@@ -5,13 +5,9 @@ import * as path from 'path';
 const RECIPIENT_TYPES = ['journalist', 'media', 'government', 'mp'] as const;
 const COUNTRIES = ['united-states', 'united-kingdom', 'germany', 'france', 'canada'] as const;
 const PACKAGE_TYPES = ['urgent', 'awareness', 'action', 'sanctions'] as const;
-const COLORS = ['blue', 'red', 'green', 'purple', 'amber', 'emerald'] as const;
-const BADGES = ['NEW', 'TRENDING', 'FEATURED', 'HIGH_IMPACT', 'URGENT'] as const;
 
 const SourceSchema = z.object({ name: z.string().min(1), url: z.string().url() });
 const VariationSchema = z.object({ subject: z.string().min(1), body: z.string().min(1) });
-const LocalizedSchema = z.object({ en: z.string().min(1), fa: z.string().optional(), de: z.string().optional(), fr: z.string().optional() });
-const LocalizedKeywordsSchema = z.object({ en: z.array(z.string()).min(1), fa: z.array(z.string()).optional(), de: z.array(z.string()).optional(), fr: z.array(z.string()).optional() });
 
 const RecipientSchema = z.object({
   id: z.string().min(1), name: z.string().min(1), title: z.string().optional(),
@@ -37,17 +33,29 @@ const I18nSchema = z.object({
   home: z.record(z.string()), actions: z.record(z.string()), countries: z.record(z.string())
 });
 
+// Localized string schema - requires 'en' and allows other languages
+const LocalizedStringSchema = z.object({
+  en: z.string().min(1),
+  fa: z.string().optional(),
+  de: z.string().optional(),
+  fr: z.string().optional()
+});
+
+// Simplified EmailPackage schema
 const EmailPackageSchema = z.object({
-  id: z.string().min(1), version: z.string().min(1),
-  meta: z.object({
-    type: z.enum(PACKAGE_TYPES), priority: z.union([z.literal(1), z.literal(2), z.literal(3)]),
-    created: z.string().refine(v => !isNaN(Date.parse(v))),
-    updated: z.string().refine(v => !isNaN(Date.parse(v)))
+  id: z.string().min(1),
+  display: z.object({
+    title: LocalizedStringSchema,
+    description: LocalizedStringSchema
   }),
-  display: z.object({ title: LocalizedSchema, description: LocalizedSchema, keywords: LocalizedKeywordsSchema, icon: z.string().min(1) }),
-  template: z.object({ subject: z.string().min(1), body: z.string().min(10), variations: z.array(VariationSchema).optional().default([]), sources: z.array(SourceSchema).min(1) }),
-  recipients: z.object({ ids: z.array(z.string()).min(1), targetingRationale: LocalizedSchema, categories: z.array(z.enum(RECIPIENT_TYPES)).min(1) }),
-  ui: z.object({ color: z.enum(COLORS), featured: z.boolean(), badge: z.enum(BADGES).nullable().optional() })
+  template: z.object({
+    subject: z.string().min(1),
+    body: z.string().min(10),
+    variations: z.array(VariationSchema).optional()
+  }),
+  recipients: z.object({
+    ids: z.array(z.string()).min(1)
+  })
 });
 
 function validateFile<T>(filePath: string, schema: z.ZodType<T>, label: string): boolean {

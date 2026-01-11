@@ -5,12 +5,12 @@
 import { useState, useEffect, useCallback } from 'preact/hooks';
 import type { EmailPackage } from '../types';
 import type { SupportedLang } from '../lib/i18n';
-import { 
-  selectRandomPackage, 
-  getCountryDiceHistory, 
-  recordDiceRoll 
+import { getLocalizedValue } from '../types/package';
+import {
+  selectRandomPackage,
+  getCountryDiceHistory,
+  recordDiceRoll
 } from '../lib/packages';
-import { getLocalizedValue, getLocalizedKeywords } from '../types/package';
 import type { CountryCode } from '../types/recipient';
 
 interface Props {
@@ -116,7 +116,7 @@ export default function PackageDice({
             animate-package-reveal
           `}
         >
-          <PackageResultCard 
+          <PackageResultCard
             package={currentPackage}
             lang={lang}
             labels={labels}
@@ -165,23 +165,17 @@ function PackageResultCard({
 }) {
   const title = getLocalizedValue(pkg.display.title, lang);
   const description = getLocalizedValue(pkg.display.description, lang);
-  const keywords = getLocalizedKeywords(pkg.display.keywords, lang);
 
   return (
     <div class="p-lg">
       {/* Header */}
       <div class="flex items-start gap-sm mb-md">
-        <span class="text-3xl">{pkg.display.icon}</span>
+        <span class="text-3xl">✉️</span>
         <div class="flex-1">
           <div class="flex items-center gap-sm mb-xs">
             <span class="text-xs font-medium uppercase tracking-wider text-primary">
-              {pkg.meta.type}
+              Email
             </span>
-            {pkg.ui.badge && (
-              <span class="px-2 py-0.5 text-[10px] font-bold uppercase bg-urgent/20 text-urgent rounded-full">
-                {pkg.ui.badge}
-              </span>
-            )}
           </div>
           <h3 class="text-xl font-bold text-text">{title}</h3>
         </div>
@@ -190,23 +184,10 @@ function PackageResultCard({
       {/* Description */}
       <p class="text-text/70 mb-md leading-relaxed">{description}</p>
 
-      {/* Keywords */}
-      <div class="flex flex-wrap gap-1 mb-md">
-        {keywords.map((kw) => (
-          <span class="px-2 py-0.5 text-xs bg-white/5 text-text/50 rounded-full border border-white/10">
-            #{kw}
-          </span>
-        ))}
-      </div>
-
       {/* Recipients info */}
       <div class="flex items-center gap-sm mb-lg text-sm text-text/50">
         <span>👥</span>
         <span>{pkg.recipients.ids.length} {labels.recipients}</span>
-        <span class="text-text/20">•</span>
-        {pkg.recipients.categories.map((cat) => (
-          <span>{cat === 'journalist' ? '📰' : cat === 'media' ? '📺' : cat === 'government' ? '🏛️' : '🗳️'}</span>
-        ))}
       </div>
 
       {/* Actions */}

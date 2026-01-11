@@ -1,0 +1,25 @@
+{
+  "id": "uk-parliament-action-001",
+  "display": {
+    "title": {
+      "en": "Parliamentary Action Request",
+      "fa": "درخواست اقدام پارلمانی",
+      "de": "Antrag auf parlamentarische Maßnahmen",
+      "fr": "Demande d'Action Parlementaire"
+    },
+    "description": {
+      "en": "Urge MPs and the Foreign Affairs Committee to take action on Iran.",
+      "fa": "از نمایندگان مجلس و کمیته امور خارجه بخواهید درباره ایران اقدام کنند.",
+      "de": "Fordern Sie Abgeordnete und den Außenausschuss auf, bezüglich Iran zu handeln.",
+      "fr": "Demandez aux députés et au Comité des Affaires Étrangères d'agir sur l'Iran."
+    }
+  },
+  "template": {
+    "subject": "Constituent Request: Parliamentary Action on Iran Human Rights Crisis",
+    "body": "Dear {{recipientName}},\n\nAs a constituent, I am writing to request urgent parliamentary action regarding the human rights crisis in Iran.\n\nSince 28 December 2025:\n• Over 51 peaceful protesters have been killed by Iranian security forces\n• More than 2,270 people have been arbitrarily detained\n• A nationwide internet blackout has been imposed\n• Documented use of live ammunition against civilians\n\nI respectfully request that Parliament:\n\n1. Hold an urgent debate on the situation in Iran\n2. Support targeted sanctions against officials responsible for human rights abuses under the UK's autonomous Magnitsky-style sanctions regime\n3. Summon the Iranian Ambassador to explain the government's actions\n4. Call for the immediate release of detained protesters\n5. Support efforts to restore internet access in Iran\n\nThe United Kingdom has a proud tradition of standing up for human rights globally. I urge you to ensure we live up to that tradition now.\n\nThank you for your attention to this urgent matter.\n\nYours faithfully,\nA constituent from {{senderCountry}}"
+  },
+  "recipients": {
+    "ids": ["mp-foreign-affairs", "fcdo-iran"]
+  }
+}
+

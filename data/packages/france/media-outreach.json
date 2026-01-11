@@ -1,0 +1,25 @@
+{
+  "id": "fr-media-outreach-001",
+  "display": {
+    "title": {
+      "en": "French Media Outreach",
+      "fa": "ارتباط با رسانه‌های فرانسه",
+      "de": "Französische Medien kontaktieren",
+      "fr": "Contacter les médias français"
+    },
+    "description": {
+      "en": "Contact major French media including RFI Persian and France 24.",
+      "fa": "با رسانه‌های بزرگ فرانسه از جمله RFI فارسی و فرانس ۲۴ تماس بگیرید.",
+      "de": "Kontaktieren Sie französische Medien, einschließlich RFI Persisch und France 24.",
+      "fr": "Contactez les grands médias français, notamment RFI Persan et France 24."
+    }
+  },
+  "template": {
+    "subject": "Demande de couverture : Crise des droits de l'homme en Iran",
+    "body": "Dear {{recipientName}},\n\nI am writing from {{senderCountry}} to request increased coverage of the humanitarian crisis in Iran.\n\nSince 28 December 2025:\n• Over 51 protesters have been killed by Iranian security forces\n• More than 2,270 people have been detained\n• A nationwide internet blackout has been imposed\n• Live ammunition has been used against peaceful demonstrators\n\nFrench media, particularly RFI's Persian Service and France 24, play an important role in reaching Iranian audiences and the international Francophone community. Your coverage can:\n\n1. Document human rights violations for the historical record\n2. Inform global audiences about the crisis\n3. Support the Iranian people's right to know what is happening\n4. Encourage French and EU diplomatic responses\n\nI respectfully request continued and expanded coverage of this critical situation.\n\nWith sincere appreciation,\nA concerned citizen from {{senderCountry}}"
+  },
+  "recipients": {
+    "ids": ["rfi-persian", "france24-intl", "le-monde-iran"]
+  }
+}
+

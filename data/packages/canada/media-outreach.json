@@ -1,0 +1,25 @@
+{
+  "id": "ca-media-outreach-001",
+  "display": {
+    "title": {
+      "en": "Canadian Media Outreach",
+      "fa": "ارتباط با رسانه‌های کانادا",
+      "de": "Kanadische Medien kontaktieren",
+      "fr": "Contact Médias Canadiens"
+    },
+    "description": {
+      "en": "Contact major Canadian news outlets. Canada has one of the largest Iranian diaspora communities.",
+      "fa": "با رسانه‌های بزرگ کانادا تماس بگیرید. کانادا یکی از بزرگترین جوامع ایرانیان مهاجر را دارد.",
+      "de": "Kontaktieren Sie kanadische Nachrichtenmedien. Kanada hat eine der größten iranischen Diaspora-Gemeinschaften.",
+      "fr": "Contactez les grands médias canadiens. Le Canada abrite l'une des plus grandes communautés de la diaspora iranienne."
+    }
+  },
+  "template": {
+    "subject": "Request for Coverage: Iran Human Rights Crisis",
+    "body": "Dear {{recipientName}},\n\nI am writing from {{senderCountry}} to request increased coverage of the humanitarian crisis in Iran.\n\nSince December 28, 2025:\n• Over 51 protesters have been killed by Iranian security forces\n• More than 2,270 people have been detained\n• A nationwide internet blackout has been imposed\n• Live ammunition has been used against peaceful demonstrators\n\nCanada is home to one of the largest Iranian diaspora communities in the world. Many Canadian families are directly affected by these events and are desperate for news about loved ones. Your coverage can:\n\n1. Keep the Canadian-Iranian community informed\n2. Document human rights violations\n3. Support calls for Canadian government action\n4. Maintain international attention on the crisis\n\nI respectfully request that you dedicate resources to covering this developing situation.\n\nWith sincere appreciation,\nA concerned citizen from {{senderCountry}}"
+  },
+  "recipients": {
+    "ids": ["cbc-news", "globe-mail-world", "ctv-news-intl"]
+  }
+}
+

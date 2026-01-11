@@ -1,32 +1,26 @@
 import type { EmailPackage, PackageFile, Recipient } from '../types';
 import type { CountryCode } from '../types/recipient';
-import type { SupportedLang } from './i18n';
 
 export interface RandomizerOptions {
   avoidRecentCount: number;
-  priorityWeight: number;
-  timeDecay: boolean;
 }
 
-const DEFAULT_OPTS: RandomizerOptions = { avoidRecentCount: 3, priorityWeight: 1.5, timeDecay: false };
+const DEFAULT_OPTS: RandomizerOptions = { avoidRecentCount: 3 };
 
-async function getPackages(country: CountryCode, lang: SupportedLang = 'en'): Promise<EmailPackage[]> {
+async function getPackages(country: CountryCode): Promise<EmailPackage[]> {
   const files = import.meta.glob<PackageFile | EmailPackage>('../../data/packages/**/*.json', { eager: true });
   const packages: EmailPackage[] = [];
+  const prefix = `../../data/packages/${country}/`;
 
-  for (const tryLang of [lang, 'en']) {
-    const prefix = `../../data/packages/${country}/${tryLang}/`;
-    const matches = Object.entries(files).filter(([p]) => p.startsWith(prefix));
-    if (matches.length > 0) {
-      matches.forEach(([, file]) => {
-        const pkg = 'package' in file ? file.package : file;
-        if (!pkg.id || !pkg.template?.subject || !pkg.template?.body) throw new Error('Invalid package');
-        packages.push(pkg as EmailPackage);
-      });
-      break;
+  for (const [path, file] of Object.entries(files)) {
+    if (path.startsWith(prefix) && !path.slice(prefix.length).includes('/')) {
+      const pkg = 'package' in file ? file.package : file;
+      if (!pkg.id || !pkg.template?.subject || !pkg.template?.body) throw new Error('Invalid package');
+      packages.push(pkg as EmailPackage);
     }
   }
-  return packages.sort((a, b) => a.meta.priority - b.meta.priority);
+  // Sort alphabetically by id for consistent ordering
+  return packages.sort((a, b) => a.id.localeCompare(b.id));
 }
 
 export function selectRandomPackage(packages: EmailPackage[], history: string[] = [], options: Partial<RandomizerOptions> = {}): EmailPackage | null {
@@ -36,19 +30,9 @@ export function selectRandomPackage(packages: EmailPackage[], history: string[] 
   let available = packages.filter(p => !recentIds.includes(p.id));
   if (!available.length) available = packages;
 
-  const scored = available.map(pkg => {
-    let score = Math.pow(4 - pkg.meta.priority, opts.priorityWeight);
-    if (pkg.ui.featured) score *= 1.5;
-    if (opts.timeDecay && pkg.meta.updated) {
-      score *= Math.exp(-(Date.now() - new Date(pkg.meta.updated).getTime()) / (1000 * 60 * 60 * 24 * 30));
-    }
-    return { package: pkg, score: Math.max(score, 0.1) };
-  });
-
-  const total = scored.reduce((s, i) => s + i.score, 0);
-  let rand = Math.random() * total;
-  for (const item of scored) { rand -= item.score; if (rand <= 0) return item.package; }
-  return scored[0]?.package || null;
+  // Simple random selection with equal weight
+  const randomIndex = Math.floor(Math.random() * available.length);
+  return available[randomIndex] || null;
 }
 
 const DICE_KEY = 'sendforiran_dice_history';
@@ -86,8 +70,8 @@ export function resolveRecipients(pkg: EmailPackage, allRecipients: Recipient[])
   return pkg.recipients.ids.map(id => map.get(id)).filter((r): r is Recipient => !!r);
 }
 
-export async function loadPackagesForCountry(country: CountryCode, lang: SupportedLang = 'en'): Promise<EmailPackage[]> {
-  return getPackages(country, lang);
+export async function loadPackagesForCountry(country: CountryCode): Promise<EmailPackage[]> {
+  return getPackages(country);
 }
 
 export async function loadRecipientsForCountry(country: CountryCode): Promise<Recipient[]> {

@@ -20,17 +20,8 @@ export type {
 export type {
   EmailPackage,
   PackageFile,
-  PackageMeta,
   PackageDisplay,
   PackageTemplate,
   PackageRecipients,
-  PackageUI,
-  LocalizedString,
-  LocalizedKeywords,
-  PackagePriority,
-  PackageBadge,
-  PackageColor
+  LocalizedString
 } from './package';
-
-export { getLocalizedValue, getLocalizedKeywords } from './package';
-

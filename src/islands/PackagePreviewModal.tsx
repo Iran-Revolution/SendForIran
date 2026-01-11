@@ -10,10 +10,10 @@ import { getLocalizedValue } from '../types/package';
 interface Props {
   package: EmailPackage | null;
   recipients: Recipient[];
-  lang?: SupportedLang;
   isOpen: boolean;
   onClose: () => void;
   onSend: (pkg: EmailPackage) => void;
+  lang?: SupportedLang;
   labels: {
     preview: string;
     sendToAll: string;
@@ -28,10 +28,10 @@ interface Props {
 export default function PackagePreviewModal({
   package: pkg,
   recipients,
-  lang = 'en',
   isOpen,
   onClose,
   onSend,
+  lang = 'en',
   labels
 }: Props) {
   // Close on Escape key
@@ -52,7 +52,7 @@ export default function PackagePreviewModal({
   if (!isOpen || !pkg) return null;
 
   const title = getLocalizedValue(pkg.display.title, lang);
-  const rationale = getLocalizedValue(pkg.recipients.targetingRationale, lang);
+  const description = getLocalizedValue(pkg.display.description, lang);
 
   return (
     <div
@@ -72,7 +72,7 @@ export default function PackagePreviewModal({
         {/* Header */}
         <div class="sticky top-0 flex items-center justify-between p-md bg-surface/95 backdrop-blur border-b border-white/10">
           <div class="flex items-center gap-sm">
-            <span class="text-2xl">{pkg.display.icon}</span>
+            <span class="text-2xl">✉️</span>
             <h2 id="modal-title" class="text-xl font-bold text-text">
               {title}
             </h2>
@@ -88,12 +88,9 @@ export default function PackagePreviewModal({
 
         {/* Body */}
         <div class="p-lg space-y-lg">
-          {/* Why This Package */}
+          {/* Description */}
           <section>
-            <h3 class="text-sm font-semibold text-primary uppercase tracking-wider mb-sm">
-              {labels.whyThisPackage}
-            </h3>
-            <p class="text-text/70 leading-relaxed">{rationale}</p>
+            <p class="text-text/70 leading-relaxed">{description}</p>
           </section>
 
           {/* Recipients */}
@@ -131,26 +128,6 @@ export default function PackagePreviewModal({
               <pre class="text-text/80 text-sm whitespace-pre-wrap font-sans leading-relaxed max-h-64 overflow-auto">
                 {pkg.template.body}
               </pre>
-            </div>
-          </section>
-
-          {/* Sources */}
-          <section>
-            <h3 class="text-sm font-semibold text-primary uppercase tracking-wider mb-sm">
-              {labels.sources}
-            </h3>
-            <div class="flex flex-wrap gap-sm">
-              {pkg.template.sources.map((source) => (
-                <a
-                  key={source.url}
-                  href={source.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-sm text-blue-400 hover:text-blue-300 hover:underline"
-                >
-                  {source.name} ↗
-                </a>
-              ))}
             </div>
           </section>
         </div>

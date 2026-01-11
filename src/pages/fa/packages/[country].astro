@@ -25,7 +25,7 @@ const { country } = Astro.params as Props;
 const lang: SupportedLang = 'fa';
 const i18n = getTranslations(lang);
 
-const packages = await loadPackagesForCountry(country as CountryCode, lang);
+const packages = await loadPackagesForCountry(country as CountryCode);
 const recipients = await loadRecipientsForCountry(country as CountryCode);
 
 const countryName = i18n.countries[country as keyof typeof i18n.countries] || country;

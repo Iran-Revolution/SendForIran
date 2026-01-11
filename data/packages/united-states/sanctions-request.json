@@ -1,26 +1,18 @@
 {
   "id": "us-sanctions-request-001",
-  "version": "1.0",
-  "meta": {
-    "type": "sanctions",
-    "priority": 2,
-    "created": "2025-01-01T00:00:00.000Z",
-    "updated": "2025-01-10T00:00:00.000Z"
-  },
   "display": {
     "title": {
       "en": "Targeted Sanctions Request",
-      "fa": "درخواست تحریم‌های هدفمند"
+      "fa": "درخواست تحریم‌های هدفمند",
+      "de": "Antrag auf gezielte Sanktionen",
+      "fr": "Demande de Sanctions Ciblées"
     },
     "description": {
-      "en": "Request the State Department to impose targeted sanctions on Iranian officials responsible for human rights abuses. This policy-focused package emphasizes accountability.",
-      "fa": "از وزارت خارجه بخواهید تحریم‌های هدفمند علیه مقامات ایرانی مسئول نقض حقوق بشر اعمال کند. این بسته سیاست‌محور بر پاسخگویی تأکید دارد."
-    },
-    "keywords": {
-      "en": ["sanctions", "policy", "state department", "accountability", "human rights", "Magnitsky"],
-      "fa": ["تحریم", "سیاست", "وزارت خارجه", "پاسخگویی", "حقوق بشر", "مگنیتسکی"]
-    },
-    "icon": "⚖️"
+      "en": "Request the State Department to impose targeted sanctions on Iranian officials responsible for human rights abuses.",
+      "fa": "از وزارت امور خارجه بخواهید تحریم‌های هدفمند علیه مقامات ایرانی مسئول نقض حقوق بشر اعمال کند.",
+      "de": "Fordern Sie das Außenministerium auf, gezielte Sanktionen gegen iranische Beamte zu verhängen.",
+      "fr": "Demandez au Département d'État d'imposer des sanctions ciblées contre les responsables iraniens."
+    }
   },
   "template": {
     "subject": "Request: Targeted Sanctions on Iranian Human Rights Violators",
@@ -30,34 +22,10 @@
         "subject": "Urgent: Magnitsky Act Sanctions for Iran Human Rights Abusers",
         "body": "Dear {{recipientName}},\n\nAs a citizen of {{senderCountry}}, I urge immediate action under the Global Magnitsky Act to sanction Iranian officials responsible for the violent crackdown on protesters.\n\nThe situation:\n• 51+ killed since December 28, 2025\n• 2,270+ detained\n• Total internet blackout\n• Documented use of live ammunition\n\nSpecific requests:\n1. Identify and sanction commanders ordering violence\n2. Freeze assets of designated officials\n3. Coordinate with EU and other allies\n4. Make designations public for accountability\n\nAmerica must stand for human rights. Please act.\n\nRespectfully,\nA concerned American"
       }
-    ],
-    "sources": [
-      {
-        "name": "Iran Human Rights",
-        "url": "https://iranhr.net/en/articles/6500/"
-      },
-      {
-        "name": "Human Rights Watch",
-        "url": "https://www.hrw.org/news/2025/01/iran-protests"
-      },
-      {
-        "name": "Global Magnitsky Act",
-        "url": "https://www.state.gov/global-magnitsky-act/"
-      }
     ]
   },
   "recipients": {
-    "ids": ["state-dept-iran"],
-    "targetingRationale": {
-      "en": "The State Department has authority to implement targeted sanctions under the Global Magnitsky Act. This template uses formal policy language and references specific legal mechanisms.",
-      "fa": "وزارت خارجه اختیار اعمال تحریم‌های هدفمند تحت قانون مگنیتسکی جهانی را دارد. این الگو از زبان رسمی سیاستی استفاده کرده و به مکانیسم‌های قانونی خاص اشاره می‌کند."
-    },
-    "categories": ["government"]
-  },
-  "ui": {
-    "color": "amber",
-    "featured": false,
-    "badge": null
+    "ids": ["state-dept-iran"]
   }
 }
 

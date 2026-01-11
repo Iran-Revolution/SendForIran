@@ -1,26 +1,18 @@
 {
   "id": "us-awareness-local-001",
-  "version": "1.0",
-  "meta": {
-    "type": "awareness",
-    "priority": 2,
-    "created": "2025-01-01T00:00:00.000Z",
-    "updated": "2025-01-10T00:00:00.000Z"
-  },
   "display": {
     "title": {
       "en": "Network TV Coverage Appeal",
-      "fa": "درخواست پوشش تلویزیون شبکه‌ای"
+      "fa": "درخواست پوشش شبکه‌های تلویزیونی",
+      "de": "Appell zur TV-Berichterstattung",
+      "fr": "Appel à la Couverture Télévisée"
     },
     "description": {
-      "en": "Request major television networks to cover the ongoing situation in Iran. TV coverage reaches millions and can significantly amplify awareness of the crisis.",
-      "fa": "از شبکه‌های تلویزیونی بزرگ بخواهید وضعیت جاری ایران را پوشش دهند. پوشش تلویزیونی به میلیون‌ها نفر می‌رسد و می‌تواند آگاهی از بحران را به طور قابل توجهی افزایش دهد."
-    },
-    "keywords": {
-      "en": ["television", "network", "awareness", "coverage", "broadcast", "news"],
-      "fa": ["تلویزیون", "شبکه", "آگاهی", "پوشش", "پخش", "اخبار"]
-    },
-    "icon": "📺"
+      "en": "Request major television networks to cover the ongoing situation in Iran.",
+      "fa": "از شبکه‌های تلویزیونی بزرگ بخواهید وضعیت جاری ایران را پوشش دهند.",
+      "de": "Bitten Sie große Fernsehsender, über die Situation im Iran zu berichten.",
+      "fr": "Demandez aux grandes chaînes de télévision de couvrir la situation en Iran."
+    }
   },
   "template": {
     "subject": "Request: Television Coverage of Iran Humanitarian Crisis",
@@ -30,30 +22,10 @@
         "subject": "Iran Protests: A Story That Needs Television Coverage",
         "body": "Dear {{recipientName}},\n\nI am reaching out as a concerned citizen of {{senderCountry}} to request coverage of the crisis unfolding in Iran.\n\nThe facts are stark:\n• 51+ killed in protests since December 28, 2025\n• 2,270+ arbitrarily detained\n• Complete internet shutdown to prevent documentation\n• Security forces using live ammunition\n\nAs a major television network, you have the reach to inform millions about this situation. I urge you to dedicate airtime to this developing story.\n\nThe Iranian people are fighting for basic rights. Please help tell their story.\n\nRespectfully,\nA viewer who cares about human rights"
       }
-    ],
-    "sources": [
-      {
-        "name": "Iran Human Rights",
-        "url": "https://iranhr.net/en/articles/6500/"
-      },
-      {
-        "name": "Human Rights Watch",
-        "url": "https://www.hrw.org/news/2025/01/iran-protests"
-      }
     ]
   },
   "recipients": {
-    "ids": ["cnn-international", "npr-world"],
-    "targetingRationale": {
-      "en": "Major television networks have broad reach and can bring the crisis to millions of viewers who might not otherwise be aware. This template emphasizes the importance of visual storytelling.",
-      "fa": "شبکه‌های تلویزیونی بزرگ دسترسی گسترده‌ای دارند و می‌توانند بحران را به میلیون‌ها بیننده که ممکن است در غیر این صورت آگاه نباشند، برسانند."
-    },
-    "categories": ["media"]
-  },
-  "ui": {
-    "color": "purple",
-    "featured": false,
-    "badge": null
+    "ids": ["cnn-international", "npr-world"]
   }
 }
 

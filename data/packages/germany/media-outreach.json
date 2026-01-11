@@ -1,0 +1,25 @@
+{
+  "id": "de-media-outreach-001",
+  "display": {
+    "title": {
+      "en": "German Media Outreach",
+      "fa": "ارتباط با رسانه‌های آلمان",
+      "de": "Deutsche Medien kontaktieren",
+      "fr": "Contact Médias Allemands"
+    },
+    "description": {
+      "en": "Contact leading German media including Deutsche Welle's Persian Service.",
+      "fa": "با رسانه‌های پیشرو آلمان از جمله سرویس فارسی دویچه‌وله تماس بگیرید.",
+      "de": "Kontaktieren Sie führende deutsche Medien, einschließlich des Persischen Dienstes der Deutschen Welle.",
+      "fr": "Contactez les grands médias allemands, y compris le service persan de Deutsche Welle."
+    }
+  },
+  "template": {
+    "subject": "Request for Coverage: Iran Human Rights Crisis",
+    "body": "Dear {{recipientName}},\n\nI am writing from {{senderCountry}} to request increased coverage of the humanitarian crisis in Iran.\n\nSince 28 December 2025:\n• Over 51 protesters have been killed by Iranian security forces\n• More than 2,270 people have been detained\n• A nationwide internet blackout has been imposed\n• Live ammunition has been used against peaceful demonstrators\n\nGerman media, particularly Deutsche Welle's Persian Service, plays a crucial role in reaching Iranian audiences directly. Your coverage can:\n\n1. Inform Iranians about what is happening in other cities\n2. Document human rights violations for the international record\n3. Give voice to protesters and their families\n4. Keep international attention on the crisis\n\nI kindly request that you continue and expand coverage of this developing situation.\n\nWith sincere thanks,\nA concerned citizen from {{senderCountry}}"
+  },
+  "recipients": {
+    "ids": ["dw-news", "spiegel-intl", "faz-politics"]
+  }
+}
+

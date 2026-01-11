@@ -1,26 +1,18 @@
 {
   "id": "us-media-urgent-001",
-  "version": "1.0",
-  "meta": {
-    "type": "urgent",
-    "priority": 1,
-    "created": "2025-01-01T00:00:00.000Z",
-    "updated": "2025-01-10T00:00:00.000Z"
-  },
   "display": {
     "title": {
       "en": "Urgent Media Alert",
-      "fa": "هشدار فوری رسانه‌ای"
+      "fa": "هشدار فوری رسانه‌ای",
+      "de": "Dringende Medienwarnung",
+      "fr": "Alerte Médias Urgente"
     },
     "description": {
-      "en": "Contact major news networks and journalists about the unfolding crisis in Iran. This package targets top-tier media outlets with proven track records of international human rights coverage.",
-      "fa": "تماس با شبکه‌های خبری بزرگ و خبرنگاران درباره بحران در حال وقوع در ایران. این بسته رسانه‌های برتر با سابقه پوشش حقوق بشر بین‌المللی را هدف قرار می‌دهد."
-    },
-    "keywords": {
-      "en": ["urgent", "media", "breaking news", "journalists", "crisis coverage", "human rights"],
-      "fa": ["فوری", "رسانه", "اخبار فوری", "خبرنگاران", "پوشش بحران", "حقوق بشر"]
-    },
-    "icon": "📰"
+      "en": "Contact major news networks and journalists about the unfolding crisis in Iran.",
+      "fa": "با شبکه‌های خبری بزرگ و روزنامه‌نگاران درباره بحران در حال وقوع در ایران تماس بگیرید.",
+      "de": "Kontaktieren Sie große Nachrichtensender und Journalisten über die Krise im Iran.",
+      "fr": "Contactez les grands réseaux d'information et les journalistes au sujet de la crise en Iran."
+    }
   },
   "template": {
     "subject": "URGENT: 51+ Dead in Iran Protests Since December 28 - Coverage Needed",
@@ -34,34 +26,10 @@
         "subject": "Breaking: Mass Protests in Iran - 51+ Dead, 2,270+ Detained",
         "body": "Dear {{recipientName}},\n\nI hope this message finds you well. I am reaching out regarding the ongoing humanitarian crisis in Iran that began on December 28, 2025.\n\nKey facts:\n• At least 51 protesters have been killed\n• Over 2,270 individuals are in detention\n• A total internet blackout is preventing information flow\n• Security forces have used lethal force against peaceful demonstrators\n\nFrom {{senderCountry}}, I watch with horror as my homeland descends into violence. Your reporting could make a difference in bringing international pressure to bear.\n\nThank you for considering this urgent request.\n\nBest regards,\nA concerned citizen of {{senderCountry}}"
       }
-    ],
-    "sources": [
-      {
-        "name": "Iran Human Rights",
-        "url": "https://iranhr.net/en/articles/6500/"
-      },
-      {
-        "name": "Human Rights Watch",
-        "url": "https://www.hrw.org/news/2025/01/iran-protests"
-      },
-      {
-        "name": "Amnesty International",
-        "url": "https://www.amnesty.org/en/latest/news/2025/01/iran-protest-crackdown/"
-      }
     ]
   },
   "recipients": {
-    "ids": ["nyt-iran-desk", "wapo-world", "cnn-international", "npr-world", "ap-mideast"],
-    "targetingRationale": {
-      "en": "These journalists and media outlets have extensive experience covering human rights issues and international crises. They have the reach and credibility to bring global attention to the situation in Iran.",
-      "fa": "این خبرنگاران و رسانه‌ها تجربه گسترده‌ای در پوشش مسائل حقوق بشر و بحران‌های بین‌المللی دارند. آنها دسترسی و اعتبار لازم برای جلب توجه جهانی به وضعیت ایران را دارند."
-    },
-    "categories": ["journalist", "media"]
-  },
-  "ui": {
-    "color": "red",
-    "featured": true,
-    "badge": "URGENT"
+    "ids": ["nyt-iran-desk", "wapo-world", "cnn-international", "npr-world", "ap-mideast"]
   }
 }
 

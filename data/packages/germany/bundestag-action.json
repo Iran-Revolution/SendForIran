@@ -1,0 +1,25 @@
+{
+  "id": "de-bundestag-action-001",
+  "display": {
+    "title": {
+      "en": "Bundestag Action Request",
+      "fa": "درخواست اقدام بوندستاگ",
+      "de": "Bundestag-Aktion anfordern",
+      "fr": "Demande d'Action au Bundestag"
+    },
+    "description": {
+      "en": "Request the Bundestag Human Rights Committee to address the Iran crisis.",
+      "fa": "از کمیته حقوق بشر بوندستاگ بخواهید به بحران ایران رسیدگی کند.",
+      "de": "Fordern Sie den Menschenrechtsausschuss des Bundestages auf, sich mit der Iran-Krise zu befassen.",
+      "fr": "Demandez au Comité des droits de l'homme du Bundestag de traiter la crise en Iran."
+    }
+  },
+  "template": {
+    "subject": "Request: Bundestag Action on Iran Human Rights Crisis",
+    "body": "Dear {{recipientName}},\n\nI am writing to request urgent action by the Bundestag regarding the human rights crisis in Iran.\n\nSince 28 December 2025:\n• Over 51 peaceful protesters have been killed by Iranian security forces\n• More than 2,270 people have been arbitrarily detained\n• A nationwide internet blackout has been imposed\n• Documented use of live ammunition against civilians\n\nGermany, as the EU's largest economy, has significant influence in shaping European policy towards Iran. I respectfully request that the Bundestag:\n\n1. Hold hearings on the human rights situation in Iran\n2. Support EU-wide sanctions against officials responsible for abuses\n3. Call for the immediate release of detained protesters\n4. Coordinate with other EU member states on a unified response\n5. Support technology initiatives to restore internet access in Iran\n\nGermany has a special responsibility to stand against authoritarianism. I urge you to act now.\n\nWith respect,\nA concerned citizen from {{senderCountry}}"
+  },
+  "recipients": {
+    "ids": ["bundestag-menschenrechte", "auswaertiges-amt"]
+  }
+}
+

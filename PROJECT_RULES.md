@@ -26,23 +26,31 @@ src/
 ├── lib/              # packages.ts, mailto.ts, i18n.ts
 └── styles/           # global.css
 data/
-├── packages/{country}/{lang}/*.json  # Curated email packages
-├── recipients/{country}.json
+├── packages/{country}/*.json         # Curated email packages
+├── recipients/{country}/recipients.json
 └── i18n/{lang}.json
 ```
 
 ## Schemas
 
-### EmailPackage (`data/packages/{country}/{lang}/*.json`)
+### EmailPackage (`data/packages/{country}/*.json`)
+Simplified structure with multi-language display support. Template content is in the recipient's language.
+
 ```typescript
 interface EmailPackage {
   id: string;
-  name: Record<string, string>;  // {"en": "...", "fa": "..."}
-  description: Record<string, string>;
+  display: {
+    title: LocalizedString;       // { en: "...", fa?: "...", de?: "...", fr?: "..." }
+    description: LocalizedString; // { en: "...", fa?: "...", de?: "...", fr?: "..." }
+  };
   template: { subject: string; body: string; variations?: {...}[] };
-  recipientIds: string[];  // Pre-matched recipients
-  sources: { name: string; url: string }[];  // REQUIRED
+  recipients: {
+    ids: string[];  // Pre-matched recipient IDs
+  };
 }
+
+// LocalizedString requires 'en' (English) as fallback, other languages optional
+type LocalizedString = { en: string; fa?: string; de?: string; fr?: string };
 ```
 
 ### Recipient (`data/recipients/{country}.json`)

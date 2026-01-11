@@ -5,18 +5,15 @@
  */
 import PackageCard from './PackageCard.astro';
 import type { EmailPackage } from '../../types';
-import type { SupportedLang } from '../../lib/i18n';
 
 interface Props {
   packages: EmailPackage[];
-  lang?: SupportedLang;
   class?: string;
 }
 
-const { 
-  packages, 
-  lang = 'en',
-  class: className = '' 
+const {
+  packages,
+  class: className = ''
 } = Astro.props;
 ---
 
@@ -31,7 +28,6 @@ const {
   {packages.map((pkg, index) => (
     <PackageCard
       package={pkg}
-      lang={lang}
       class={index === 0 && pkg.ui.featured ? 'sm:col-span-2 lg:col-span-1' : ''}
     />
   ))}

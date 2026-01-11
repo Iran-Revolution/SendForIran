@@ -7,7 +7,7 @@ Thank you for helping amplify Iranian voices. Contributions welcome!
 ### Add a Recipient
 
 1. Fork this repository
-2. Edit `data/recipients/{country}.json`
+2. Edit `data/recipients/{country}/recipients.json`
 3. Add entry following this schema:
 
 ```json
@@ -35,41 +35,33 @@ Thank you for helping amplify Iranian voices. Contributions welcome!
 
 An Email Package bundles a template with pre-matched recipients for one-click sending.
 
+**Structure:** Simplified with multi-language display support. Template content is in the recipient's language.
+
 1. Fork this repository
-2. Create file: `data/packages/{country}/{lang}/{package-name}.json`
+2. Create file: `data/packages/{country}/{package-name}.json`
 3. Follow this schema (see `src/types/package.ts` for full TypeScript interface):
 
 ```json
 {
   "id": "us-awareness-example",
-  "version": "1.0",
-  "meta": {
-    "type": "awareness",
-    "priority": 2,
-    "created": "2026-01-11",
-    "updated": "2026-01-11"
-  },
   "display": {
-    "title": { "en": "Package Title", "fa": "عنوان بسته" },
-    "description": { "en": "Brief description", "fa": "توضیحات کوتاه" },
-    "keywords": { "en": ["iran", "human-rights"], "fa": ["ایران"] },
-    "icon": "📧"
+    "title": {
+      "en": "Package Title in English",
+      "fa": "عنوان بسته به فارسی",
+      "de": "Pakettitel auf Deutsch",
+      "fr": "Titre du paquet en français"
+    },
+    "description": {
+      "en": "Brief description of the package",
+      "fa": "توضیح مختصر بسته"
+    }
   },
   "template": {
     "subject": "Subject with {{recipientName}}",
-    "body": "Email body...\n\nSincerely,\nA {{senderCountry}} resident",
-    "variations": [],
-    "sources": [{ "name": "Iran Human Rights", "url": "https://iranhr.net" }]
+    "body": "Email body...\n\nSincerely,\nA {{senderCountry}} resident"
   },
   "recipients": {
-    "ids": ["recipient-id-1", "recipient-id-2"],
-    "targetingRationale": { "en": "Why these recipients", "fa": "چرا این گیرندگان" },
-    "categories": ["journalist", "media"]
-  },
-  "ui": {
-    "color": "blue",
-    "featured": false,
-    "badge": null
+    "ids": ["recipient-id-1", "recipient-id-2"]
   }
 }
 ```
@@ -77,16 +69,17 @@ An Email Package bundles a template with pre-matched recipients for one-click se
 **Required Fields:**
 | Field | Description |
 |-------|-------------|
-| `template.sources` | **MANDATORY** - cite HRW, Amnesty, IranHR, etc. |
+| `display.title.en` | English title (required as fallback) |
+| `display.description.en` | English description (required as fallback) |
+| `template.subject` | Email subject line |
+| `template.body` | Email body content |
 | `recipients.ids` | Must reference IDs in `data/recipients/{country}/*.json` |
-| `display.title.en` | English title required |
-| `meta.type` | One of: `urgent`, `awareness`, `action`, `sanctions` |
-| `ui.color` | One of: `blue`, `red`, `green`, `purple`, `amber`, `emerald` |
 
 **Optional Fields:**
 | Field | Values |
 |-------|--------|
-| `ui.badge` | `NEW`, `TRENDING`, `FEATURED`, `HIGH_IMPACT`, `URGENT` |
+| `display.title.{fa,de,fr}` | Translations for other UI languages |
+| `display.description.{fa,de,fr}` | Translations for other UI languages |
 | `template.variations` | Array of alternate subject/body pairs |
 
 4. Run `pnpm validate` to check your JSON

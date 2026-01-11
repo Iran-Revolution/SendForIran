@@ -27,7 +27,7 @@ const lang: SupportedLang = 'en';
 const i18n = getTranslations(lang);
 
 // Load package and recipient data
-const packages = await loadPackagesForCountry(country as CountryCode, lang);
+const packages = await loadPackagesForCountry(country as CountryCode);
 const recipients = await loadRecipientsForCountry(country as CountryCode);
 
 const countryName = i18n.countries[country as keyof typeof i18n.countries] || country;

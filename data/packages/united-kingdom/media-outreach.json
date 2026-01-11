@@ -1,0 +1,25 @@
+{
+  "id": "uk-media-outreach-001",
+  "display": {
+    "title": {
+      "en": "UK Media Outreach",
+      "fa": "ارتباط با رسانه‌های بریتانیا",
+      "de": "UK-Medien Kontakt",
+      "fr": "Contact Médias Britanniques"
+    },
+    "description": {
+      "en": "Contact major British news outlets to increase coverage of the Iran crisis.",
+      "fa": "با رسانه‌های بزرگ بریتانیا تماس بگیرید تا پوشش بحران ایران افزایش یابد.",
+      "de": "Kontaktieren Sie britische Nachrichtenmedien, um die Berichterstattung über die Iran-Krise zu erhöhen.",
+      "fr": "Contactez les grands médias britanniques pour augmenter la couverture de la crise en Iran."
+    }
+  },
+  "template": {
+    "subject": "Request for Coverage: Iran Human Rights Crisis",
+    "body": "Dear {{recipientName}},\n\nI am writing from {{senderCountry}} to request increased coverage of the humanitarian crisis unfolding in Iran.\n\nSince 28 December 2025:\n• Over 51 protesters have been killed by Iranian security forces\n• More than 2,270 people have been arbitrarily detained\n• A nationwide internet blackout has been imposed\n• Security forces have used live ammunition against peaceful demonstrators\n\nAs a leading British news organisation, your coverage can help bring global attention to these events. The Iranian people are risking their lives for fundamental freedoms, and international media attention is crucial.\n\nI kindly request that you:\n1. Increase coverage of the ongoing protests and government response\n2. Interview human rights organisations and Iranian diaspora communities\n3. Investigate the systematic suppression of information\n4. Report on the international community's response\n\nThank you for your vital role in informing the public about this critical situation.\n\nYours faithfully,\nA concerned citizen from {{senderCountry}}"
+  },
+  "recipients": {
+    "ids": ["bbc-world", "guardian-iran", "sky-news-intl"]
+  }
+}
+

@@ -1,0 +1,25 @@
+{
+  "id": "fr-assemblee-action-001",
+  "display": {
+    "title": {
+      "en": "French Parliament Action Request",
+      "fa": "درخواست اقدام مجلس ملی فرانسه",
+      "de": "Antrag auf Maßnahmen der französischen Nationalversammlung",
+      "fr": "Action de l'Assemblée nationale"
+    },
+    "description": {
+      "en": "Request the National Assembly's Foreign Affairs Committee to address the Iran crisis.",
+      "fa": "از کمیته امور خارجه مجلس ملی بخواهید به بحران ایران رسیدگی کند.",
+      "de": "Fordern Sie den Auswärtigen Ausschuss der Nationalversammlung auf, die Iran-Krise zu behandeln.",
+      "fr": "Demandez à la Commission des affaires étrangères de l'Assemblée nationale de traiter la crise iranienne."
+    }
+  },
+  "template": {
+    "subject": "Request: French Parliamentary Action on Iran Crisis",
+    "body": "Dear {{recipientName}},\n\nI am writing to request urgent action by the French Parliament regarding the human rights crisis in Iran.\n\nSince 28 December 2025:\n• Over 51 peaceful protesters have been killed by Iranian security forces\n• More than 2,270 people have been arbitrarily detained\n• A nationwide internet blackout has been imposed\n• Documented use of live ammunition against civilians\n\nAs a permanent member of the UN Security Council and founding member of the European Union, France has unique influence on the international stage. I respectfully request that Parliament:\n\n1. Hold hearings on the human rights situation in Iran\n2. Support EU-wide sanctions against officials responsible for abuses\n3. Raise the issue at the UN Security Council\n4. Call for the immediate release of detained protesters\n5. Coordinate with international partners on a unified response\n\nFrance has historically championed human rights and liberty. I urge you to uphold these values now.\n\nWith respect,\nA concerned citizen from {{senderCountry}}"
+  },
+  "recipients": {
+    "ids": ["assemblee-affaires-etrangeres", "quai-dorsay-iran"]
+  }
+}
+
