@@ -8,11 +8,18 @@ import type { SupportedLang } from '../lib/i18n';
 import type { CountryCode } from '../types/recipient';
 import { getLocalizedValue, getLocalizedKeywords } from '../types/package';
 import { resolveRecipients } from '../lib/packages';
-import { generateMailto, fillPlaceholders } from '../lib/mailto';
+import { fillPlaceholders } from '../lib/mailto';
 import PackageDice from './PackageDice';
 import PackagePreviewModal from './PackagePreviewModal';
+import EmailServiceModal from './EmailServiceModal';
 
 type DisplayMode = 'grid' | 'dice';
+
+interface EmailData {
+  to: string;
+  subject: string;
+  body: string;
+}
 
 interface Props {
   packages: EmailPackage[];
@@ -35,6 +42,16 @@ interface Props {
     viewAsGrid: string;
     viewAsDice: string;
   };
+  emailServiceLabels: {
+    chooseService: string;
+    gmail: string;
+    outlook: string;
+    yahoo: string;
+    defaultEmail: string;
+    copyToClipboard: string;
+    copied: string;
+    sendVia: string;
+  };
 }
 
 export default function PackageSelector({
@@ -44,11 +61,14 @@ export default function PackageSelector({
   senderCountry,
   lang = 'en',
   mode: initialMode = 'grid',
-  labels
+  labels,
+  emailServiceLabels
 }: Props) {
   const [mode, setMode] = useState<DisplayMode>(initialMode);
   const [selectedPackage, setSelectedPackage] = useState<EmailPackage | null>(null);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [isEmailServiceOpen, setIsEmailServiceOpen] = useState(false);
+  const [emailData, setEmailData] = useState<EmailData | null>(null);
 
   // Get recipients for selected package
   const packageRecipients = useMemo(() => {
@@ -69,7 +89,7 @@ export default function PackageSelector({
     const pkgRecipients = resolveRecipients(pkg, recipients);
     if (pkgRecipients.length === 0) return;
 
-    // Use first recipient for single send, or compose for multiple
+    // Use first recipient for placeholder filling
     const firstRecipient = pkgRecipients[0];
     const placeholders = {
       recipientName: firstRecipient.name,
@@ -79,16 +99,22 @@ export default function PackageSelector({
     const filledSubject = fillPlaceholders(pkg.template.subject, placeholders);
     const filledBody = fillPlaceholders(pkg.template.body, placeholders);
 
-    // For multiple recipients, use BCC approach or open compose for first
-    const emails = pkgRecipients.map(r => r.email);
-    const mailto = generateMailto({
-      to: emails.join(','),
+    // Collect all emails
+    const emails = pkgRecipients.map(r => r.email).join(',');
+
+    // Set email data and open service selector
+    setEmailData({
+      to: emails,
       subject: filledSubject,
       body: filledBody
     });
-
-    window.location.href = mailto;
+    setIsEmailServiceOpen(true);
   }, [recipients, senderCountry]);
+
+  const handleCloseEmailService = useCallback(() => {
+    setIsEmailServiceOpen(false);
+    setEmailData(null);
+  }, []);
 
   return (
     <div>
@@ -161,6 +187,17 @@ export default function PackageSelector({
         onClose={handleClosePreview}
         onSend={handleSend}
         labels={labels}
+      />
+
+      {/* Email Service Selector Modal */}
+      <EmailServiceModal
+        isOpen={isEmailServiceOpen}
+        emailData={emailData}
+        onClose={handleCloseEmailService}
+        labels={{
+          ...emailServiceLabels,
+          close: labels.close
+        }}
       />
     </div>
   );

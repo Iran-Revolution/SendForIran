@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import CountryCard from '../../components/CountryCard.astro';
 import Button from '../../components/ui/Button.astro';
 import Card from '../../components/ui/Card.astro';
 import { getTranslations, type SupportedLang } from '../../lib/i18n';
@@ -28,7 +27,7 @@ const countries = await getCountries();
         {i18n.home.heroDescription}
       </p>
       <div class="flex flex-col sm:flex-row gap-sm justify-center">
-        <Button variant="primary" href="#countries" class="text-lg px-xl py-md">
+        <Button variant="primary" href="#packages" class="text-lg px-xl py-md">
           {i18n.home.getStarted}
         </Button>
       </div>
@@ -76,8 +75,8 @@ const countries = await getCountries();
           <div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-md">
             <span class="text-primary text-2xl font-bold">۲</span>
           </div>
-          <h3 class="font-semibold text-text mb-xs">یک قالب انتخاب کنید</h3>
-          <p class="text-text/60 text-sm">از قالب‌های ایمیل از پیش نوشته شده با منابع معتبر انتخاب کنید</p>
+          <h3 class="font-semibold text-text mb-xs">یک بسته انتخاب کنید</h3>
+          <p class="text-text/60 text-sm">از بین کمپین‌های ایمیل آماده ارسال انتخاب کنید</p>
         </div>
         <div class="text-center">
           <div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-md">
@@ -90,59 +89,31 @@ const countries = await getCountries();
     </section>
 
     <!-- Quick Action Section -->
-    <section id="quick-action" class="py-lg mb-lg">
+    <section id="packages" class="py-lg scroll-mt-lg">
       <div class="text-center mb-lg">
         <div class="inline-flex items-center gap-xs px-md py-xs rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-md">
           <span>⚡</span>
           <span>{i18n.home.quickAction}</span>
         </div>
-        <h2 class="text-2xl font-bold text-text mb-sm">{i18n.home.quickAction}</h2>
+        <h2 class="text-2xl font-bold text-text mb-sm">{i18n.home.selectCountry}</h2>
         <p class="text-text/60 max-w-2xl mx-auto">{i18n.home.quickActionDesc}</p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md mb-lg">
-        {countries.slice(0, 3).map((country) => (
-          <Card variant="bordered" padding="lg" class="group relative overflow-hidden hover:border-primary/50 transition-all">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-lg">
+        {countries.map((country) => (
+          <Card variant="bordered" padding="lg" class="group relative overflow-hidden hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all">
             <div class="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-primary/10 to-transparent rounded-br-full"></div>
             <div class="flex items-center gap-md mb-md">
-              <span class="text-4xl">{country.flag}</span>
+              <span class="text-5xl">{country.flag}</span>
               <div class="flex-1">
-                <h3 class="text-lg font-semibold text-text">{i18n.countries[country.code as keyof typeof i18n.countries]}</h3>
-                <p class="text-sm text-text/50">۲ {i18n.home.packagesAvailable}</p>
+                <h3 class="text-xl font-semibold text-text">{i18n.countries[country.code as keyof typeof i18n.countries]}</h3>
+                <p class="text-sm text-text/50">{country.recipientCount} گیرنده • ۲ {i18n.home.packagesAvailable}</p>
               </div>
             </div>
-            <div class="flex gap-sm">
-              <Button href={`/fa/packages/${country.code}`} variant="primary" class="flex-1 text-sm">
-                {i18n.home.browsePackages}
-              </Button>
-            </div>
+            <Button href={`/fa/packages/${country.code}`} variant="primary" class="w-full">
+              ⚡ {i18n.home.browsePackages}
+            </Button>
           </Card>
-        ))}
-      </div>
-
-      <div class="text-center">
-        <a href="#countries" class="text-text/50 hover:text-primary transition-colors text-sm inline-flex items-center gap-xs">
-          ↓ {i18n.home.customizeYourOwn} {i18n.home.or}
-        </a>
-      </div>
-    </section>
-
-    <!-- Country Selection -->
-    <section id="countries" class="py-lg scroll-mt-lg">
-      <h2 class="text-2xl font-bold text-text mb-md text-center">
-        {i18n.home.selectCountry}
-      </h2>
-      <p class="text-text/60 text-center mb-lg max-w-2xl mx-auto">
-        کشور خود را انتخاب کنید تا روزنامه‌نگاران، رسانه‌ها و مقامات دولتی که می‌توانید با آنها تماس بگیرید را پیدا کنید
-      </p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md">
-        {countries.map((country) => (
-          <CountryCard
-            country={country.code}
-            flag={country.flag}
-            recipientCount={country.recipientCount}
-            lang={lang}
-          />
         ))}
       </div>
     </section>

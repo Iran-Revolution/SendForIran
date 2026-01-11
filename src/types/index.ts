@@ -19,16 +19,7 @@ export type {
   CountryCode
 } from './recipient';
 
-export type {
-  WizardStep,
-  CategoryInfo,
-  WizardState,
-  WizardStepProps
-} from './wizard';
-
-export { categoryMeta, allCategories } from './wizard';
-
-// Email Package types (new system)
+// Email Package types
 export type {
   EmailPackage,
   PackageFile,

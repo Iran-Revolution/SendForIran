@@ -46,6 +46,17 @@ const labels = {
   viewAsGrid: i18n.packages.viewAsGrid,
   viewAsDice: i18n.packages.viewAsDice,
 };
+
+const emailServiceLabels = {
+  chooseService: i18n.emailService.chooseService,
+  gmail: i18n.emailService.gmail,
+  outlook: i18n.emailService.outlook,
+  yahoo: i18n.emailService.yahoo,
+  defaultEmail: i18n.emailService.defaultEmail,
+  copyToClipboard: i18n.emailService.copyToClipboard,
+  copied: i18n.emailService.copied,
+  sendVia: i18n.emailService.sendVia,
+};
 ---
 
 <BaseLayout 
@@ -94,6 +105,7 @@ const labels = {
         lang={lang}
         mode="grid"
         labels={labels}
+        emailServiceLabels={emailServiceLabels}
       />
     ) : (
       <div class="text-center py-2xl">
@@ -106,21 +118,6 @@ const labels = {
       </div>
     )}
 
-    <Card variant="bordered" padding="md" class="mt-xl bg-surface/50">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-md">
-        <div>
-          <h3 class="text-sm font-semibold text-text/70 mb-xs">
-            {i18n.wizard?.tips || 'نکات'}
-          </h3>
-          <p class="text-sm text-text/50">
-            {i18n.wizard?.tipMultiSelect || 'بسته‌های مختلف را امتحان کنید'}
-          </p>
-        </div>
-        <Button href={`${baseUrl}/${country}`} variant="secondary" class="whitespace-nowrap">
-          {i18n.wizard?.selectCategories || 'یا خودتان بسازید'} ←
-        </Button>
-      </div>
-    </Card>
   </div>
 </BaseLayout>
 

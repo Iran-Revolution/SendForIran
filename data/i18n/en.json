@@ -153,6 +153,16 @@
     "urgent": "Urgent",
     "new": "New",
     "trending": "Trending"
+  },
+  "emailService": {
+    "chooseService": "Choose Email Service",
+    "gmail": "Gmail",
+    "outlook": "Outlook",
+    "yahoo": "Yahoo Mail",
+    "defaultEmail": "Default Email App",
+    "copyToClipboard": "Copy to Clipboard",
+    "copied": "Copied!",
+    "sendVia": "Send via"
   }
 }
 

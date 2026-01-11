@@ -153,6 +153,16 @@
     "urgent": "فوری",
     "new": "جدید",
     "trending": "پرطرفدار"
+  },
+  "emailService": {
+    "chooseService": "انتخاب سرویس ایمیل",
+    "gmail": "جیمیل",
+    "outlook": "اوتلوک",
+    "yahoo": "یاهو میل",
+    "defaultEmail": "برنامه ایمیل پیش‌فرض",
+    "copyToClipboard": "کپی در کلیپ‌بورد",
+    "copied": "کپی شد!",
+    "sendVia": "ارسال از طریق"
   }
 }
 
