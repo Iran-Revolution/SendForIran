@@ -1,0 +1,163 @@
+# AI Research Prompt for Daily Iran Protests Updates
+# Use this prompt with your AI assistant to get comprehensive daily updates
+
+---
+
+## MAIN PROMPT (Use Daily):
+
+"""
+I need a comprehensive daily research update on the ongoing Iran protests (started December 28, 2025). Please provide information for these 5 countries: United States, United Kingdom, Germany, France, and Canada.
+
+For EACH country, please provide:
+
+### 1. NEWS COVERAGE
+- Search for: "Iran protests [COUNTRY NAME] [TODAY'S DATE]"
+- Find 3-5 latest news articles with:
+  - Title
+  - Source name
+  - Date
+  - URL link
+  - Brief summary (1-2 sentences)
+
+### 2. POLITICAL REACTIONS
+- Search for: "Iran protests [COUNTRY NAME] government statement reaction [TODAY'S DATE]"
+- Include statements from:
+  - Head of state/government
+  - Foreign minister/secretary of state
+  - Other key officials
+  - Parliamentary/congressional responses
+- Quote exact statements when available
+
+### 3. MEDIA COVERAGE
+- Search for: "Iran protests coverage [COUNTRY NAME] media [TODAY'S DATE]"
+- Identify which major media outlets are covering
+- Note the tone (supportive/neutral/critical of protesters)
+- Highlight any editorial opinions
+
+### 4. OPPOSITION LEADER COVERAGE
+- Search for: "Reza Pahlavi [COUNTRY NAME] media coverage [TODAY'S DATE]"
+- How is Reza Pahlavi being covered in this country's media?
+- Any support or criticism from politicians?
+- Coverage of protesters calling for Pahlavi
+
+### 5. DIASPORA ACTIVITY
+- Search for: "Iranian diaspora protests [COUNTRY NAME] [TODAY'S DATE]"
+- Any solidarity rallies or protests?
+- Diaspora statements and demands?
+
+### 6. UPDATED STATISTICS
+- Current death toll
+- Number detained
+- Internet blackout status
+- Key developments
+
+Please format each country section clearly with headers and bullet points.
+"""
+
+---
+
+## QUICK DAILY SEARCH QUERIES:
+
+### For United States:
+1. "Iran protests USA Trump statement today"
+2. "Iran protests State Department Rubio reaction"
+3. "Reza Pahlavi US media coverage"
+4. "Iranian American protests solidarity"
+
+### For United Kingdom:
+1. "Iran protests UK Starmer statement today"
+2. "Iran protests BBC coverage latest"
+3. "Iranian Embassy London protest"
+4. "Reza Pahlavi UK media coverage"
+
+### For Germany:
+1. "Iran protests Germany Merz Wadephul statement"
+2. "Iran protests DW Deutsche Welle coverage"
+3. "Iranian diaspora Germany protests"
+4. "Reza Pahlavi German media"
+
+### For France:
+1. "Iran protests France Macron statement"
+2. "Iran protests France 24 coverage"
+3. "Iranian diaspora Paris protests"
+4. "Reza Pahlavi French media coverage"
+
+### For Canada:
+1. "Iran protests Canada government statement"
+2. "Iran protests CBC coverage"
+3. "Iranian Canadian protests Toronto"
+4. "Reza Pahlavi Canada media"
+
+---
+
+## SPECIALIZED SEARCHES:
+
+### For Death Toll Updates:
+"Iran protests death toll latest [TODAY'S DATE]"
+"Iran protests killed detained statistics"
+
+### For Opposition Coverage:
+"Reza Pahlavi interview media [TODAY'S DATE]"
+"Iran opposition leader coverage international"
+"Protesters chanting Reza Shah Pahlavi"
+
+### For International Reactions:
+"Iran protests international reaction EU sanctions"
+"Iran protests UN statement human rights"
+"Iran protests E3 UK France Germany statement"
+
+### For Protester Demands:
+"Iran protesters demands slogans"
+"Death to dictator Khamenei chants"
+"Pahlavi return Iran protesters"
+
+---
+
+## OUTPUT FORMAT TEMPLATE:
+
+# Daily Iran Protests Research Report
+**Date: [INSERT DATE]**
+
+## Summary of Key Developments
+- Death toll: [NUMBER]
+- Detained: [NUMBER]
+- Key events: [BRIEF SUMMARY]
+
+## United States
+### News Headlines
+1. [TITLE] - [SOURCE] - [LINK]
+...
+
+### Political Reactions
+- [OFFICIAL NAME]: "[QUOTE]"
+...
+
+### Media Coverage
+- [ANALYSIS]
+
+### Opposition Coverage
+- [ANALYSIS OF REZA PAHLAVI COVERAGE]
+
+[REPEAT FOR EACH COUNTRY]
+
+---
+
+## IMPORTANT KEYWORDS TO INCLUDE:
+
+- Iran protests 2026
+- Iranian revolution
+- Death to dictator
+- Reza Pahlavi
+- Crown Prince Iran
+- Khamenei
+- IRGC
+- Internet blackout Iran
+- Iranian rial collapse
+- Economic protests Iran
+- Tehran protests
+- Nationwide protests Iran
+- Iranian diaspora
+- Lion and Sun flag
+- "Javid Shah" (Long live the Shah)
+- "Reza Shah bless your soul"
+
