@@ -31,7 +31,6 @@ const packages = await loadPackagesForCountry(country as CountryCode);
 const recipients = await loadRecipientsForCountry(country as CountryCode);
 
 const countryName = i18n.countries[country as keyof typeof i18n.countries] || country;
-const senderCountryName = countryName;
 
 // Labels for the interactive component
 const labels = {
@@ -110,7 +109,6 @@ const emailServiceLabels = {
         packages={packages}
         recipients={recipients}
         country={country as CountryCode}
-        senderCountry={senderCountryName}
         lang={lang}
         mode="grid"
         labels={labels}

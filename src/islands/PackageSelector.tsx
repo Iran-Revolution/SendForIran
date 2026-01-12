@@ -8,7 +8,6 @@ import type { CountryCode } from '../types/recipient';
 import type { SupportedLang } from '../lib/i18n';
 import { getLocalizedValue } from '../types/package';
 import { resolveRecipients } from '../lib/packages';
-import { fillPlaceholders } from '../lib/mailto';
 import PackageDice from './PackageDice';
 import PackagePreviewModal from './PackagePreviewModal';
 import EmailServiceModal from './EmailServiceModal';
@@ -25,7 +24,6 @@ interface Props {
   packages: EmailPackage[];
   recipients: Recipient[];
   country: CountryCode;
-  senderCountry: string;
   lang?: SupportedLang;
   mode?: DisplayMode;
   labels: {
@@ -58,7 +56,6 @@ export default function PackageSelector({
   packages,
   recipients,
   country,
-  senderCountry,
   lang = 'en',
   mode: initialMode = 'grid',
   labels,
@@ -89,27 +86,18 @@ export default function PackageSelector({
     const pkgRecipients = resolveRecipients(pkg, recipients);
     if (pkgRecipients.length === 0) return;
 
-    // Use first recipient for placeholder filling
-    const firstRecipient = pkgRecipients[0];
-    const placeholders = {
-      recipientName: firstRecipient.name,
-      senderCountry
-    };
-
-    const filledSubject = fillPlaceholders(pkg.template.subject, placeholders);
-    const filledBody = fillPlaceholders(pkg.template.body, placeholders);
-
     // Collect all emails
     const emails = pkgRecipients.map(r => r.email).join(',');
 
     // Set email data and open service selector
+    // Note: Package templates are pre-filled with actual values, no placeholders
     setEmailData({
       to: emails,
-      subject: filledSubject,
-      body: filledBody
+      subject: pkg.template.subject,
+      body: pkg.template.body
     });
     setIsEmailServiceOpen(true);
-  }, [recipients, senderCountry]);
+  }, [recipients]);
 
   const handleCloseEmailService = useCallback(() => {
     setIsEmailServiceOpen(false);

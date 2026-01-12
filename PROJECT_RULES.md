@@ -36,6 +36,8 @@ data/
 ### EmailPackage (`data/packages/{country}/*.json`)
 Simplified structure with multi-language display support. Template content is in the recipient's language.
 
+**⚠️ NO PLACEHOLDERS ALLOWED**: Package templates must contain fully pre-filled content. Do NOT use placeholders like `{{recipientName}}`, `{{senderCountry}}`, or any `{{variable}}` syntax. Since packages have predefined recipients, all content should be finalized at authoring time. Use generic salutations like "Dear Editor" or "Dear Committee Members" instead of recipient-specific placeholders.
+
 ```typescript
 interface EmailPackage {
   id: string;

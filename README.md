@@ -67,4 +67,4 @@ MIT
 
 
 TODOs:
-- [ ] We should not have variants like: {{recipientName}} or {{senderCountry}}, in our package. Packages are predefined, with predefined recipients. So that everything is already know and should be set. Also document it to prevent this in the future. find all of those and remove them and replace with the actual value.
+- [ ] 

@@ -1,6 +1,6 @@
 /**
  * Mailto utility functions for SendForIran
- * Generates mailto: links and handles placeholder replacement
+ * Generates mailto: links for email composition
  */
 
 export interface MailtoParams {
@@ -44,40 +44,11 @@ export function generateMailto(params: MailtoParams): string {
  */
 function truncateForMailto(text: string, maxLength: number): string {
   if (text.length <= maxLength) return text;
-  
+
   const truncateNote = '\n\n[Message truncated due to email client limitations]';
   const truncatedLength = maxLength - truncateNote.length;
-  
-  return text.slice(0, truncatedLength) + truncateNote;
-}
 
-/**
- * Replace placeholders in text with actual values
- * Supports: {{recipientName}}, {{senderCountry}}, {{currentDate}}
- */
-export function fillPlaceholders(
-  text: string, 
-  data: Record<string, string>
-): string {
-  let result = text;
-  
-  // Replace standard placeholders
-  Object.entries(data).forEach(([key, value]) => {
-    const placeholder = `{{${key}}}`;
-    result = result.replaceAll(placeholder, value);
-  });
-  
-  // Handle {{currentDate}} automatically if not provided
-  if (result.includes('{{currentDate}}') && !data.currentDate) {
-    const today = new Date().toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
-    result = result.replaceAll('{{currentDate}}', today);
-  }
-  
-  return result;
+  return text.slice(0, truncatedLength) + truncateNote;
 }
 
 /**
